@@ -1,0 +1,16 @@
+@mixin d-flex($j: "", $a: "", $f: "") {
+  display: flex;
+
+  @if $j !="" {
+    justify-content: $j;
+  }
+
+  @if $a !="" {
+    align-items: $a;
+  }
+
+  @if $f !="" {
+    flex-flow: $f;
+  }
+
+}

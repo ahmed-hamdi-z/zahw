@@ -1,0 +1,58 @@
+.sidebar {
+  @apply bg-slate-900 overflow-x-hidden overflow-y-auto shadow-none rounded-none min-w-[275px];
+
+  .sidebar-header {
+    @apply flex justify-between items-center w-full py-6 px-5;
+
+    .sidebar-brand {
+      @apply flex justify-start items-center w-full gap-3;
+
+      .brand-icon {
+        @apply text-xl text-white;
+      }
+
+      .sidebar-brand-name {
+        @apply m-0 text-white text-xl;
+      }
+    }
+  }
+
+  .sidebar-body {
+
+    @apply flex flex-col w-full py-4 px-0;
+
+    .sidebar-category {
+
+      .sidebar-category-head {
+        @apply text-white cursor-pointer flex justify-between items-center px-3 mt-3 mb-3 select-none;
+
+        .sidebar-category-title {
+          @apply m-0 w-auto uppercase text-sm font-semibold;
+        }
+
+      }
+    }
+
+    .sidebar-button {
+      @apply w-full text-sm flex items-center outline-none border-none rounded overflow-hidden font-medium transition-all relative py-2 px-2 text-white/80 my-[.2rem] select-none;
+
+      &.active {
+        @apply text-warning/100 bg-warning/10;
+      }
+
+      &:hover {
+        @apply translate-x-4 text-warning;
+      }
+
+      >.btn-icon {
+        @apply w-[50px] text-[1rem];
+      }
+
+      >.btn-title {
+        @apply p-0 m-0 capitalize;
+      }
+
+    }
+
+  }
+}

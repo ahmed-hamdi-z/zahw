@@ -1,0 +1,24 @@
+/* Tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Core */
+@import "./scss/fonts";
+@import "./scss/functions";
+@import "~bootstrap/functions";
+@import "./scss/variables";
+@import "~bootstrap/variables";
+@import "~bootstrap/maps";
+@import "./scss/mixins";
+@import "~bootstrap/mixins";
+@import "~bootstrap/utilities";
+
+
+
+// Layout & components
+// IN BUILD MODE UNCOMMENT THIS CODE AND ADD COMMENT BOOTSTRAP IMPORT IN ( App.tsx )
+@import "./scss/layout";
+@import "./scss/card";
+@import "~bootstrap/card";
+

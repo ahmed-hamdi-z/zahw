@@ -1,0 +1,25 @@
+.main-layout {
+  @apply bg-white min-h-[100vh] w-full flex rtl:overflow-y-hidden  ;
+
+// Languages 
+  &.direction-ltr {
+    font-family: 'futura-pt', sans-serif;
+    direction: ltr;
+    
+  }
+
+  &.direction-rtl {
+ 
+    direction: rtl;
+    overflow: hidden;
+  }
+  
+  .main-content {
+    @apply w-full m-0 p-0;
+    
+    >[class*="col-"] {
+      @apply p-0 m-0;
+    }
+  }
+
+}
