@@ -3,15 +3,16 @@
 
 // Languages 
   &.direction-ltr {
-    font-family: 'futura-pt', sans-serif;
+ 
     direction: ltr;
-    
+    font-family: "Plus Jakarta Sans", sans-serif;
   }
 
   &.direction-rtl {
  
     direction: rtl;
     overflow: hidden;
+
   }
   
   .main-content {

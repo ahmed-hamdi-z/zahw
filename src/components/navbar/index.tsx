@@ -80,10 +80,10 @@ const Links = () => {
   return (
     <div className="flex items-center gap-3">
       <NavLink href="/">{t("Home")}</NavLink>
-      <NavLink href="#about">{t("About")}</NavLink>
-      <NavLink href="#services">{t("Services")}</NavLink>
+      <a href="#about">{t("About")}</a>
+      <a href="#services">{t("Services")}</a>
       <NavLink href="/portfolio">{t("Portfolio")}</NavLink>
-      <NavLink href="#clients">{t("Clients")}</NavLink>
+      <a href="#clients">{t("Clients")}</a>
       <NavLink href="/blog">{t("Blog")}</NavLink>
       <NavLink href="/contact">{t("Contact")}</NavLink>
     </div>
@@ -170,10 +170,10 @@ const MobileMenu = () => {
                 className="flex flex-col items-center gap-5 text-3xl font-semibold"
               >
                 <NavLink href="/">{t("Home")}</NavLink>
-                <NavLink href="#about">{t("About")}</NavLink>
-                <NavLink href="#services">{t("Services")}</NavLink>
+                <a href="#about">{t("About")}</a>
+                <a href="#services">{t("Services")}</a>
                 <NavLink href="/portfolio">{t("Portfolio")}</NavLink>
-                <NavLink href="#clients">{t("Clients")}</NavLink>
+                <a href="#clients">{t("Clients")}</a>
                 <NavLink href="/blog">{t("Blog")}</NavLink>
                 <NavLink href="/contact">{t("Contact")}</NavLink>
               </div>

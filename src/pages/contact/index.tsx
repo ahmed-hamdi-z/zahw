@@ -31,7 +31,7 @@ const Contact = () => {
     }
   };
   return (
-    <div className="  mx-auto xl:w-2/4 md:w-2/4 w-2/3 mt-52 ">
+    <div className="  mx-auto xl:w-2/4 md:w-2/4 w-2/3 mt-32 ">
       <div className="w-full flex flex-col justify-center items-center ">
         <form className="w-full  " ref={form} onSubmit={sendEmail}>
           <label className="mb-1 inline-block text-sm font-medium">{t("full name")}</label>

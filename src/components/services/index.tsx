@@ -12,9 +12,11 @@ const Services: FC = () => {
         className={`absolute ${i18n.dir() === 'rtl' ? 'left-[50%]' : 'right-[50%]'} mt-[400px] transform -translate-x-1/2`}
         id="services"
       >
-        <h1 className="flex-shrink flex-row flex items-center md:text-6xl xl:text-6xl text-4xl font-bold text-[#fff] tracking-wider text-center">
-          {t("Services")}
-        </h1>
+   
+  <h1 className=" md:text-6xl xl:text-6xl text-5xl xl:text-center md:text-center font-bold text-white mr-[-130px]">
+    {t("Services")}
+  </h1>
+
       </div>
 
       <div className="min-h-screen flex justify-center items-center bg-parallex bg-fixed bg-no-repeat bg-cover bg-center mt-20"></div>

@@ -13,6 +13,9 @@ export default {
       backgroundImage: {
           'parallex': "url('/images/parallex.jpg')",
       },
+      fontFamily: {
+        custom: ['Futura', 'sans'], // Replace 'CustomFontName' with the actual font family name
+      },
       colors,
     },
     plugins: [
