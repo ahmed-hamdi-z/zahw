@@ -15,15 +15,14 @@ const Card: React.FC<CardProps> = ({ title, items, icon }) => {
   const { t } = useTranslation();
 
   return (
-    <div className="bg-[#764095] text-white xl:w-[500px] w-[320px] xl:ml-10  h-auto p-2 rounded-md ">
-          <div className="text-4xl  mx-4 mb-[-30px] ">{icon}</div>
-      <div className="flex items-center mb-4">
-    
-        <h2 className="text-xl font-bold w-full text-center">{t(title)}</h2>
+    <div className="bg-[#764095] text-white xl:w-[500px] w-full sm:w-[400px] p-4 rounded-md shadow-md">
+      <div className="text-4xl mb-4 flex justify-center">{icon}</div>
+      <div className="flex items-center mb-4 justify-center">
+        <h2 className="text-xl font-bold text-center">{t(title)}</h2>
       </div>
-      <ul className=" pl-3 ">
+      <ul className="pl-3 space-y-2 text-center">
         {items.map((item, index) => (
-          <li key={index} className= " text-white leading-relaxed text-justify rtl:text-start  ">{t(item)}</li>
+          <li key={index} className="leading-relaxed">{t(item)}</li>
         ))}
       </ul>
     </div>
@@ -31,6 +30,7 @@ const Card: React.FC<CardProps> = ({ title, items, icon }) => {
 };
 
 const AppCards: React.FC = () => {
+  const { i18n } = useTranslation();
   const cards: CardProps[] = [
     {
       title: 'Design services',
@@ -48,25 +48,23 @@ const AppCards: React.FC = () => {
     },
     {
       title: 'Finishes',
-      icon: <TbHomeInfinity />, 
+      icon: <TbHomeInfinity />,
       items: [
         'Finishes disc',
       ],
     },
     {
       title: 'Interior decorations',
-      icon: <SiAltiumdesigner />, 
+      icon: <SiAltiumdesigner />,
       items: [
         'Interior decorations disc'
-      
       ],
     },
-    
   ];
 
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center p-24">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div className={`min-h-screen flex flex-col justify-center items-center p-4 ${i18n.dir() === 'rtl' ? 'rtl' : ''}`}>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-5xl">
         {cards.map((card, index) => (
           <Card key={index} title={card.title} items={card.items} icon={card.icon} />
         ))}
