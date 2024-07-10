@@ -16,13 +16,13 @@ const Card: React.FC<CardProps> = ({ title, items, icon }) => {
 
   return (
     <div className="bg-[#764095] text-white xl:w-[500px] w-full sm:w-[400px] p-4 rounded-md shadow-md">
-      <div className="text-4xl mb-4 flex justify-center">{icon}</div>
-      <div className="flex items-center mb-4 justify-center">
-        <h2 className="text-xl font-bold text-center">{t(title)}</h2>
+      <div className="text-5xl mb-2 flex justify-center">{icon}</div>
+      <div className="flex items-center mb-3 justify-center">
+        <h2 className="text-2xl font-bold text-center">{t(title)}</h2>
       </div>
       <ul className="pl-3 space-y-2 text-center">
         {items.map((item, index) => (
-          <li key={index} className="leading-relaxed">{t(item)}</li>
+          <li key={index} className="leading-relaxed text-justify rtl:text-end">{t(item)}</li>
         ))}
       </ul>
     </div>

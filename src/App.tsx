@@ -20,7 +20,7 @@ const App: FC = () => {
   return (
     <Provider store={store}>
       <Router>
-        <Suspense fallback="loading">
+        <Suspense >
           <Layout />
         </Suspense>
       </Router>

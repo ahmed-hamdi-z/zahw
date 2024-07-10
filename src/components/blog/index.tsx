@@ -42,7 +42,7 @@ const Blog = () => {
   };
 
   return (
-    <section className="bg-neutral-100 py-8 rtl:text-end " ref={ref}>
+    <section className="bg-white py-8 rtl:text-end " ref={ref}>
       <div className="relative overflow-hidden p-4">
         <div className="mx-auto ">
           {" "}

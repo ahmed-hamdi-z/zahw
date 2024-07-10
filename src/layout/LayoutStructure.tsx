@@ -43,9 +43,9 @@ const LayoutStructure: FC = () => {
         
       <WhatsAppIcon />
         </Col>
-        <Col xs="12">
+        <div className="p-0  w-full" >
           <SwipeCarousel />
-        </Col>
+        </div>
         <Col xs="12">
           <CountUpStats />
         </Col>

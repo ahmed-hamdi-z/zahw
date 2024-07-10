@@ -9,7 +9,7 @@ const Blog = () => {
   return (
     <>
 
-      <div className="flex flex-col items-center mt-20">
+      <div className="flex flex-col items-center mt-10">
         <div className="w-full">
             <HeadingSeparator title="Blog-tit" />
         </div>

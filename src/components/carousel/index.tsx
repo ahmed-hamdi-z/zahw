@@ -9,7 +9,7 @@ const imgs = [
 ];
 
 const ONE_SECOND = 1000;
-const AUTO_DELAY = ONE_SECOND * 10;
+const AUTO_DELAY = ONE_SECOND *50 ;
 const DRAG_BUFFER = 50;
 
 const SPRING_OPTIONS = {
@@ -29,11 +29,11 @@ const SwipeCarousel = () => {
       const x = dragX.get();
 
       if (x === 0) {
-        setImgIndex((pv) => {
-          if (pv === imgs.length - 1) {
+        setImgIndex((prev) => {
+          if (prev === imgs.length - 1) {
             return 0;
           }
-          return pv + 1;
+          return prev + 1;
         });
       }
     }, AUTO_DELAY);
@@ -45,14 +45,14 @@ const SwipeCarousel = () => {
     const x = dragX.get();
 
     if (x <= -DRAG_BUFFER && imgIndex < imgs.length - 1) {
-      setImgIndex((pv) => pv + 1);
+      setImgIndex((prev) => prev + 1);
     } else if (x >= DRAG_BUFFER && imgIndex > 0) {
-      setImgIndex((pv) => pv - 1);
+      setImgIndex((prev) => prev - 1);
     }
   };
 
   return (
-    <div className="relative overflow-hidden bg-white">
+    <div className="relative overflow-hidden bg-white xl:h-screen md:h-screen mt-8 ">
       <motion.div
         drag="x"
         dragConstraints={{
@@ -86,25 +86,24 @@ const Images = ({ imgIndex }: { imgIndex: number }) => {
         return (
           <motion.div
             key={idx}
-            style={{
-              backgroundImage: src.endsWith(".mp4") ? 'none' : `url(${src})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              backgroundRepeat: "no-repeat",
-            }}
             animate={{
               scale: imgIndex === idx ? 1 : 1,
             }}
             transition={SPRING_OPTIONS}
-            className="aspect-video w-full h-screen shrink-0 rounded-xl bg-neutral-800 items-center"
+            className="aspect-video w-full shrink-0 flex justify-center items-center"
           >
-            {src.endsWith(".mp4") && (
+            {src.endsWith(".mp4") ? (
               <video
                 className="w-full h-full object-cover"
                 src={src}
                 autoPlay
                 loop
                 muted
+              />
+            ) : (
+              <div
+                className="w-full h-full bg-cover bg-center bg-no-repeat"
+                style={{ backgroundImage: `url(${src})` }}
               />
             )}
           </motion.div>

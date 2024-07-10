@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { posts } from "../blog/index";
 import {
   FaSnapchat ,
@@ -48,48 +48,48 @@ const Details: React.FC = () => {
   };
   return (
     <div className="w-full">
-      <div className="max-w-4xl mx-auto p-4 text-center mt-36">
+      <div className="max-w-4xl mx-auto p-4 text-center mt-16">
         <h1 className="text-3xl font-bold mb-4">{t(post.title)}</h1>
         <img
           src={post.imgUrl}
           alt=""
           className="w-full h-[90vh] rounded-lg mb-4"
         />
-        <p className="text-gray-800">{t(post.description)}</p>
+        <p className="text-gray-800 text-justify">{t(post.description)}</p>
 
         <div className="max-w-4xl mx-auto p-4 mt-10">
           <ul className="flex flex-row  gap-1 w-auto h-auto items-center justify-center ">
             <li className=" w-16 h-12 text-white bg-[#764095]  place-content-center flex items-center cursor-pointer ">
-              <a href="">
+              <Link to="">
                 <FaSnapchat  />
-              </a>
+              </Link>
             </li>
             <li className=" w-16 h-12 text-white bg-[#764095]  place-content-center flex items-center cursor-pointer ">
-              <a href="https://www.instagram.com/zahwcontracting/">
+              <Link to="https://www.instagram.com/zahwcontracting/">
                 <FaInstagram />
-              </a>
+              </Link>
             </li>
             <li className=" w-16 h-12 text-white bg-[#764095]  place-content-center flex items-center cursor-pointer ">
-              <a href="https://www.tiktok.com/@zahwcontracting">
+              <Link to="https://www.tiktok.com/@zahwcontracting">
                 <FaTiktok />
-              </a>
+              </Link>
             </li>
             <li className=" w-16 h-12 text-white bg-[#764095]  place-content-center flex items-center cursor-pointer ">
-              <a href="https://www.linkedin.com/company/zahw-for-engineering-and-contracting/">
+              <Link to="https://www.linkedin.com/company/zahw-for-engineering-and-contracting/">
                 <FaLinkedinIn />
-              </a>
+              </Link>
             </li>
             <li className=" w-16 h-12 text-white bg-[#764095]  place-content-center flex items-center cursor-pointer ">
-              <a href="0580711580">
+              <Link to="0580711580">
                 {" "}
                 <FaPhone />
-              </a>
+              </Link>
             </li>
             <li className=" w-16 h-12 text-white bg-[#764095]  place-content-center flex items-center cursor-pointer ">
-              <a href="info@zahw-sa.com">
+              <Link to="info@zahw-sa.com">
                 {" "}
                 <MdOutlineEmail />
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

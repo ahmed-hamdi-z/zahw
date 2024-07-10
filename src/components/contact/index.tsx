@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next";
 
 const ContactComp = () => {
   return (
-    <section className="grid min-h-screen grid-cols-1 bg-slate-50 md:grid-cols-[1fr,_400px] lg:grid-cols-[1fr,_600px] mt-16 rtl:text-start ">
+    <section className="grid min-h-screen grid-cols-1 bg-[#D4D4D4] md:grid-cols-[1fr,_400px] lg:grid-cols-[1fr,_600px] mt-16 rtl:text-end ">
       <Form />
       <SupplementalContent />
     </section>
@@ -69,7 +69,7 @@ const Form: React.FC = () => {
               name="user_name"
               type="text"
               placeholder={t("full name")}
-              className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-[#764095]"
+              className="w-full rounded border-[1px] border-slate-300 bg-white opacity-75 placeholder:rtl:text-end px-2.5 py-1.5 focus:outline-[#764095]"
               required
             />
           </motion.div>
@@ -84,7 +84,7 @@ const Form: React.FC = () => {
               name="user_email"
               type="email"
               placeholder={t("ُEmail")}
-              className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-[#764095]"
+              className="w-full rounded border-[1px] border-slate-300 bg-white opacity-75 placeholder:rtl:text-end px-2.5 py-1.5 focus:outline-[#764095]"
               required
             />
           </motion.div>
@@ -98,7 +98,7 @@ const Form: React.FC = () => {
               id="Mobile-number-input"
               type="number"
               placeholder={t("phone number")}
-              className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-[#764095]"
+              className="w-full rounded border-[1px] border-slate-300 bg-white opacity-75 placeholder:rtl:text-end px-2.5 py-1.5 focus:outline-[#764095]"
               required
             />
 
@@ -109,8 +109,8 @@ const Form: React.FC = () => {
               id="message"
               name="message"
               type="text"
-              placeholder="Enter Your Message"
-              className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-[#764095] h-40 placeholder:text-ellipsis"
+         
+              className="w-full rounded border-[1px] border-slate-300 bg-white opacity-75 placeholder:rtl:text-end px-2.5 py-1.5 focus:outline-[#764095] h-40 placeholder:text-ellipsis"
               required
             />
           </motion.div>
