@@ -43,7 +43,7 @@ const Layout: FC = () => {
 
   }, [lng]);
   return (
-    <main className={`main-layout direction-${direction} lang-${language}`}>
+    <main className={` direction-${direction} lang-${language}`}>
       <div>
         <MainNavbar />
       </div>
