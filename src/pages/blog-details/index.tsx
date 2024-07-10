@@ -144,7 +144,6 @@ const Details: React.FC = () => {
                   id="message"
                   name="message"
                   type="text"
-                  placeholder="Enter Your Message"
                   className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-[#764095] h-40 placeholder:text-ellipsis"
                   required
                 />

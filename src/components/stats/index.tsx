@@ -3,6 +3,7 @@ import { FC, useEffect, useRef } from "react";
 import { animate, useInView } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import ContactForm from "@/components/contact-form";
+import { Link } from "react-router-dom";
 
 
 const CountUpStats: FC = () => {
@@ -12,12 +13,12 @@ const CountUpStats: FC = () => {
     <div className="flex flex-col items-center justify-between  ">
       <div className="">
 
-      <a
-        href="/contact"
+      <Link
+        to="/contact"
         className="flex items-center my-5 border-2 border-[#764095] text-2xl px-9 py-2 font-semibold text-[#764095] transition-colors hover:bg-white hover:text-black"
       >
         <span>{t("Consultation")}</span>
-      </a>
+      </Link>
     <ContactForm />
 
       </div>
