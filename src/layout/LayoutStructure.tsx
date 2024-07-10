@@ -19,7 +19,7 @@ import { RootState } from "@/redux/store";
 // Components
 const SwipeCarousel = lazy(() => import("@/components/carousel"));
 const CountUpStats = lazy(() => import("@/components/stats"));
-const Services = lazy(() => import("@/components/services"));
+// const Services = lazy(() => import("@/components/services"));
 const Gallary = lazy(() => import("@/components/gallary"));
 const Clients = lazy(() => import("@/components/clients"));
 const Work = lazy(() => import("@/components/work"));
