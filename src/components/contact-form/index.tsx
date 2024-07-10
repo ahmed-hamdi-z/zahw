@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import { SiImessage } from "react-icons/si";
+import { TiMessages } from "react-icons/ti";
 
 const ContactForm: React.FC = () => {
   const form = useRef<HTMLFormElement>(null);
@@ -46,10 +46,10 @@ const ContactForm: React.FC = () => {
   return (
     <>
       <button
-        className="fixed bottom-4 right-4 bg-blue-500 hover:bg-blue-700 text-white font-bold w-14 h-14 px-[11px] rounded-full focus:outline-none focus:shadow-outline"
+        className="fixed bottom-4 right-4 bg-[#764095]  text-white font-bold w-14 h-14 px-[11px] rounded-full focus:outline-none focus:shadow-outline"
         onClick={toggleForm}
       >
-        <SiImessage className='w-8 h-8' />
+        <TiMessages  className='w-8 h-8' />
       </button>
 
       {isOpen && (

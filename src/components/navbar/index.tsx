@@ -160,9 +160,16 @@ const MobileMenu = () => {
           >
             <div className="flex items-center justify-between p-6">
               <Logo color="black" />
+              <div className="flex bg-[#D4D4D4] p-4">
+              <div>
+                <LanguagesBtn />
+              </div>
+              <CTAs />
+            </div>
               <button onClick={() => setOpen(false)}>
                 <FiX className="text-3xl text-neutral-950" />
               </button>
+              
             </div>
             <div className="h-screen overflow-y-scroll bg-[#D4D4D4] p-6">
               <div
@@ -178,12 +185,7 @@ const MobileMenu = () => {
                 <NavLink href="/contact">{t("Contact")}</NavLink>
               </div>
             </div>
-            <div className="flex justify-between bg-[#D4D4D4] p-4">
-              <div>
-                <LanguagesBtn />
-              </div>
-              <CTAs />
-            </div>
+          
           </motion.nav>
         )}
       </AnimatePresence>

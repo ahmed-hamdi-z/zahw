@@ -9,11 +9,11 @@ const Services: FC = () => {
   return (
     <>
       <div 
-        className={`absolute ${i18n.dir() === 'rtl' ? 'left-[50%]' : 'right-[50%]'} mt-[400px] transform -translate-x-1/2`}
+        className={`absolute ${i18n.dir() === 'rtl' ? 'left-[50%]' : 'right-[50%]'} mt-[350px] transform -translate-x-1/2`}
         id="services"
       >
    
-  <h1 className=" md:text-6xl xl:text-6xl text-5xl xl:text-center md:text-center font-bold text-white mr-[-20px]">
+  <h1 className=" md:text-6xl xl:text-6xl text-5xl text-center font-bold text-white mr-[-130px]">
     {t("Services")}
   </h1>
 
