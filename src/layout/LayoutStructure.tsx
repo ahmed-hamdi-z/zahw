@@ -12,6 +12,10 @@ import { Col, Row } from "react-bootstrap";
 import WhatsAppIcon from "@/components/whatsapp-icon";
 
 
+// Redux
+import { useSelector } from "react-redux";
+import { RootState } from "@/redux/store";
+
 // Components
 const SwipeCarousel = lazy(() => import("@/components/carousel"));
 const CountUpStats = lazy(() => import("@/components/stats"));
@@ -27,11 +31,13 @@ const ContactComp = lazy(() => import("@/components/contact"));
 // Pages
 const LayoutStructure: FC = () => {
 
-
+  const { direction, language } = useSelector(
+    (state: RootState) => state.settings
+  );
   return (
      <>
      
-    <>
+    <main className={`main-layout direction-${direction} lang-${language}`}>
       <Row className="main-content">
       <Col className="fixed bottom-4 left-10" xs="12">
         
@@ -43,9 +49,9 @@ const LayoutStructure: FC = () => {
         <Col xs="12">
           <CountUpStats />
         </Col>
-        <Col className=" " xs="12">
+        {/* <Col className=" " xs="12">
           <Services />
-        </Col>
+        </Col> */}
         <Col xs="12">
           <Gallary />
         </Col>
@@ -68,7 +74,7 @@ const LayoutStructure: FC = () => {
           <Outlet />
         </Col>
       </Row>
-    </>
+    </main>
     </>
   );
 };

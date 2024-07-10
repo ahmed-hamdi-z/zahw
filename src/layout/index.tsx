@@ -18,10 +18,6 @@ import Ad from "@/pages/ad";
 // Languages
 import "@/components/languages/index";
 
-// Redux
-import { useSelector } from "react-redux";
-import { RootState } from "@/redux/store";
-
 //Pages Routes
 const LayoutStructure = lazy(() => import("./LayoutStructure"));
 const Contact = lazy(() => import("@/pages/contact"));
@@ -30,9 +26,7 @@ const Portfolio = lazy(() => import("@/pages/portfolio"));
 
 
 const Layout: FC = () => {
-  const { direction, language } = useSelector(
-    (state: RootState) => state.settings
-  );
+ 
   const lng = Cookies.get("i18next") || "en";
 
   useEffect(() => {
@@ -40,7 +34,7 @@ const Layout: FC = () => {
 
   }, [lng]);
   return (
-    <main className={`main-layout direction-${direction} lang-${language}`}>
+    <>
       <div>
         <MainNavbar />
       </div>
@@ -56,7 +50,7 @@ const Layout: FC = () => {
       <div>
         <Footer />
       </div>
-    </main>
+    </>
   );
 };
 
