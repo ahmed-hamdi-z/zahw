@@ -13,7 +13,7 @@ const Services: FC = () => {
         id="services"
       >
    
-  <h1 className=" md:text-6xl xl:text-6xl text-5xl xl:text-center md:text-center font-bold text-white mr-[-130px]">
+  <h1 className=" md:text-6xl xl:text-6xl text-5xl xl:text-center md:text-center font-bold text-white mr-[-20px]">
     {t("Services")}
   </h1>
 

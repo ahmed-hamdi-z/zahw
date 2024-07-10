@@ -1,23 +1,25 @@
-import { useRef } from "react";
-import { motion } from "framer-motion";
-import { FiArrowUpRight } from "react-icons/fi";
+import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
-
+import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import { FiArrowUpRight } from "react-icons/fi";
 
 const ContactComp = () => {
   return (
-    <section className="grid min-h-screen grid-cols-1 bg-[#D4D4D4] md:grid-cols-[1fr,_400px] lg:grid-cols-[1fr,_600px] mt-16 rtl:text-end ">
+    <section className="grid min-h-screen grid-cols-1 bg-[#D4D4D4] md:grid-cols-[1fr,_400px] lg:grid-cols-[1fr,_600px] mt-16 rtl:text-end">
       <Form />
       <SupplementalContent />
     </section>
   );
 };
+
 export default ContactComp;
 
 const Form: React.FC = () => {
   const form = useRef<HTMLFormElement>(null);
   const { t } = useTranslation();
+  const [popupMessage, setPopupMessage] = useState<string | null>(null);
+  const [isSuccess, setIsSuccess] = useState<boolean | null>(null);
 
   const sendEmail = (e: React.FormEvent) => {
     e.preventDefault();
@@ -32,14 +34,21 @@ const Form: React.FC = () => {
         )
         .then(
           () => {
-            console.log("SUCCESS!");
+            setIsSuccess(true);
+            setPopupMessage("SUCCESS!");
+            setTimeout(() => setPopupMessage(null), 3000); // Hide the popup after 3 seconds
+            form.current?.reset(); // Optionally reset the form fields
           },
           (error) => {
+            setIsSuccess(false);
+            setPopupMessage("FAILED...");
+            setTimeout(() => setPopupMessage(null), 3000); // Hide the popup after 3 seconds
             console.log("FAILED...", error.text);
           }
         );
     }
   };
+
   return (
     <motion.div
       initial="initial"
@@ -109,7 +118,6 @@ const Form: React.FC = () => {
               id="message"
               name="message"
               type="text"
-         
               className="w-full rounded border-[1px] border-slate-300 bg-white opacity-75 placeholder:rtl:text-end px-2.5 py-1.5 focus:outline-[#764095] h-40 placeholder:text-ellipsis"
               required
             />
@@ -126,6 +134,12 @@ const Form: React.FC = () => {
             className="mb-1.5 w-full rounded bg-[#764095] px-4 py-2 text-center font-medium text-white transition-colors hover:bg-indigo-700"
           />
         </form>
+
+        {popupMessage && (
+          <div className={`fixed top-4 right-4 p-4 rounded shadow-lg z-50 ${isSuccess ? 'bg-[#764095]' : 'bg-red-500'} text-white`}>
+            {popupMessage}
+          </div>
+        )}
       </div>
     </motion.div>
   );
@@ -143,7 +157,6 @@ const SupplementalContent = () => {
       <div className="absolute right-2 top-4 z-10">
         <FiArrowUpRight className="rotate-45 text-6xl text-indigo-200 opacity-0 transition-all duration-500 group-hover:rotate-0 group-hover:opacity-100" />
       </div>
-
     </div>
   );
 };
@@ -158,4 +171,3 @@ const primaryVariants = {
     opacity: 1,
   },
 };
-

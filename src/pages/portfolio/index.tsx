@@ -49,43 +49,43 @@ const Gallery: FC = () => {
 
   return (
     <>
-      <div className="tabs flex justify-center space-x-4 mb-4 mt-36">
-        <button
-          className={`px-5 py-3 ml-3 rounded bg-[#764095] text-white  transition-colors ${activeTab === 'all' ? 'bg-blue-500 text-white' : ''}`}
-          onClick={() => setActiveTab('all')}
-        >
-          {t("Bedrooms")}
-        </button>
-        <button
-          className={`px-5 py-2 rounded bg-[#764095] text-white  transition-colors ${activeTab === 'residential' ? 'bg-blue-500 text-white' : ''}`}
-          onClick={() => setActiveTab('residential')}
-        >
-{t("Dining Rooms")}    
+
+    <div className="tabs flex flex-wrap items-center justify-center space-x-4 mb-4 mt-24 h-auto">
+    <button
+      className={`md:mt-2 mt-2 px-4 md:px-5 py-2 md:py-3 rounded bg-[#764095] text-white transition-colors ${activeTab === 'all' ? 'bg-blue-500 text-white' : ''}`}
+      onClick={() => setActiveTab('all')}
+    >
+      {t("Bedrooms")}
     </button>
-        <button
-          className={`px-5 py-2 rounded bg-[#764095] text-white  transition-colors ${activeTab === 'commercial' ? 'bg-blue-500 text-white' : ''}`}
-          onClick={() => setActiveTab('commercial')}
-        >
-{t("Halls")}          </button>
-      </div>
-      <div className="p-3">
-    
-        <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3, 1200: 4 }}>
-          <Masonry gutter="5px">
-            {galleryItems}
-          </Masonry>
-        </ResponsiveMasonry>
-      </div>
-      {data.img && (
-        <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-75 flex justify-center items-center z-50">
-          <button onClick={() => imgAction('close')} className="absolute top-10 right-10 text-white text-3xl">X</button>
-          <button onClick={() => imgAction('prev-img')} className="absolute left-10 text-white text-3xl"><FaArrowLeft /></button>
-          <img src={data.img} className="w-auto max-w-[90%] max-h-[90%]" />
-          <button onClick={() => imgAction('next-img')} className="absolute right-10 text-white text-3xl"><FaArrowRight /></button>
-        </div>
-      )}
-     
-    </>
+    <button
+      className={` md:mt-2 mt-2 px-4 md:px-5 py-2 md:py-3 rounded bg-[#764095] text-white transition-colors ${activeTab === 'residential' ? 'bg-blue-500 text-white' : ''}`}
+      onClick={() => setActiveTab('residential')}
+    >
+      {t("Dining Rooms")}
+    </button>
+    <button
+      className={`mt-2 md:mt-5 px-4 md:px-5 py-2 md:py-3 rounded bg-[#764095] text-white transition-colors ${activeTab === 'commercial' ? 'bg-blue-500 text-white' : ''}`}
+      onClick={() => setActiveTab('commercial')}
+    >
+      {t("Halls")}
+    </button>
+  </div>
+  <div className="p-3">
+    <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3, 1200: 4 }}>
+      <Masonry gutter="5px">
+        {galleryItems}
+      </Masonry>
+    </ResponsiveMasonry>
+  </div>
+  {data.img && (
+    <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-75 flex justify-center items-center z-50">
+      <button onClick={() => imgAction('close')} className="absolute top-10 right-10 text-white text-3xl">X</button>
+      <button onClick={() => imgAction('prev-img')} className="absolute left-10 text-white text-3xl"><FaArrowLeft /></button>
+      <img src={data.img} className="w-auto max-w-[90%] max-h-[90%]" />
+      <button onClick={() => imgAction('next-img')} className="absolute right-10 text-white text-3xl"><FaArrowRight /></button>
+    </div>
+  )}
+</>
   );
 };
 

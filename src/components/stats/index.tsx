@@ -2,7 +2,6 @@
 import { FC, useEffect, useRef } from "react";
 import { animate, useInView } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import ContactForm from "@/components/contact-form";
 import { Link } from "react-router-dom";
 
 
@@ -19,7 +18,7 @@ const CountUpStats: FC = () => {
       >
         <span>{t("Consultation")}</span>
       </Link>
-    <ContactForm />
+ 
 
       </div>
 

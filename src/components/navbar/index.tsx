@@ -125,12 +125,12 @@ const CTAs = () => {
   const { t } = useTranslation();
   return (
     <div className="flex items-center gap-3">
-      <Link
-        to="/contact"
-        className="flex items-center gap-2 border-2 border-[#764095] px-4 py-2 font-semibold text-[#764095] transition-colors hover:bg-white hover:text-black"
-      >
-        <span>{t("Consultation")}</span>
-      </Link>
+<Link
+  to="/contact"
+  className="items-center gap-2 border-2 border-[#764095] px-4 py-2 font-semibold text-[#764095] transition-colors hover:bg-white hover:text-black hidden md:block"
+>
+  <span>{t("Consultation")}</span>
+</Link>
       <Link
         to="/contact"
         className="border-2 border-indigo-300 bg-indigo-300 px-4 py-2 font-semibold text-black transition-colors hover:border-[#764095] hover:bg-[#764095] hover:text-white"
@@ -167,7 +167,7 @@ const MobileMenu = () => {
             <div className="h-screen overflow-y-scroll bg-[#D4D4D4] p-6">
               <div
                 onClick={() => setOpen(false)}
-                className="flex flex-col items-center gap-5 text-3xl font-semibold"
+                className="flex flex-col items-center  gap-3 text-3xl font-semibold"
               >
                 <NavLink href="/">{t("Home")}</NavLink>
                 <a href="#about">{t("About")}</a>

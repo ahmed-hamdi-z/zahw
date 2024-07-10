@@ -1,11 +1,11 @@
 import emailjs from "@emailjs/browser";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 
 const Contact = () => {
   const { t } = useTranslation();
-
+  const [message, setMessage] = useState<string | null>(null);
   const form = useRef<HTMLFormElement>(null);
 
   const sendEmail = (e: React.FormEvent) => {
@@ -21,17 +21,17 @@ const Contact = () => {
         )
         .then(
           () => {
-            alert("SUCCESS!");
-            window.location.reload()
+            setMessage("SUCCESS! Email sent successfully.");
+            form.current; // Reset the form if needed
           },
           (error) => {
-            console.log("FAILED...", error.text);
+            setMessage(`FAILED... ${error.text}`);
           }
         );
     }
   };
   return (
-    <div className="  mx-auto xl:w-2/4 md:w-2/4 w-2/3 mt-32 ">
+    <div className="  mx-auto xl:w-2/4 md:w-2/4 w-2/3 mt-24 mb-10 ">
       <div className="w-full flex flex-col justify-center items-center ">
         <form className="w-full  " ref={form} onSubmit={sendEmail}>
           <label className="mb-1 inline-block text-sm font-medium">{t("full name")}</label>
@@ -183,6 +183,20 @@ const Contact = () => {
             value={t("Send")}
           />
         </form>
+        {/* Pop-up message */}
+        {message && (
+          <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center bg-gray-800 bg-opacity-50">
+            <div className="bg-white p-6 rounded-lg shadow-lg">
+              <p className="text-lg font-semibold mb-2">{message}</p>
+              <button
+                onClick={() => setMessage(null)}
+                className="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700"
+              >
+                {t("Close")}
+              </button>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

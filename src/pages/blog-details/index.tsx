@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { posts } from "../blog/index";
 import {
-  FaSnapchat ,
+  FaSnapchat,
   FaInstagram,
   FaTiktok,
   FaLinkedinIn,
@@ -16,10 +16,13 @@ import { useRef } from "react";
 import { useTranslation } from "react-i18next";
 
 const Details: React.FC = () => {
+
   const { id } = useParams<{ id: string }>();
   const post = posts.find((post) => post.id === parseInt(id || "", 10));
 
   const { t } = useTranslation();
+
+  const phoneNumber = '0580711580'; 
 
   if (!post) {
     return <p>Post not found</p>;
@@ -46,6 +49,7 @@ const Details: React.FC = () => {
         );
     }
   };
+
   return (
     <div className="w-full">
       <div className="max-w-4xl mx-auto p-4 text-center mt-16">
@@ -53,15 +57,17 @@ const Details: React.FC = () => {
         <img
           src={post.imgUrl}
           alt=""
-          className="w-full h-[90vh] rounded-lg mb-4"
+          className="w-full xl:h-[90vh] md:h-[90vh] h-[50vh] rounded-lg mb-4"
         />
-        <p className="text-gray-800 text-justify">{t(post.description)}</p>
+        <p className="text-gray-800 text-justify tracking-tight">
+          {t(post.description)}
+        </p>
 
         <div className="max-w-4xl mx-auto p-4 mt-10">
           <ul className="flex flex-row  gap-1 w-auto h-auto items-center justify-center ">
             <li className=" w-16 h-12 text-white bg-[#764095]  place-content-center flex items-center cursor-pointer ">
               <Link to="">
-                <FaSnapchat  />
+                <FaSnapchat />
               </Link>
             </li>
             <li className=" w-16 h-12 text-white bg-[#764095]  place-content-center flex items-center cursor-pointer ">
@@ -80,8 +86,8 @@ const Details: React.FC = () => {
               </Link>
             </li>
             <li className=" w-16 h-12 text-white bg-[#764095]  place-content-center flex items-center cursor-pointer ">
-              <Link to="0580711580">
-                {" "}
+              <Link  to={`tel:${phoneNumber}`}>
+                {" "} 
                 <FaPhone />
               </Link>
             </li>
@@ -93,19 +99,21 @@ const Details: React.FC = () => {
             </li>
           </ul>
         </div>
-          <div className="flex max-w-9xl mx-auto justify-center mt-10">
-      </div>
-      <div className=" max-w-6xl mx-auto rtl:text-start">
-        <Blog />
-      </div>
-    
+        <div className="flex max-w-9xl mx-auto justify-center mt-10"></div>
+        <div className=" max-w-6xl mx-auto rtl:text-start">
+          <Blog />
+        </div>
+
         <div className="flex items-center justify-center pb-4 pt-20 md:py-20  rtl:text-start">
           <div className="mx-auto my-auto w-full max-w-8xl px-4 md:pr-0">
             <h1 className="mb-3 text-center text-4xl font-semibold text-[#764095]">
               {t("Commint")}
             </h1>
 
-            <form onSubmit={sendEmail} className="w-8xl rtl:text-start ltr:text-start ">
+            <form
+              onSubmit={sendEmail}
+              className="w-8xl rtl:text-start ltr:text-start "
+            >
               <div className="mb-2 w-8xl ">
                 <label className="mb-1 inline-block text-sm font-medium">
                   {t("full name")}
