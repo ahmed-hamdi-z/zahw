@@ -2,11 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const WhatsAppIcon: React.FC = () => {
-  const phoneNumber = '0580711580'; 
+  const phoneNumber = '966580711580'; 
 
   return (
     <div className="flex items-center justify-center fixed bottom-4 left-4 w-14 h-14 bg-green-500 rounded-full z-50">
-      <Link to={`https://wa.me/${phoneNumber}`} target="_blank" rel="noopener noreferrer">
+      <Link to={`https://api.whatsapp.com/send/?phone=${phoneNumber}`} target="_blank" rel="noopener noreferrer">
         <svg
           className="text-white w-10 h-10"
           fill="currentColor"

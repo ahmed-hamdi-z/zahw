@@ -13,6 +13,7 @@ import { MdOutlineEmail } from "react-icons/md";
 
 const Footer:FC = ()=>{
     const { t } = useTranslation();
+    const phoneNumber = '00966580711580'; 
 
   return (
     <footer className="w-100 h-auto text-center  flex flex-col items-center justify-between  bg-[#D4D4D4] text-[#764095]"> 
@@ -31,7 +32,7 @@ const Footer:FC = ()=>{
             <li className=" w-12 h-8 rounded-full text-white bg-[#764095]  place-content-center flex items-center cursor-pointer ">
               <Link to="https://www.tiktok.com/@zahwcontracting">
                 <FaTiktok />
-              </Link>
+              </Link> 
             </li>
             <li className=" w-12 h-8 rounded-full text-white bg-[#764095]  place-content-center flex items-center cursor-pointer ">
               <Link to="https://www.linkedin.com/company/zahw-for-engineering-and-contracting/">
@@ -39,13 +40,13 @@ const Footer:FC = ()=>{
               </Link>
             </li>
             <li className=" w-12 h-8 rounded-full text-white bg-[#764095]  place-content-center flex items-center cursor-pointer ">
-              <Link to="0580711580">
+              <Link to={`tel:${phoneNumber}`}>
                 {" "}
                 <FaPhone />
               </Link>
             </li>
             <li className=" w-12 h-8 rounded-full text-white bg-[#764095]  place-content-center flex items-center cursor-pointer ">
-              <Link to="info@zahw-sa.com">
+              <Link to="https://info@zahw-sa.com">
                 {" "}
                 <MdOutlineEmail />
               </Link>

@@ -59,7 +59,7 @@ const Details: React.FC = () => {
           alt=""
           className="w-full xl:h-[90vh] md:h-[90vh] h-[50vh] rounded-lg mb-4"
         />
-        <p className="text-gray-800 text-justify tracking-tight">
+        <p className="text-gray-800 tracking-tight">
           {t(post.description)}
         </p>
 

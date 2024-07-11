@@ -17,7 +17,7 @@ const Copy = () =>{
 
     <div className="max-w-6xl text-center  flex flex-col  items-center justify-center">
       <h2 className="mb-3 text-4xl text-white">{t("Zahw")}</h2>
-      <p className="mb-6 text-xl text-justify rtl:text-end leading-relaxed text-white tracking-tight rtl:tracking-wider">
+      <p className="mb-6 text-xl tracking-wide rtl:text-end leading-relaxed text-white ">
       {t("about disc")}
       </p>
       

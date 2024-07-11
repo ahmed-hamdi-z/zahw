@@ -12,7 +12,7 @@ const LanguagesBtn: FC = () => {
           window.location.reload();
         }}
       >
-        ar
+        AR
       </button>
 
       <button
@@ -22,7 +22,7 @@ const LanguagesBtn: FC = () => {
           window.location.reload();
         }}
       >
-        en
+        EN
       </button>
     </div>
   );

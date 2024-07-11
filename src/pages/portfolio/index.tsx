@@ -50,9 +50,9 @@ const Gallery: FC = () => {
   return (
     <>
 
-    <div className="tabs flex flex-wrap items-center justify-center space-x-4 mb-4 mt-24 h-auto">
+    <div className="tabs flex flex-wrap items-center justify-center  space-x-4 mb-4 mt-24 h-auto">
     <button
-      className={`md:mt-2 mt-2 px-4 md:px-5 py-2 md:py-3 rounded bg-[#764095] text-white transition-colors ${activeTab === 'all' ? 'bg-blue-500 text-white' : ''}`}
+      className={`md:mt-2 mt-2 px-4 md:px-5 py-2 md:py-3 rounded bg-[#764095] rtl:ml-3 text-white transition-colors ${activeTab === 'all' ? 'bg-blue-500 text-white' : ''}`}
       onClick={() => setActiveTab('all')}
     >
       {t("Bedrooms")}

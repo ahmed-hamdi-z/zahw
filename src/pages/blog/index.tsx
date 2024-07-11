@@ -21,7 +21,7 @@ const Blog = () => {
         </div>
       </div>
     </>
-  );
+  );  
 };
 
 export const Post = ({ id, imgUrl, title, description }: PostType) => {

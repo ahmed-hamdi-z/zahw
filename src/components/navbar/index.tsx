@@ -45,9 +45,8 @@ const FlyoutNav = () => {
 
   return (
     <nav
-      className={`fixed top-0 z-50 w-full px-6 text-lg text-[#764095] transition-all bg-[#D4D4D4] duration-300 ease-out lg:px-12 ${
-        scrolled ? "shadow-xl" : "shadow-none"
-      } ${hidden ? "transform -translate-y-full" : "transform translate-y-0"}`}
+      className={`fixed top-0 z-50 w-full px-6 text-lg text-[#764095] transition-all bg-[#D4D4D4] duration-300 ease-out lg:px-12 ${scrolled ? "shadow-xl" : "shadow-none"
+        } ${hidden ? "transform -translate-y-full" : "transform translate-y-0"}`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between">
         <Logo />
@@ -125,12 +124,12 @@ const CTAs = () => {
   const { t } = useTranslation();
   return (
     <div className="flex items-center gap-3">
-<Link
-  to="/contact"
-  className="items-center gap-2 border-2 border-[#764095] px-4 py-2 font-semibold text-[#764095] transition-colors hover:bg-white hover:text-black hidden md:block"
->
-  <span>{t("Consultation")}</span>
-</Link>
+      <Link
+        to="/contact"
+        className="items-center gap-2 border-2 border-[#764095] px-4 py-2 font-semibold text-[#764095] transition-colors hover:bg-white hover:text-black hidden md:block"
+      >
+        <span>{t("Consultation")}</span>
+      </Link>
       <Link
         to="/contact"
         className="border-2 border-indigo-300 bg-indigo-300 px-4 py-2 font-semibold text-black transition-colors hover:border-[#764095] hover:bg-[#764095] hover:text-white"
@@ -158,18 +157,18 @@ const MobileMenu = () => {
             transition={{ duration: 0.15, ease: "easeOut" }}
             className="fixed left-0 top-0 flex h-screen w-full flex-col bg-[#D4D4D4]"
           >
-            <div className="flex items-center justify-between p-6">
+            <div className="flex items-center justify-between p-6" onClick={() => setOpen(false)}>
               <Logo color="black" />
               <div className="flex bg-[#D4D4D4] p-4">
-              <div>
-                <LanguagesBtn />
+                <div>
+                  <LanguagesBtn />
+                </div >
+                <CTAs />
               </div>
-              <CTAs />
-            </div>
               <button onClick={() => setOpen(false)}>
                 <FiX className="text-3xl text-neutral-950" />
               </button>
-              
+
             </div>
             <div className="h-screen overflow-y-scroll bg-[#D4D4D4] p-6">
               <div
@@ -185,7 +184,7 @@ const MobileMenu = () => {
                 <NavLink href="/contact">{t("Contact")}</NavLink>
               </div>
             </div>
-          
+
           </motion.nav>
         )}
       </AnimatePresence>

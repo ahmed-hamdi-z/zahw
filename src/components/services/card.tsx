@@ -22,7 +22,7 @@ const Card: React.FC<CardProps> = ({ title, items, icon }) => {
       </div>
       <ul className="pl-3 space-y-2 text-center">
         {items.map((item, index) => (
-          <li key={index} className="leading-relaxed text-justify rtl:text-end tracking-tight rtl:tracking-wide">{t(item)}</li>
+          <li key={index} className="leading-relaxed rtl:text-end tracking-tighter rtl:tracking-wide">{t(item)}</li>
         ))}
       </ul>
     </div>

@@ -18,8 +18,7 @@ export default ContactComp;
 const Form: React.FC = () => {
   const form = useRef<HTMLFormElement>(null);
   const { t } = useTranslation();
-  const [popupMessage, setPopupMessage] = useState<string | null>(null);
-  const [isSuccess, setIsSuccess] = useState<boolean | null>(null);
+  const [message, setMessage] = useState<string | null>(null);
 
   const sendEmail = (e: React.FormEvent) => {
     e.preventDefault();
@@ -34,16 +33,14 @@ const Form: React.FC = () => {
         )
         .then(
           () => {
-            setIsSuccess(true);
-            setPopupMessage("SUCCESS!");
-            setTimeout(() => setPopupMessage(null), 3000); // Hide the popup after 3 seconds
-            form.current?.reset(); // Optionally reset the form fields
+         
+            if (form.current) { 
+              setMessage(t("SUCCESS! Email sent successfully."));
+              form.current.reset(); // Reset the form after successful submission
+            }
           },
           (error) => {
-            setIsSuccess(false);
-            setPopupMessage("FAILED...");
-            setTimeout(() => setPopupMessage(null), 3000); // Hide the popup after 3 seconds
-            console.log("FAILED...", error.text);
+            setMessage(`${t("FAILED")}... ${error.text}`);
           }
         );
     }
@@ -67,7 +64,7 @@ const Form: React.FC = () => {
           {t("Want to work with us")}
         </motion.h1>
 
-        <form onSubmit={sendEmail} className="w-full">
+        <form ref={form} onSubmit={sendEmail} className="w-full">
           <motion.div variants={primaryVariants} className="mb-2 w-full">
             <label className="mb-1 inline-block text-sm font-medium">
               {t("full name")}
@@ -118,7 +115,7 @@ const Form: React.FC = () => {
               id="message"
               name="message"
               type="text"
-              className="w-full rounded border-[1px] border-slate-300 bg-white opacity-75 placeholder:rtl:text-end px-2.5 py-1.5 focus:outline-[#764095] h-40 placeholder:text-ellipsis"
+              className="w-full rounded border-[1px] border-slate-300 bg-white opacity-75 placeholder:rtl:text-end px2.5 py-1.5 focus:outline-[#764095] h-40 placeholder:text-ellipsis"
               required
             />
           </motion.div>
@@ -127,17 +124,24 @@ const Form: React.FC = () => {
             variants={primaryVariants}
             className="mb-4 flex w-full items-start gap-1.5"
           ></motion.div>
-
+ 
           <input
             value={t("Send")}
             type="submit"
             className="mb-1.5 w-full rounded bg-[#764095] px-4 py-2 text-center font-medium text-white transition-colors hover:bg-indigo-700"
           />
         </form>
-
-        {popupMessage && (
-          <div className={`fixed top-4 right-4 p-4 rounded shadow-lg z-50 ${isSuccess ? 'bg-[#764095]' : 'bg-red-500'} text-white`}>
-            {popupMessage}
+        {message && (
+          <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center bg-gray-800 bg-opacity-50">
+            <div className="bg-white p-6 rounded-lg shadow-lg">
+              <p className="text-lg font-semibold mb-2">{message}</p>
+              <button
+                onClick={() => setMessage(null)}
+                className="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700"
+              >
+                {t("Close")}
+              </button>
+            </div>
           </div>
         )}
       </div>

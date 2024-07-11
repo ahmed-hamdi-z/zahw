@@ -55,7 +55,7 @@ const Blog = () => {
                 className={`rounded-lg border-[1px] border-neutral-400 bg-white p-1.5 text-2xl transition-opacity ${
                   CAN_SHIFT_LEFT ? "" : "opacity-30"
                 }`}
-                disabled={!CAN_SHIFT_LEFT}
+                disabled={!CAN_SHIFT_LEFT} 
                 onClick={shiftLeft}
               >
                 <FiArrowLeft />

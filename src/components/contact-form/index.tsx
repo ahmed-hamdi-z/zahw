@@ -8,8 +8,7 @@ const ContactForm: React.FC = () => {
   const form = useRef<HTMLFormElement>(null);
   const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
-  const [popupMessage, setPopupMessage] = useState<string | null>(null);
-  const [isSuccess, setIsSuccess] = useState<boolean | null>(null);
+  const [message, setMessage] = useState<string | null>(null);
 
   const sendEmail = (e: React.FormEvent) => {
     e.preventDefault();
@@ -24,16 +23,14 @@ const ContactForm: React.FC = () => {
         )
         .then(
           () => {
-            setIsSuccess(true);
-            setPopupMessage("SUCCESS!");
-            setTimeout(() => setPopupMessage(null), 3000); // Hide the popup after 3 seconds
-            window.location.reload();
+         
+            if (form.current) { 
+              setMessage(t("SUCCESS! Email sent successfully."));
+              form.current.reset(); // Reset the form after successful submission
+            }
           },
           (error) => {
-            setIsSuccess(false);
-            setPopupMessage("FAILED...");
-            console.log("FAILED...", error.text);
-            setTimeout(() => setPopupMessage(null), 3000); // Hide the popup after 3 seconds
+            setMessage(`${t("FAILED")}... ${error.text}`);
           }
         );
     }
@@ -123,15 +120,24 @@ const ContactForm: React.FC = () => {
                 className="mb-1.5 w-full rounded bg-[#764095] px-4 py-2 text-center font-medium text-white transition-colors hover:bg-indigo-700"
               />
             </form>
+            {message && (
+          <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center bg-gray-800 bg-opacity-50">
+            <div className="bg-white p-6 rounded-lg shadow-lg">
+              <p className="text-lg font-semibold mb-2">{message}</p>
+              <button
+                onClick={() => setMessage(null)}
+                className="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700"
+              >
+                {t("Close")}
+              </button>
+            </div>
+          </div>
+        )}
           </div>
         </div>
       )}
 
-      {popupMessage && (
-        <div className={`fixed top-4 right-4 p-4 rounded shadow-lg z-50 ${isSuccess ? 'bg-[#764095]' : 'bg-red-500'} text-white`}>
-          {popupMessage}
-        </div>
-      )}
+      
     </>
   );
 };
