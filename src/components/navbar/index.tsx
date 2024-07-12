@@ -143,7 +143,7 @@ const MobileMenu = () => {
             <div className="h-screen overflow-y-scroll bg-[#D4D4D4] p-6">
               <div
                 onClick={() => setOpen(false)}
-                className="flex flex-col items-center gap-2 text-3xl font-semibold"
+                className="flex flex-col items-center gap-2 text-3xl font-semibold "
               >
                 <NavLink href="/">{t("Home")}</NavLink>
                 <a href="#about">{t("About")}</a>

@@ -7,13 +7,13 @@ import {
   FaInstagram,
   FaTiktok,
   FaLinkedinIn,
-  FaPhone,
+  // FaPhone,
 } from "react-icons/fa";
-import { MdOutlineEmail } from "react-icons/md";
+// import { MdOutlineEmail } from "react-icons/md";
 
 const Footer:FC = ()=>{
     const { t } = useTranslation();
-    const phoneNumber = '00966580711580'; 
+    // const phoneNumber = '00966580711580'; 
 
   return (
     <footer className="w-100 h-auto text-center  flex flex-col items-center justify-between  bg-[#D4D4D4] text-[#764095]"> 
@@ -39,7 +39,7 @@ const Footer:FC = ()=>{
                 <FaLinkedinIn />
               </Link>
             </li>
-            <li className=" w-12 h-8 rounded-full text-white bg-[#764095]  place-content-center flex items-center cursor-pointer ">
+            {/* <li className=" w-12 h-8 rounded-full text-white bg-[#764095]  place-content-center flex items-center cursor-pointer ">
               <Link to={`tel:${phoneNumber}`}>
                 {" "}
                 <FaPhone />
@@ -50,7 +50,7 @@ const Footer:FC = ()=>{
                 {" "}
                 <MdOutlineEmail />
               </Link>
-            </li>
+            </li> */}
           </ul> 
           <h1 className="mt-4" >  {t("All rights reserved")} </h1>
         </div>

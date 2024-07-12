@@ -185,8 +185,8 @@ const Contact = () => {
         </form>
         {/* Pop-up message */}
         {message && (
-          <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center bg-gray-800 bg-opacity-50">
-            <div className="bg-white p-6 rounded-lg shadow-lg">
+          <div className="absolute text-black left-0 right-0 bottom-0 flex items-center justify-center bg-gray-800 bg-opacity-50">
+            <div className="bg-white text-black  p-6 rounded-lg shadow-lg">
               <p className="text-lg font-semibold mb-2">{message}</p>
               <button
                 onClick={() => setMessage(null)}
