@@ -10,7 +10,7 @@ const CountUpStats: FC = () => {
   
   return (
     <div className="flex flex-col items-center justify-between  ">
-      <div className="">
+      <div className="my-10">
 
       <Link
         to="/contact"
@@ -22,7 +22,7 @@ const CountUpStats: FC = () => {
 
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:gap-24 md:gap-16 gap-12 text-[#764095]">
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:gap-24 md:gap-16 gap-12 text-[#764095] text-xl">
         <div className=" ">
           {" "}
           <Stat num={9} suffix="" subheading={t("Years Of Experience")} />
@@ -35,7 +35,7 @@ const CountUpStats: FC = () => {
             subheading={t("Satisfied Customers")}
           />
         </div>
-        <div className=" ">
+        <div className="text-xl ">
           <Stat num={150} suffix="" subheading={t("Completed Projects")} />
         </div>
         <div className=" ">
@@ -73,7 +73,7 @@ const Stat = ({ num, suffix, decimals = 0, subheading }: Props) => {
 
   return (
     <div className="flex flex-col items-center ">
-      <p className="mb-2 text-center text-5xl font-semibold ">
+      <p className="mb-2 text-center text-6xl font-bold ">
         <span ref={ref}></span>
         {suffix}
       </p>

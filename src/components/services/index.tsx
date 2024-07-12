@@ -13,15 +13,16 @@ const Services: FC = () => {
           i18n.dir() === "rtl" ? "left-[50%]" : "right-[50%]"
         } mt-[350px] transform -translate-x-1/2`}
         id="services"
-      ></div>
+      >
+      </div>
 
-      <div className="min-h-screen flex justify-center items-center bg-parallex bg-cover bg-center bg-no-repeat mt-20">
+      <div className="min-h-[70vh] flex justify-center items-center bg-fixed bg-parallex bg-cover bg-center bg-no-repeat mt-20">
         <h1 className="md:text-6xl xl:text-6xl text-5xl text-center font-bold text-white">
           {t("Services")}
         </h1>
       </div>
 
-      <div className="relative xl:mt-[-250px] md:mt-[-200px] mt-[-200px] flex items-center justify-center">
+      <div className="relative xl:mt-[-150px] md:mt-[-100px] mt-[-100px] flex items-center justify-center">
         <AppCards />
       </div>
     </>

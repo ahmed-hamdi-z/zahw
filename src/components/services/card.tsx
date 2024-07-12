@@ -15,7 +15,7 @@ const Card: React.FC<CardProps> = ({ title, items, icon }) => {
   const { t } = useTranslation();
 
   return (
-    <div className="bg-[#764095] text-white xl:w-[500px] w-full sm:w-[400px] p-4 rounded-md shadow-md">
+    <div className="bg-[#764095] text-white xl:w-[500px] w-full sm:w-[400px] p-4  shadow-md">
       <div className="text-5xl mb-2 flex justify-center">{icon}</div>
       <div className="flex items-center mb-3 justify-center">
         <h2 className="text-2xl font-bold text-center">{t(title)}</h2>

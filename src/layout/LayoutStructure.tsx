@@ -12,7 +12,7 @@ import WhatsAppIcon from "@/components/whatsapp-icon";
 // Redux
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
-
+import HomeBtn from "@/components/home-btn";
 
 // Components
 const SwipeCarousel = lazy(() => import("@/components/carousel"));
@@ -29,7 +29,9 @@ const Phone = lazy(() => import("@/components/phone"));
 
 // Pages
 const LayoutStructure: FC = () => {
-  const { direction, language } = useSelector((state: RootState) => state.settings);
+  const { direction, language } = useSelector(
+    (state: RootState) => state.settings
+  );
 
   return (
     <>
@@ -49,14 +51,17 @@ const LayoutStructure: FC = () => {
           <Col xs="12">
             <Gallary />
           </Col>
-          <Col xs="12">
+          <div className="w-full flex flex-row items-center justify-center">
             <Clients />
-          </Col>
+          </div>
+          <div className="w-full h-80 flex flex-row items-center justify-center bg-[#D4D4D4]">
+            <HomeBtn />
+          </div>
+          <div className="w-full ">
+            <Blog />
+          </div>
           <Col xs="12">
             <Work />
-          </Col>
-          <Col xs="12">
-            <Blog />
           </Col>
           <Col xs="12">
             <FollowUS />

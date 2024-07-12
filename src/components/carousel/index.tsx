@@ -1,15 +1,10 @@
 import { useEffect, useState } from "react";
 import { motion, useMotionValue } from "framer-motion";
 
-const imgs = [
-  "/images/h-1.jpeg",
-  "/images/h-2.jpeg",
-  "/images/h-3.jpeg",
-  "/images/zahw.mp4" // Adding the video to the array
-];
+const imgs = ["/images/h-1.jpeg", "/images/h-2.jpeg", "/images/h-3.jpeg"];
 
 const ONE_SECOND = 1000;
-const AUTO_DELAY = ONE_SECOND *50 ;
+const AUTO_DELAY = ONE_SECOND * 10;
 const DRAG_BUFFER = 50;
 
 const SPRING_OPTIONS = {
@@ -42,6 +37,7 @@ const SwipeCarousel = () => {
   }, []);
 
   const onDragEnd = () => {
+
     const x = dragX.get();
 
     if (x <= -DRAG_BUFFER && imgIndex < imgs.length - 1) {
@@ -92,20 +88,10 @@ const Images = ({ imgIndex }: { imgIndex: number }) => {
             transition={SPRING_OPTIONS}
             className="aspect-video w-full shrink-0 flex justify-center items-center"
           >
-            {src.endsWith(".mp4") ? (
-              <video
-                className="w-full h-full object-cover"
-                src={src}
-                autoPlay
-                loop
-                muted
-              />
-            ) : (
-              <div
-                className="w-full h-full bg-cover bg-center bg-no-repeat"
-                style={{ backgroundImage: `url(${src})` }}
-              />
-            )}
+            <div
+              className="w-full h-full bg-cover bg-center bg-no-repeat"
+              style={{ backgroundImage: `url(${src})` }}
+            />
           </motion.div>
         );
       })}

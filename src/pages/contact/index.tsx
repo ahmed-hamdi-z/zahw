@@ -21,8 +21,8 @@ const Contact = () => {
         )
         .then(
           () => {
-            setMessage("SUCCESS! Email sent successfully.");
-            form.current; // Reset the form if needed
+            setMessage("Success! Email sent successfully.");
+            form.current;
           },
           (error) => {
             setMessage(`FAILED... ${error.text}`);

@@ -1,1 +1,0 @@
-import{j as e,L as s}from"./index-8028d633.js";import{B as o}from"./index-fdbbaa49.js";const i=()=>{const t="00966580711580";return e.jsx("div",{className:"flex items-center justify-center fixed bottom-20 left-4 w-14 h-14 bg-[#764095] text-white rounded-full z-50",children:e.jsx(s,{to:`tel:${t}`,children:e.jsx(o,{className:"text-white w-6 h-7"})})})};export{i as default};

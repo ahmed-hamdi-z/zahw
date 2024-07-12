@@ -58,7 +58,7 @@ const Gallery: FC = () => {
     <>
       {data.img && (
         <div
-          className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-75 flex justify-center items-center z-50"
+          className="fixed top-0 left-0 w-full h-full bg-slate-950 bg-opacity-90 flex justify-center items-center z-50"
           role="dialog"
           aria-labelledby="image-viewer"
         >
@@ -99,7 +99,7 @@ const Gallery: FC = () => {
         </ResponsiveMasonry>
         <Link
         to="/portfolio"
-        className="flex items-center justify-center gap-2  border-2 border-[#764095] w-52 h-10 px-4 py-2 mx-auto mt-5 font-semibold text-[#764095] transition-colors hover:bg-white hover:text-[#764095]"
+        className="flex items-center justify-center gap-2 border-2  w-52 h-10 px-4 py-2 mx-auto mt-5 font-semibold border-[#764095] text-[#764095] transition-colors hover:bg-[#764095] hover:text-white"
       >
         <span>{t("Explore All Projects")}</span>
       </Link>

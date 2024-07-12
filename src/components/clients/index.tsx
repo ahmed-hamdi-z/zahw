@@ -1,13 +1,10 @@
 // Dependencies
 import { FC } from "react";
 import { motion } from "framer-motion";
-import HeadingSeparator from "../heading";
 
 const Clients: FC = () => {
   return (
-    <section className="bg-white p-3 " id="clients">
-        <HeadingSeparator title="Our Clients" />
-   
+    <section className="bg-white p-3 mt-16 md:w-9/12 w-full flex " id="clients">
       <div className="flex overflow-hidden mt-4">
         <TranslateWrapper reverse>
           <LogoItemsBottom />
@@ -22,8 +19,6 @@ const Clients: FC = () => {
     </section>
   );
 };
-
-
 
 const TranslateWrapper = ({
   children,
@@ -57,8 +52,6 @@ const LogoItem = ({ imgSrc }: { imgSrc: string }) => {
   );
 };
 
-
-
 const LogoItemsBottom = () => (
   <>
     <LogoItem imgSrc="./images/1.jpg" />
@@ -72,8 +65,7 @@ const LogoItemsBottom = () => (
     <LogoItem imgSrc="./images/9.png" />
     <LogoItem imgSrc="./images/10.png" />
     <LogoItem imgSrc="./images/11.png" />
-    <LogoItem imgSrc="./images/12.png" /> 
-    
+    <LogoItem imgSrc="./images/12.png" />
   </>
 );
 
