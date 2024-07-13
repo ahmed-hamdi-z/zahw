@@ -45,45 +45,14 @@ const Links = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="flex items-center gap-2">
-      <NavLink href="/">{t("Home")}</NavLink>
+    <div className="flex items-center gap-2 font-semibold">
+      <Link to="/">{t("Home")}</Link>
       <a href="/#about">{t("About")}</a>
       <a href="#services">{t("Services")}</a>
-      <NavLink href="/portfolio">{t("Portfolio")}</NavLink>
+      <Link to="/portfolio">{t("Portfolio")}</Link>
       <a href="#clients">{t("Clients")}</a>
-      <NavLink href="/blog">{t("Blog")}</NavLink>
-      <NavLink href="/contact">{t("Contact")}</NavLink>
-    </div>
-  );
-};
-
-const NavLink = ({
-  children,
-  href,
-  FlyoutContent,
-}: {
-  children: React.ReactNode;
-  href: string;
-  FlyoutContent?: React.ElementType;
-}) => {
-  const [open, setOpen] = useState(false);
-
-  const showFlyout = FlyoutContent && open;
-
-  return (
-    <div
-      onMouseEnter={() => setOpen(true)}
-      onMouseLeave={() => setOpen(false)}
-      className="relative h-fit w-fit"
-    >
-      <Link to={href} className="relative">
-        {children}
-        <span
-          style={{
-            transform: showFlyout ? "scaleX(1)" : "scaleX(0)",
-          }}
-        />
-      </Link>
+      <Link to="/blog">{t("Blog")}</Link>
+      <Link to="/contact">{t("Contact")}</Link>
     </div>
   );
 };
@@ -112,7 +81,11 @@ const MobileMenu = () => {
   const [open, setOpen] = useState(false);
   const { t } = useTranslation();
   return (
-    <div className="block lg:hidden">
+    <div className="md:block lg:hidden flex">
+      <div className="mx-3">
+        <CTAs />
+      </div>
+
       <button onClick={() => setOpen(true)} className="block text-3xl">
         <FiMenu />
       </button>
@@ -143,15 +116,17 @@ const MobileMenu = () => {
             <div className="h-screen overflow-y-scroll bg-[#D4D4D4] p-6">
               <div
                 onClick={() => setOpen(false)}
-                className="flex flex-col items-center gap-2 text-3xl font-semibold "
+                className="flex flex-col items-center"
               >
-                <NavLink href="/">{t("Home")}</NavLink>
-                <a href="#about">{t("About")}</a>
-                <a href="#services">{t("Services")}</a>
-                <NavLink href="/portfolio">{t("Portfolio")}</NavLink>
-                <a href="#clients">{t("Clients")}</a>
-                <NavLink href="/blog">{t("Blog")}</NavLink>
-                <NavLink href="/contact">{t("Contact")}</NavLink>
+                <div className="flex flex-col gap-3 text-3xl font-semibold tracking-wider text-center ">
+                  <Link to="/">{t("Home")}</Link>
+                  <a href="#about">{t("About")}</a>
+                  <a href="#services">{t("Services")}</a>
+                  <Link to="/portfolio">{t("Portfolio")}</Link>
+                  <a href="#clients">{t("Clients")}</a>
+                  <Link to="/blog">{t("Blog")}</Link>
+                  <Link to="/contact">{t("Contact")}</Link>
+                </div>
               </div>
             </div>
           </motion.nav>

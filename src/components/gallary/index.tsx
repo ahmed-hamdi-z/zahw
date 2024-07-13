@@ -32,10 +32,10 @@ const Gallery: FC = () => {
           if (i < images.length - 1) {
             return { img: images[i + 1], i: i + 1 };
           } else {
-            return { img: images[0], i: 0 }; // loop back to the first image
+            return { img: images[0], i: 0 }; 
           }
         });
-      }, 3000); // change image every 3 seconds
+      }, 3000); 
     }
     return () => {
       if (interval) {
@@ -46,7 +46,7 @@ const Gallery: FC = () => {
 
   const viewImage = useCallback((img: string, i: number) => {
     setData({ img, i });
-    setIsPlaying(false); // stop autoplay when an image is manually selected
+    setIsPlaying(false); 
   }, []);
 
   const imgAction = useCallback((action: string) => {
@@ -61,7 +61,7 @@ const Gallery: FC = () => {
       }
       return prevData;
     });
-    setIsPlaying(false); // stop autoplay when image is manually changed
+    setIsPlaying(false); 
   }, [images]);
 
   const galleryItems = useMemo(() => (
@@ -97,7 +97,7 @@ const Gallery: FC = () => {
       if (document.documentElement.requestFullscreen) {
         document.documentElement.requestFullscreen();
      
-      } else if (document.documentElement.requestFullscreen) { /* Chrome, Safari and Opera */
+      } else if (document.documentElement.requestFullscreen) {
         document.documentElement.requestFullscreen();
  
       }
@@ -105,7 +105,7 @@ const Gallery: FC = () => {
       if (document.exitFullscreen) {
         document.exitFullscreen();
 
-      } else if (document.exitFullscreen) { /* Chrome, Safari and Opera */
+      } else if (document.exitFullscreen) {
         document.exitFullscreen();
       }
     }

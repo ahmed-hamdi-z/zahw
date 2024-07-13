@@ -50,17 +50,14 @@ const ContactForm: React.FC = () => {
       </button>
 
       {isOpen && (
-        <div className="fixed inset-0 flex items-center justify-center z-50">
-          <div className="fixed inset-0 bg-gray-600 bg-opacity-50" onClick={toggleForm}></div>
-          <div className="bg-white rounded-lg shadow-lg p-8 w-full max-w-md relative z-10" onClick={(e) => e.stopPropagation()}>
-            <h2 className="text-2xl mb-6 text-center text-black">{t("Welcome To Zahw")}</h2>
+        <div className="fixed inset-0 flex items-center justify-center  z-50">
+          <div className="fixed inset-0  bg-opacity-50 " onClick={toggleForm}></div>
+          <div className="bg-white rounded-lg shadow-lg p-2 w-1/4 relative h-[65vh] " onClick={(e) => e.stopPropagation()}>
+            <h2 className="text-2xl mb-6 text-center text-[#764095]">{t("Welcome To Zahw")}</h2>
             <p className="mb-6 text-center text-gray-600">{t("submit form")}</p>
-            <form ref={form} onSubmit={sendEmail} className="w-full">
-              <motion.div variants={primaryVariants} className="mb-2 w-full">
-                <label className="mb-1 inline-block text-sm font-medium">
-                  {t("full name")}
-                  <span className="text-red-600">*</span>
-                </label>
+            <form ref={form} onSubmit={sendEmail} className="w-full ">
+              <motion.div  className="mb-2 w-full">
+               
                 <input
                   id="name-input"
                   name="user_name"
@@ -72,10 +69,7 @@ const ContactForm: React.FC = () => {
               </motion.div>
 
               <motion.div variants={primaryVariants} className="mb-2 w-full">
-                <label className="mb-1 inline-block text-sm font-medium">
-                  {t("ُEmail")}
-                  <span className="text-red-600">*</span>
-                </label>
+             
                 <input
                   id="email-input"
                   name="user_email"
@@ -87,10 +81,7 @@ const ContactForm: React.FC = () => {
               </motion.div>
 
               <motion.div variants={primaryVariants} className="mb-4 w-full">
-                <label className="mb-1 inline-block text-sm font-medium">
-                  {t("phone number")}
-                  <span className="text-red-600">*</span>
-                </label>
+               
                 <input
                   id="Mobile-number-input"
                   type="number"
@@ -99,25 +90,23 @@ const ContactForm: React.FC = () => {
                   required
                 />
 
-                <label className="mb-1 inline-block text-sm font-medium mt-2">
-                  {t("Message")} <span className="text-red-600">*</span>
-                </label>
+                
                 <input
                   id="message"
                   name="message"
                   type="text"
                   placeholder="Enter Your Message"
-                  className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-[#764095] h-40 placeholder:text-ellipsis"
+                  className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-[#764095] mt-2 h-20 placeholder:text-ellipsis"
                   required
                 />
               </motion.div>
 
-              <motion.div variants={primaryVariants} className="mb-4 flex w-full items-start gap-1.5"></motion.div>
+              <motion.div variants={primaryVariants} className=" flex w-full items-start "></motion.div>
 
               <input
                 value={t("Send")}
                 type="submit"
-                className="mb-1.5 w-full rounded bg-[#764095] px-4 py-2 text-center font-medium text-white transition-colors hover:bg-indigo-700"
+                className="py-1 px-2 rounded bg-[#764095]  text-center font-medium text-white transition-colors hover:bg-[#764095]"
               />
             </form>
             {message && (
@@ -126,7 +115,7 @@ const ContactForm: React.FC = () => {
               <p className="text-lg font-semibold mb-2">{message}</p>
               <button
                 onClick={() => setMessage(null)}
-                className="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700"
+                className="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-[#764095]s"
               >
                 {t("Close")}
               </button>

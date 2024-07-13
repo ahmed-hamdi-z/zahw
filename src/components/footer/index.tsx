@@ -1,14 +1,14 @@
 // Dependencies
 import { FC } from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
-import {
-  FaSnapchat,
-  FaInstagram,
-  FaTiktok,
-  FaLinkedinIn,
-  // FaPhone,
-} from "react-icons/fa";
+// import { Link } from "react-router-dom";
+// import {
+//   FaSnapchat,
+//   FaInstagram,
+//   FaTiktok,
+//   FaLinkedinIn,
+//   // FaPhone,
+// } from "react-icons/fa";
 // import { MdOutlineEmail } from "react-icons/md";
 
 const Footer:FC = ()=>{
@@ -18,7 +18,7 @@ const Footer:FC = ()=>{
   return (
     <footer className="w-100 h-auto text-center  flex flex-col items-center justify-between  bg-[#D4D4D4] text-[#764095]"> 
        <div className="max-w-4xl mx-auto my-10 ">
-          <ul className="flex flex-row  gap-1 w-auto h-auto items-center justify-center ">
+          {/* <ul className="flex flex-row  gap-1 w-auto h-auto items-center justify-center ">
             <li className=" w-12 h-8 rounded-full text-white bg-[#764095]  place-content-center flex items-center cursor-pointer ">
               <Link to="https://www.snapchat.com/add/zahwinterior?share_id=7_pyxZ1f_40&locale=en-US">
                 <FaSnapchat />
@@ -51,7 +51,7 @@ const Footer:FC = ()=>{
                 <MdOutlineEmail />
               </Link>
             </li> */}
-          </ul> 
+          {/* </ul>   */}
           <h1 className="mt-4" >  {t("All rights reserved")} </h1>
         </div>
    
