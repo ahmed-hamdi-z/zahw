@@ -14,9 +14,9 @@ const CountUpStats: FC = () => {
 
       <Link
         to="/contact"
-        className="flex items-center my-5 border-2 border-[#764095] text-2xl px-9 py-2 font-semibold text-[#764095] transition-colors hover:bg-white hover:text-black"
+        className="flex items-center my-5 border-2  px-2 py-1 text-xl font-semibold border-[#764095] text-[#764095]  transition-colors hover:bg-[#764095] hover:text-white"
       >
-        <span>{t("Consultation")}</span>
+        <span>{t("Talk to us for more information")}</span>
       </Link>
  
 

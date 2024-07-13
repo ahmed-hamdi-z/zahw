@@ -15,25 +15,30 @@ const MainNavbar: FC = () => {
 
 const FlyoutNav = () => {
   return (
-    <nav className="fixed top-0 z-50 w-full px-2 text-lg text-[#764095] bg-[#fff] shadow-xl ">
-      <div className="mx-auto flex max-w-7xl items-center justify-between">
+    <nav className="fixed top-0 z-50 w-full text-lg text-[#764095] bg-[#fff] shadow-xl">
+    <div className="mx-auto flex max-w-7xl items-center justify-between">
+      <div className="inline-flex items-center">
         <Logo />
-        <div className="hidden gap-10 lg:flex">
-          <Links />
-          <div>
-            <LanguagesBtn />
-          </div>
-          <CTAs />
-        </div>
+        <h1 className="font-bold tracking-wider text-2xl pb-2">زهـــو</h1>
+      </div>
+      <div className="hidden lg:flex lg:justify-center lg:flex-1">
+        <Links />
+      </div>
+      <div className="hidden lg:flex lg:items-center lg:space-x-4">
+        <LanguagesBtn />
+        <CTAs />
+      </div>
+      <div className="lg:hidden">
         <MobileMenu />
       </div>
-    </nav>
+    </div>
+  </nav>
   );
 };
 
 const Logo = ({ color = "white" }: { color?: string }) => {
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex items-center ">
       <span className="text-2xl font-bold w-16 h-16" style={{ color }}>
         <img src="/images/logo.png" />
       </span>
@@ -45,12 +50,12 @@ const Links = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="flex items-center gap-2 font-semibold">
+    <div className="flex items-center gap-2.5 font-semibold">
       <Link to="/">{t("Home")}</Link>
       <a href="/#about">{t("About")}</a>
-      <a href="#services">{t("Services")}</a>
+      <a href="/#services">{t("Services")}</a>
       <Link to="/portfolio">{t("Portfolio")}</Link>
-      <a href="#clients">{t("Clients")}</a>
+      <a href="/#clients">{t("Clients")}</a>
       <Link to="/blog">{t("Blog")}</Link>
       <Link to="/contact">{t("Contact")}</Link>
     </div>
@@ -83,7 +88,12 @@ const MobileMenu = () => {
   return (
     <div className="md:block lg:hidden flex">
       <div className="mx-3">
-        <CTAs />
+      <Link
+        to="/contact"
+        className="md:hidden border-2 px-2 py-1 font-semibold border-[#764095] text-[#764095] transition-colors hover:bg-[#764095] hover:text-white"
+      >
+        {t("Contact")}
+      </Link>
       </div>
 
       <button onClick={() => setOpen(true)} className="block text-3xl">
@@ -107,7 +117,12 @@ const MobileMenu = () => {
                 <div>
                   <LanguagesBtn />
                 </div>
-                <CTAs />
+                <Link
+        to="/contact"
+        className="border-2 px-2 py-1 font-semibold border-[#764095] text-[#764095] transition-colors hover:bg-[#764095] hover:text-white"
+      >
+        {t("Contact")}
+      </Link>
               </div>
               <button onClick={() => setOpen(false)}>
                 <FiX className="text-3xl text-neutral-950" />
@@ -120,10 +135,10 @@ const MobileMenu = () => {
               >
                 <div className="flex flex-col gap-3 text-3xl font-semibold tracking-wider text-center ">
                   <Link to="/">{t("Home")}</Link>
-                  <a href="#about">{t("About")}</a>
-                  <a href="#services">{t("Services")}</a>
+                  <a href="/#about">{t("About")}</a>
+                  <a href="/#services">{t("Services")}</a>
                   <Link to="/portfolio">{t("Portfolio")}</Link>
-                  <a href="#clients">{t("Clients")}</a>
+                  <a href="/#clients">{t("Clients")}</a>
                   <Link to="/blog">{t("Blog")}</Link>
                   <Link to="/contact">{t("Contact")}</Link>
                 </div>

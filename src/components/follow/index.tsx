@@ -18,7 +18,7 @@ const images = [
 const FollowUS: FC = () => {
   return (
     <>
-      <div className="flex flex-col items-center justify-center ">
+      <div className="flex flex-col items-center justify-center p-2 ">
         <div className="w-full p-3">
            <HeadingSeparator title="Instagram" />
         </div>

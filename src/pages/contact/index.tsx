@@ -2,7 +2,6 @@ import emailjs from "@emailjs/browser";
 import { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 
-
 const Contact = () => {
   const { t } = useTranslation();
   const [message, setMessage] = useState<string | null>(null);
@@ -31,47 +30,65 @@ const Contact = () => {
     }
   };
   return (
-    <div className="  mx-auto xl:w-2/4 md:w-2/4 w-2/3 mt-24 mb-10 ">
-      <div className="w-full flex flex-col justify-center items-center ">
-        <form className="w-full  " ref={form} onSubmit={sendEmail}>
-          <label className="mb-1 inline-block text-sm font-medium">{t("full name")}</label>
+    <div className="bg-[#D4D4D4] ">
+
+    <div className="  mx-auto xl:w-1/3 md:w-3/4 w-4/5 pt-20 ">
+      <div className="flex flex-col items-center justify-center w-full md:w-[40vw] md:m-5 mb-2 " >
+        {" "}
+        <h3 className="md:ml-[-20vw] rtl:hidden text-[#764095] font-normal text-lg">{t("Want to work with us")}</h3>
+        <h1 className="md:ml-[-20vw] rtl:hidden  mt-3 font-bold text-[#764095] text-xl text-justify">
+        {t("We offer you all the options that suit your needs, ready to serve you")}
+        </h1>
+      </div>
+
+      <div className="w-full  ">
+        <form
+          className=" flex flex-col gap-2 "
+          ref={form}
+          onSubmit={sendEmail}
+        >
+          <label className="mb-1 inline-block text-sm font-medium text-[#764095]">
+            {t("full name")}
+          </label>
           <input
-            className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-indigo-600"
             type="text"
             name="user_name"
             placeholder={t("full name")}
+            className="bg-[#764095] bg-opacity-80 active:border-2 active:border-[#764095] outline-[#764095] text-white placeholder:text-white p-2.5 mb-2 flex-1 placeholder:rtl:text-right"
+            required
           />
-          <label className="mb-1 inline-block text-sm font-medium">
-          {t("phone number")}
+          <label className="mb-1 inline-block text-sm font-medium text-[#764095]">
+            {t("phone number")}
           </label>
           <input
-            className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-indigo-600"
             type="number"
             name="user_number"
             placeholder={t("phone number")}
+            className="bg-[#764095] bg-opacity-80 active:border-2 active:border-[#764095] outline-[#764095] text-white placeholder:text-white p-2.5 mb-2 flex-1 placeholder:rtl:text-right"
+            required
           />
-          <label className=" mb-1 inline-block text-sm font-medium">
-          {t("ُEmail")}
+          <label className=" mb-1 inline-block text-sm font-medium text-[#764095]">
+            {t("ُEmail")}
           </label>
           <input
-            className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-indigo-600"
             type="email"
             name="user_email"
             placeholder={t("ُEmail")}
+            className="bg-[#764095] bg-opacity-80 active:border-2 active:border-[#764095] outline-[#764095] text-white placeholder:text-white p-2.5 mb-2 flex-1 placeholder:rtl:text-right"
           />
 
-          <h3 className="my-3 ml-3 font-bold"> {t("Request Type")}</h3>
-          <div className="grid grid-cols-2 gap-y-4 mt-4  ">
+          <h3 className="ml-3 font-bold text-[#764095]"> {t("Request Type")}</h3>
+          <div className="grid grid-cols-2 gap-y-4 mt-2  ">
             <div className="flex gap-2 justify-center items-center">
               <input
                 id="bordered-checkbox-1"
                 type="checkbox"
                 value=""
                 name="bordered-checkbox"
-                className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300  outline-[#764095] focus:outline-[#764095]"
               />
-              <label className="w-full  text-sm font-medium text-gray-900 dark:text-gray-300">
-              {t("Quotation")}
+              <label className="w-full  text-sm font-medium text-[#764095] ">
+                {t("Quotation")}
               </label>
             </div>
 
@@ -81,11 +98,10 @@ const Contact = () => {
                 type="checkbox"
                 value=""
                 name="bordered-checkbox"
-                className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300  outline-[#764095] focus:outline-[#764095]"
               />
-              <label className="w-full  text-sm font-medium text-gray-900 dark:text-gray-300">
-              {t("Visit")}
-
+              <label className="w-full  text-sm font-medium text-[#764095] ">
+                {t("Visit")}
               </label>
             </div>
 
@@ -95,10 +111,10 @@ const Contact = () => {
                 type="checkbox"
                 value=""
                 name="bordered-checkbox"
-                className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300  outline-[#764095] focus:outline-[#764095]"
               />
-              <label className="w-full text-sm font-medium text-gray-900 dark:text-gray-300">
-              {t("Talk to Customer Service")}
+              <label className="w-full text-sm font-medium text-[#764095] ">
+                {t("Talk to Customer Service")}
               </label>
             </div>
 
@@ -108,26 +124,27 @@ const Contact = () => {
                 type="checkbox"
                 value=""
                 name="bordered-checkbox"
-                className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300  outline-[#764095] focus:outline-[#764095]"
               />
-              <label className="w-full  text-sm font-medium text-gray-900 dark:text-gray-300">
-              {t("Consultation-con")}
-              {" "}
+              <label className="w-full  text-sm font-medium text-[#764095] ">
+                {t("Consultation-con")}{" "}
               </label>
             </div>
           </div>
-          <h3 className="my-3 ml-3 font-bold">{t("Preferred Time To Contact")}</h3>
-          <div className="grid grid-cols-2 gap-y-4  mt-4  ">
+          <h3 className="my-3 ml-3 font-bold text-[#764095]">
+            {t("Preferred Time To Contact")}
+          </h3>
+          <div className="grid grid-cols-2 gap-y-4  mt-2  ">
             <div className="flex gap-2 justify-center items-center">
               <input
                 id="bordered-checkbox-1"
                 type="checkbox"
                 value=""
                 name="bordered-checkbox"
-                className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300  outline-[#764095] focus:outline-[#764095]"
               />
-              <label className="w-full  text-sm font-medium text-gray-900 dark:text-gray-300">
-              {t("07:00 AM - 12:00 PM")}
+              <label className="w-full  text-sm font-medium text-[#764095] ">
+                {t("07:00 AM - 12:00 PM")}
               </label>
             </div>
 
@@ -137,10 +154,10 @@ const Contact = () => {
                 type="checkbox"
                 value=""
                 name="bordered-checkbox"
-                className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300  outline-[#764095] focus:outline-[#764095]"
               />
-              <label className="w-full  text-sm font-medium text-gray-900 dark:text-gray-300">
-              {t("08:00 PM - 10:00 PM")}
+              <label className="w-full  text-sm font-medium text-[#764095] ">
+                {t("08:00 PM - 10:00 PM")}
               </label>
             </div>
 
@@ -150,10 +167,10 @@ const Contact = () => {
                 type="checkbox"
                 value=""
                 name="bordered-checkbox"
-                className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300  outline-[#764095] focus:outline-[#764095]"
               />
-              <label className="w-full  text-sm font-medium text-gray-900 dark:text-gray-300">
-              {t("12:00 PM - 4:00 PM")}
+              <label className="w-full  text-sm font-medium text-[#764095] ">
+                {t("12:00 PM - 4:00 PM")}
               </label>
             </div>
 
@@ -163,34 +180,37 @@ const Contact = () => {
                 type="checkbox"
                 value=""
                 name="bordered-checkbox"
-                className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300  outline-[#764095]"
               />
-              <label className="w-full  text-sm font-medium text-gray-900 dark:text-gray-300">
-              {t("04:00 PM - 08:00 PM")}
+              <label className="w-full  text-sm font-medium text-[#764095] ">
+                {t("04:00 PM - 08:00 PM")}
               </label>
             </div>
           </div>
-          <label className="my-3 ml-3 inline-block text-sm font-bold">
-          {t("Notes With The Request")}
+          <label className="my-3 ml-3 inline-block text-sm font-bold text-[#764095]">
+            {t("Notes With The Request")}
           </label>
           <textarea
-            className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-indigo-600 h-40 placeholder:text-ellipsis"
+            placeholder={t("Message")}
+            className="bg-[#764095] bg-opacity-80 active:border-2 active:border-[#764095]  outline-[#764095] h-[20vh] text-white placeholder:text-white p-2 w-full  placeholder:rtl:text-right"
+            rows={5}
             name="message"
+            required
           />
           <input
-            className="mt-3 w-full  rounded bg-indigo-600 px-4 py-2 text-center font-medium text-white transition-colors hover:bg-indigo-700"
+            className="mt-3 w-full   bg-[#764095] px-4 py-2 text-center font-medium text-white transition-colors hover:bg-indigo-700"
             type="submit"
             value={t("Send")}
           />
         </form>
         {/* Pop-up message */}
         {message && (
-          <div className="absolute text-black left-0 right-0 bottom-0 flex items-center justify-center bg-gray-800 bg-opacity-50">
-            <div className="bg-white text-black  p-6 rounded-lg shadow-lg">
+          <div className="absolute text-[#764095] left-0 right-0 bottom-0 flex items-center justify-center bg-gray-800 bg-opacity-50">
+            <div className="bg-white text-[#764095]  p-6 -lg shadow-lg">
               <p className="text-lg font-semibold mb-2">{message}</p>
               <button
                 onClick={() => setMessage(null)}
-                className="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700"
+                className="bg-[#764095] text-white px-4 py-2 -md hover:bg-indigo-700"
               >
                 {t("Close")}
               </button>
@@ -198,6 +218,8 @@ const Contact = () => {
           </div>
         )}
       </div>
+    </div>
+          
     </div>
   );
 };

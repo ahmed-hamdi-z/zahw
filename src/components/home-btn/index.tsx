@@ -16,7 +16,7 @@ const HomeBtn: FC = () => {
           to="/contact"
           className="border-2 md:text-3xl text-2x1 px-6 py-2 font-semibold border-[#764095] text-[#764095] transition-colors hover:bg-[#764095] hover:text-white"
         >
-          {t("Contact")}
+          {t("Get Quotation")}
         </Link>
       </div>
     );

@@ -29,7 +29,7 @@ export const Post = ({ id, imgUrl, title, description }: PostType) => {
 
   return (
     <>
-      <Link
+      <Link 
         to={`/details/${id}`}
         key={id}
         className="relative shrink-0 cursor-pointer transition-transform hover:-translate-y-1"

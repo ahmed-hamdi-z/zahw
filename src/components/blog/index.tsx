@@ -104,7 +104,8 @@ const Post = ({ id, imgUrl, title, description }: PostType) => {
   const { t } = useTranslation();
 
   return (
-    <Link
+    <>
+    <Link 
       to={`/details/${id}`}
       key={id}
       className="relative shrink-0 cursor-pointer transition-transform hover:-translate-y-1"
@@ -119,8 +120,11 @@ const Post = ({ id, imgUrl, title, description }: PostType) => {
         alt={`An image for a fake blog post titled ${title}`}
       />
       <p className="mt-2 text-lg font-medium">{t(title)}</p>
-      <p className="text-sm mt-2 text-neutral-500 h-5">{t(description)}</p>
+      <p className="text-sm mt-2 text-neutral-500 max-h-30 line-clamp-6">
+        {t(description)}
+      </p>
     </Link>
+  </>
   );
 };
 

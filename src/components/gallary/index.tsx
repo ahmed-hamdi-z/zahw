@@ -12,6 +12,20 @@ interface ImageData {
   i: number;
 }
 
+declare global {
+  interface Document {
+    mozCancelFullScreen?: () => Promise<void>;
+    webkitExitFullscreen?: () => Promise<void>;
+    msExitFullscreen?: () => Promise<void>;
+  }
+
+  interface HTMLElement {
+    mozRequestFullScreen?: () => Promise<void>;
+    webkitRequestFullscreen?: () => Promise<void>;
+    msRequestFullscreen?: () => Promise<void>;
+  }
+}
+
 const Gallery: FC = () => {
   const [data, setData] = useState<ImageData>({ img: "", i: 0 });
   const [images, setImages] = useState<string[]>([]);
@@ -92,26 +106,35 @@ const Gallery: FC = () => {
     ))
   ), [images, data.i, viewImage]);
 
-  const toggleFullscreen = () => {
-    if (!isFullscreen) {
-      if (document.documentElement.requestFullscreen) {
-        document.documentElement.requestFullscreen();
-     
-      } else if (document.documentElement.requestFullscreen) {
-        document.documentElement.requestFullscreen();
- 
-      }
-    } else {
-      if (document.exitFullscreen) {
-        document.exitFullscreen();
 
-      } else if (document.exitFullscreen) {
-        document.exitFullscreen();
-      }
+
+const toggleFullscreen = () => {
+  const element = document.documentElement;
+
+  if (!isFullscreen) {
+    if (element.requestFullscreen) {
+      element.requestFullscreen();
+    } else if (element.mozRequestFullScreen) { // Firefox
+      element.mozRequestFullScreen();
+    } else if (element.webkitRequestFullscreen) { // Chrome, Safari and Opera
+      element.webkitRequestFullscreen();
+    } else if (element.msRequestFullscreen) { // IE/Edge
+      element.msRequestFullscreen();
     }
-    setIsFullscreen(!isFullscreen);
-  };
+  } else {
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.mozCancelFullScreen) { // Firefox
+      document.mozCancelFullScreen();
+    } else if (document.webkitExitFullscreen) { // Chrome, Safari and Opera
+      document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) { // IE/Edge
+      document.msExitFullscreen();
+    }
+  }
 
+  setIsFullscreen(!isFullscreen);
+};
   const { t } = useTranslation();
   return (
     <>
@@ -173,12 +196,15 @@ const Gallery: FC = () => {
             {galleryItems}
           </Masonry>
         </ResponsiveMasonry>
-        <Link
+        <div className="mt-4 flex items-center justify-center">
+     <Link
           to="/portfolio"
-          className="flex items-center justify-center gap-2 border-2  w-52 h-10 px-4 py-2 mx-auto mt-5 font-semibold border-[#764095] text-[#764095] transition-colors hover:bg-[#764095] hover:text-white"
+          className=" border-2 px-2 py-1 font-semibold border-[#764095] text-[#764095] transition-colors hover:bg-[#764095] hover:text-white"
         >
           <span>{t("Explore All Projects")}</span>
-        </Link>
+        </Link>     
+        </div>
+        
       </div>
     </>
   );

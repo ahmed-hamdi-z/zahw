@@ -52,7 +52,7 @@ const ContactForm: React.FC = () => {
       {isOpen && (
         <div className="fixed inset-0 flex items-center justify-center  z-50">
           <div className="fixed inset-0  bg-opacity-50 " onClick={toggleForm}></div>
-          <div className="bg-white rounded-lg shadow-lg p-2 w-1/4 relative h-[65vh] " onClick={(e) => e.stopPropagation()}>
+          <div className="bg-white rounded-lg shadow-lg p-2 md:w-1/4 w-2/4 relative md:h-[70vh] h-auto " onClick={(e) => e.stopPropagation()}>
             <h2 className="text-2xl mb-6 text-center text-[#764095]">{t("Welcome To Zahw")}</h2>
             <p className="mb-6 text-center text-gray-600">{t("submit form")}</p>
             <form ref={form} onSubmit={sendEmail} className="w-full ">
@@ -95,7 +95,7 @@ const ContactForm: React.FC = () => {
                   id="message"
                   name="message"
                   type="text"
-                  placeholder="Enter Your Message"
+                  placeholder={t("Enter Your Message")}
                   className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-[#764095] mt-2 h-20 placeholder:text-ellipsis"
                   required
                 />

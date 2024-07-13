@@ -1,5 +1,5 @@
 // Dependencies
-import { FC, lazy } from "react";
+import { FC, lazy, useEffect  } from "react";
 
 // React Router
 import { Outlet } from "react-router-dom";
@@ -13,6 +13,8 @@ import WhatsAppIcon from "@/components/whatsapp-icon";
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 import HomeBtn from "@/components/home-btn";
+
+import { useLocation } from 'react-router-dom';
 
 // Components
 const SwipeCarousel = lazy(() => import("@/components/carousel"));
@@ -32,6 +34,16 @@ const LayoutStructure: FC = () => {
   const { direction, language } = useSelector(
     (state: RootState) => state.settings
   );
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const element = document.getElementById(location.hash.substring(1));
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [location]);
 
   return (
     <>
