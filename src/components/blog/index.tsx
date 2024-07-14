@@ -54,7 +54,7 @@ const Blog = () => {
   };
 
   return (
-    <section className="bg-white pb-8 rtl:text-end w-full flex flex-row items-center justify-center " ref={ref}>
+    <section className="bg-white pb-8 rtl:text-end w-full flex flex-row items-center justify-center rtl:font-bien " ref={ref}>
       <div className="w-9/12">
  
       <div className="relative overflow-hidden p-4">

@@ -64,8 +64,10 @@
   "Enter Your Message":"رسالتــك",
   "Talk to us for more information":"تحدث إلينا للمزيد من المعلومات",
   "Get Quotation": "طلب عرض سعر",
-   "We offer you all the options that suit your needs, ready to serve you":"نقدم لك كافة الخيارات التي تناسب احتياجاتك، جاهزة لخدمتك"
-
+   "We offer you all the options that suit your needs, ready to serve you":"نقدم لك كافة الخيارات التي تناسب احتياجاتك، جاهزة لخدمتك",
+  "Send us your inquiry now and we will respond to you as quickly as possible":"أرسل لنا إستفسارك الآن وسيتم الرد عليك في أقرب وقت ممكن",
+ "address":"العنوان",
+ "phon": "الجوال"
 
 
 }

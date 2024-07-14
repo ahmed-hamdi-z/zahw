@@ -1,10 +1,9 @@
 import React, { FC, useState, useEffect, useCallback, useMemo } from "react";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
-import { FaArrowRight, FaArrowLeft, FaPlay, FaPause, FaExpand, FaCompress } from "react-icons/fa";
+import { FaArrowRight, FaArrowLeft, FaPlay, FaPause, FaExpand, FaCompress, FaSearchPlus, FaSearchMinus } from "react-icons/fa";
 import { IoCloseSharp } from "react-icons/io5";
 import imagesData from './images.json';
 import { useTranslation } from "react-i18next";
-
 
 type ImageCategories = 'all' | 'residential' | 'commercial';
 
@@ -14,6 +13,7 @@ const Gallery: FC = () => {
   const [activeTab, setActiveTab] = useState<ImageCategories>('all');
   const [isPlaying, setIsPlaying] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [zoomLevel, setZoomLevel] = useState(1);
   const { t } = useTranslation();
 
   useEffect(() => {
@@ -45,6 +45,7 @@ const Gallery: FC = () => {
   const viewImage = useCallback((img: string, i: number) => {
     setData({ img, i });
     setIsPlaying(false); 
+    setZoomLevel(1); // Reset zoom level when viewing a new image
   }, []);
 
   const imgAction = useCallback((action: string) => {
@@ -60,6 +61,7 @@ const Gallery: FC = () => {
       return prevData;
     });
     setIsPlaying(false); 
+    setZoomLevel(1); // Reset zoom level when closing the image
   }, [images]);
 
   const galleryItems = useMemo(() => (
@@ -67,7 +69,7 @@ const Gallery: FC = () => {
       <img
         key={i}
         src={image}
-        className="xl:w-80 md:w-80 w-auto h-80 block cursor-pointer rounded-md transition-transform md:transition-opacity duration-300 ease-in-out transform hover:scale-95 hover:opacity-50"
+        className="xl:w-80 md:w-80 w-auto  h-80 block cursor-pointer rounded-md transition-transform md:transition-opacity duration-300 ease-in-out transform hover:scale-95 hover:opacity-50"
         alt={`Gallery item ${i}`}
         onClick={() => viewImage(image, i)}
         loading="lazy"
@@ -90,34 +92,39 @@ const Gallery: FC = () => {
     ))
   ), [images, data.i, viewImage]);
 
-
-
   const toggleFullscreen = () => {
     const element = document.documentElement;
   
     if (!isFullscreen) {
       if (element.requestFullscreen) {
         element.requestFullscreen();
-      } else if (element.mozRequestFullScreen) { // Firefox
+      } else if (element.mozRequestFullScreen) {
         element.mozRequestFullScreen();
-      } else if (element.webkitRequestFullscreen) { // Chrome, Safari and Opera
+      } else if (element.webkitRequestFullscreen) {
         element.webkitRequestFullscreen();
-      } else if (element.msRequestFullscreen) { // IE/Edge
+      } else if (element.msRequestFullscreen) {
         element.msRequestFullscreen();
       }
     } else {
       if (document.exitFullscreen) {
         document.exitFullscreen();
-      } else if (document.mozCancelFullScreen) { // Firefox
+      } else if (document.mozCancelFullScreen) {
         document.mozCancelFullScreen();
-      } else if (document.webkitExitFullscreen) { // Chrome, Safari and Opera
+      } else if (document.webkitExitFullscreen) {
         document.webkitExitFullscreen();
-      } else if (document.msExitFullscreen) { // IE/Edge
+      } else if (document.msExitFullscreen) {
         document.msExitFullscreen();
       }
     }
-  
     setIsFullscreen(!isFullscreen);
+  };
+
+  const zoomIn = () => {
+    setZoomLevel(prevZoom => Math.min(prevZoom + 0.1, 3)); // Cap zoom level at 3
+  };
+
+  const zoomOut = () => {
+    setZoomLevel(prevZoom => Math.max(prevZoom - 0.1, 1)); // Minimum zoom level at 1
   };
 
   return (
@@ -146,6 +153,7 @@ const Gallery: FC = () => {
             src={data.img}
             className="w-auto max-w-[90%] max-h-[70%]"
             alt="Enlarged view"
+            style={{ transform: `scale(${zoomLevel})` }}
           />
           <button
             onClick={() => imgAction('next-img')}
@@ -171,9 +179,23 @@ const Gallery: FC = () => {
           >
             {isFullscreen ? <FaCompress /> : <FaExpand />}
           </button>
+          <button
+            onClick={zoomIn}
+            className="text-white text-2xl mt-5 absolute top-0 left-32"
+            aria-label="Zoom In"
+          >
+            <FaSearchPlus />
+          </button>
+          <button
+            onClick={zoomOut}
+            className="text-white text-2xl mt-5 absolute top-0 left-40"
+            aria-label="Zoom Out"
+          >
+            <FaSearchMinus />
+          </button>
         </div>
       )}
-      <div className="tabs flex flex-wrap items-center justify-center space-x-4 mb-4 mt-24 h-auto">
+      <div className="tabs flex rtl:font-bien flex-wrap items-center justify-center space-x-4 mb-4 mt-24 h-auto">
         <button
           className={`md:mt-2 mt-2 px-4 md:px-5 py-2 md:py-3 rounded bg-[#764095] rtl:ml-3 text-white transition-colors ${activeTab === 'all' ? 'bg-blue-500 text-white' : ''}`}
           onClick={() => setActiveTab('all')}
@@ -199,7 +221,6 @@ const Gallery: FC = () => {
             {galleryItems}
           </Masonry>
         </ResponsiveMasonry>
-       
       </div>
     </>
   );

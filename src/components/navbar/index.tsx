@@ -14,12 +14,14 @@ const MainNavbar: FC = () => {
 };
 
 const FlyoutNav = () => {
+  const { t } = useTranslation();
+
   return (
-    <nav className="fixed top-0 z-50 w-full text-lg text-[#764095] bg-[#fff] shadow-xl">
+    <nav className="fixed top-0 z-50 w-full text-lg text-[#764095] bg-[#fff] shadow-xl" id="nav">
     <div className="mx-auto flex max-w-7xl items-center justify-between">
       <div className="inline-flex items-center">
         <Logo />
-        <h1 className="font-bold tracking-wider text-2xl pb-2">زهـــو</h1>
+        <h1 className="font-bold tracking-wider text-2xl pb-2 rtl:font-bien">{t("Zahw")}</h1>
       </div>
       <div className="hidden lg:flex lg:justify-center lg:flex-1">
         <Links />
@@ -40,7 +42,9 @@ const Logo = ({ color = "white" }: { color?: string }) => {
   return (
     <div className="flex items-center ">
       <span className="text-2xl font-bold w-16 h-16" style={{ color }}>
+        <a href="/#top"> 
         <img src="/images/logo.png" />
+        </a>
       </span>
     </div>
   );
@@ -50,7 +54,7 @@ const Links = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="flex items-center gap-2.5 font-semibold">
+    <div className="flex items-center gap-2.5 font-semibold rtl:font-bien ">
       <Link to="/">{t("Home")}</Link>
       <a href="/#about">{t("About")}</a>
       <a href="/#services">{t("Services")}</a>
@@ -68,13 +72,13 @@ const CTAs = () => {
     <div className="flex items-center gap-2">
       <Link
         to="/contact"
-        className="items-center gap-2 border-2 border-[#764095] px-2 py-1 font-semibold text-[#764095] transition-colors hover:bg-[#764095] hover:text-white hidden md:block"
+        className="items-center gap-2 border-2 rtl:font-bien border-[#764095] px-2 py-1 font-semibold text-[#764095] transition-colors hover:bg-[#764095] hover:text-white hidden md:block"
       >
         <span>{t("Consultation")}</span>
       </Link>
       <Link
         to="/contact"
-        className="border-2 px-2 py-1 font-semibold border-[#764095] text-[#764095] transition-colors hover:bg-[#764095] hover:text-white"
+        className="border-2 px-2 py-1 font-semibold rtl:font-bien border-[#764095] text-[#764095] transition-colors hover:bg-[#764095] hover:text-white"
       >
         {t("Contact")}
       </Link>
@@ -90,7 +94,7 @@ const MobileMenu = () => {
       <div className="mx-3">
       <Link
         to="/contact"
-        className="md:hidden border-2 px-2 py-1 font-semibold border-[#764095] text-[#764095] transition-colors hover:bg-[#764095] hover:text-white"
+        className="md:hidden border-2 px-2 py-1 rtl:font-bien font-semibold border-[#764095] text-[#764095] transition-colors hover:bg-[#764095] hover:text-white"
       >
         {t("Contact")}
       </Link>
@@ -133,7 +137,7 @@ const MobileMenu = () => {
                 onClick={() => setOpen(false)}
                 className="flex flex-col items-center"
               >
-                <div className="flex flex-col gap-3 text-3xl font-semibold tracking-wider text-center ">
+                <div className="flex flex-col rtl:font-bien gap-3 text-3xl font-semibold tracking-wider text-center ">
                   <Link to="/">{t("Home")}</Link>
                   <a href="/#about">{t("About")}</a>
                   <a href="/#services">{t("Services")}</a>

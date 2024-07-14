@@ -1,6 +1,6 @@
 import React, { FC, useState, useEffect, useCallback, useMemo } from "react";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
-import { FaArrowRight, FaArrowLeft, FaPlay, FaPause, FaExpand, FaCompress } from "react-icons/fa";
+import { FaArrowRight, FaArrowLeft, FaPlay, FaPause, FaExpand, FaCompress, FaSearchPlus, FaSearchMinus } from "react-icons/fa";
 import { IoCloseSharp } from "react-icons/io5";
 import imagesData from './images.json';
 import HeadingSeparator from "../heading";
@@ -31,9 +31,9 @@ const Gallery: FC = () => {
   const [images, setImages] = useState<string[]>([]);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [zoomLevel, setZoomLevel] = useState(1);
 
   useEffect(() => {
-    // Load images from JSON
     setImages(imagesData.images);
   }, []);
 
@@ -106,36 +106,44 @@ const Gallery: FC = () => {
     ))
   ), [images, data.i, viewImage]);
 
+  const toggleFullscreen = () => {
+    const element = document.documentElement;
 
-
-const toggleFullscreen = () => {
-  const element = document.documentElement;
-
-  if (!isFullscreen) {
-    if (element.requestFullscreen) {
-      element.requestFullscreen();
-    } else if (element.mozRequestFullScreen) { // Firefox
-      element.mozRequestFullScreen();
-    } else if (element.webkitRequestFullscreen) { // Chrome, Safari and Opera
-      element.webkitRequestFullscreen();
-    } else if (element.msRequestFullscreen) { // IE/Edge
-      element.msRequestFullscreen();
+    if (!isFullscreen) {
+      if (element.requestFullscreen) {
+        element.requestFullscreen();
+      } else if (element.mozRequestFullScreen) { // Firefox
+        element.mozRequestFullScreen();
+      } else if (element.webkitRequestFullscreen) { // Chrome, Safari and Opera
+        element.webkitRequestFullscreen();
+      } else if (element.msRequestFullscreen) { // IE/Edge
+        element.msRequestFullscreen();
+      }
+    } else {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      } else if (document.mozCancelFullScreen) { // Firefox
+        document.mozCancelFullScreen();
+      } else if (document.webkitExitFullscreen) { // Chrome, Safari and Opera
+        document.webkitExitFullscreen();
+      } else if (document.msExitFullscreen) { // IE/Edge
+        document.msExitFullscreen();
+      }
     }
-  } else {
-    if (document.exitFullscreen) {
-      document.exitFullscreen();
-    } else if (document.mozCancelFullScreen) { // Firefox
-      document.mozCancelFullScreen();
-    } else if (document.webkitExitFullscreen) { // Chrome, Safari and Opera
-      document.webkitExitFullscreen();
-    } else if (document.msExitFullscreen) { // IE/Edge
-      document.msExitFullscreen();
-    }
-  }
 
-  setIsFullscreen(!isFullscreen);
-};
+    setIsFullscreen(!isFullscreen);
+  };
+
+  const zoomIn = () => {
+    setZoomLevel(prev => Math.min(prev + 0.1, 2));
+  };
+
+  const zoomOut = () => {
+    setZoomLevel(prev => Math.max(prev - 0.1, 1));
+  };
+
   const { t } = useTranslation();
+
   return (
     <>
       {data.img && (
@@ -162,6 +170,7 @@ const toggleFullscreen = () => {
             src={data.img}
             className="w-auto max-w-[90%] max-h-[70%]"
             alt="Enlarged view"
+            style={{ transform: `scale(${zoomLevel})` }}
           />
           <button
             onClick={() => imgAction('next-img')}
@@ -187,6 +196,22 @@ const toggleFullscreen = () => {
           >
             {isFullscreen ? <FaCompress /> : <FaExpand />}
           </button>
+          <div className="absolute top-12 left-32 flex space-x-5">
+            <button
+              onClick={zoomIn}
+              className="text-white text-2xl"
+              aria-label="Zoom In"
+            >
+              <FaSearchPlus />
+            </button>
+            <button
+              onClick={zoomOut}
+              className="text-white text-2xl"
+              aria-label="Zoom Out"
+            >
+              <FaSearchMinus />
+            </button>
+          </div>
         </div>
       )}
       <div className="p-3">
@@ -197,14 +222,13 @@ const toggleFullscreen = () => {
           </Masonry>
         </ResponsiveMasonry>
         <div className="mt-4 flex items-center justify-center">
-     <Link
-          to="/portfolio"
-          className=" border-2 px-2 py-1 font-semibold border-[#764095] text-[#764095] transition-colors hover:bg-[#764095] hover:text-white"
-        >
-          <span>{t("Explore All Projects")}</span>
-        </Link>     
+          <Link
+            to="/portfolio"
+            className="border-2 rtl:font-bien px-2 py-1 font-semibold border-[#764095] text-[#764095] transition-colors hover:bg-[#764095] hover:text-white"
+          >
+            <span>{t("Explore All Projects")}</span>
+          </Link>     
         </div>
-        
       </div>
     </>
   );

@@ -15,6 +15,7 @@ import { RootState } from "@/redux/store";
 import HomeBtn from "@/components/home-btn";
 
 import { useLocation } from 'react-router-dom';
+import TopButton from "@/components/top-btn";
 
 // Components
 const SwipeCarousel = lazy(() => import("@/components/carousel"));
@@ -89,6 +90,7 @@ const LayoutStructure: FC = () => {
       <WhatsAppIcon />
       <ContactForm />
       <Phone />
+      <TopButton />
     </>
   );
 };

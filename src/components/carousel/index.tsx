@@ -48,7 +48,7 @@ const SwipeCarousel = () => {
   };
 
   return (
-    <div className="relative overflow-hidden bg-white xl:h-screen md:h-screen mt-8 ">
+    <div className="relative overflow-hidden bg-white xl:h-screen md:h-screen mt-8 " id="top">
       <motion.div
         drag="x"
         dragConstraints={{

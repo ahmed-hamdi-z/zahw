@@ -50,7 +50,7 @@ const Details: React.FC = () => {
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full rtl:font-bien ">
       <div className="max-w-4xl mx-auto p-4 text-center mt-16">
         <h1 className="text-3xl font-bold mb-4 text-[#764095]">
           {t(post.title)}
@@ -60,7 +60,7 @@ const Details: React.FC = () => {
           alt=""
           className="w-full xl:h-[90vh] md:h-[90vh] h-[50vh] rounded-lg mb-4"
         />
-        <p className="text-gray-800 tracking-tight">{t(post.description)}</p>
+        <p className="text-gray-800 tracking-wide text-xl">{t(post.description)}</p>
 
         <div className="max-w-4xl mx-auto p-4 mt-10">
           <ul className="flex flex-row  gap-1 w-auto h-auto items-center justify-center ">

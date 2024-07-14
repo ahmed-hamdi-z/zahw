@@ -64,8 +64,10 @@
   "Enter Your Message":"Enter Your Message",
   "Talk to us for more information":"Talk to us for more information",
   "Get Quotation": "Get Quotation",
-  "We offer you all the options that suit your needs, ready to serve you":"We offer you all the options that suit your needs, ready to serve you"
- 
+  "We offer you all the options that suit your needs, ready to serve you":"We offer you all the options that suit your needs, ready to serve you",
+  "Send us your inquiry now and we will respond to you as quickly as possible":"Send us your inquiry now and we will respond to you as quickly as possible",
+ "address":"Address",
+ "phon": "Phone"
 
 }
  

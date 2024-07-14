@@ -15,14 +15,14 @@ const Card: React.FC<CardProps> = ({ title, items, icon }) => {
   const { t } = useTranslation();
 
   return (
-    <div className="bg-[#764095] text-white xl:w-[500px] w-full sm:w-[400px] p-4  shadow-md">
-      <div className="text-5xl mb-2 flex justify-center">{icon}</div>
-      <div className="flex items-center mb-3 justify-center">
-        <h2 className="text-2xl font-bold text-center">{t(title)}</h2>
+    <div className="bg-[#764095] rtl:font-bien text-white xl:w-[500px] w-full sm:w-[400px] p-4  shadow-md">
+      <div className="text-5xl mb-2 flex justify-end">{icon}</div>
+      <div className="flex items-center mb-3 justify-end">
+        <h2 className="text-2xl font-bold rtl:text-start rtl:font-bien">{t(title)}</h2>
       </div>
       <ul className="pl-3 space-y-2 text-center">
         {items.map((item, index) => (
-          <li key={index} className="leading-relaxed rtl:text-end tracking-tighter rtl:tracking-wide">{t(item)}</li>
+          <li key={index} className="leading-relaxed rtl:text-end rtl:tracking-wider rtl:font-bein">{t(item)}</li>
         ))}
       </ul>
     </div>

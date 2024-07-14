@@ -9,7 +9,7 @@ const CountUpStats: FC = () => {
   const { t } = useTranslation();
   
   return (
-    <div className="flex flex-col items-center justify-between  ">
+    <div className="flex flex-col items-center justify-between rtl:font-bien font-semibold ">
       <div className="my-10">
 
       <Link

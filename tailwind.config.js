@@ -14,7 +14,8 @@ export default {
           'parallex': "url('/images/parallex.jpg')",
       },
       fontFamily: {
-        custom: ['Futura', 'sans'], // Replace 'CustomFontName' with the actual font family name
+        custom: ['Futura', 'sans'],
+       bien: ['Beiruti', 'sans-serif'],// Replace 'CustomFontName' with the actual font family name
       },
       colors,
     },

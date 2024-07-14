@@ -1,10 +1,13 @@
 // Dependencies
 import { FC } from "react";
 import { motion } from "framer-motion";
+import HeadingSeparator from "../heading";
+import { t } from "i18next";
 
 const Clients: FC = () => {
   return (
-    <section className="bg-white p-3 mt-16 md:w-9/12 w-full flex " id="clients">
+    <section className="bg-white p-3 mt-16 md:w-9/12 w-full flex flex-col " id="clients">
+      <HeadingSeparator title={t("Clients")} />
       <div className="flex overflow-hidden mt-4">
         <TranslateWrapper reverse>
           <LogoItemsBottom />
