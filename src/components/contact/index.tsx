@@ -18,7 +18,7 @@ const ContactComp: React.FC = () => {
   const [message, setMessage] = useState<string | null>(null);
   const form = useRef<HTMLFormElement>(null);
 
-const sendEmail = (e: React.FormEvent) => {
+  const sendEmail = (e: React.FormEvent) => {
     e.preventDefault();
 
     if (form.current) {
@@ -41,11 +41,13 @@ const sendEmail = (e: React.FormEvent) => {
     }
   };
 
-return (
+  return (
     <div className="flex flex-col-reverse md:flex-row rtl:font-bien  items-center justify-center bg-[#D4D4D4]  ">
       <div className="md:w-1/2 bg-[#fff] md:mr-5 p-3 my-3 ">
         <h2 className="text-center font-bold text-lg md:text-xl mb-6 text-[#764095] ">
-          {t("Send us your inquiry now and we will respond to you as quickly as possible")}
+          {t(
+            "Send us your inquiry now and we will respond to you as quickly as possible"
+          )}
         </h2>
 
         <form className="space-y-4 " ref={form} onSubmit={sendEmail}>
@@ -86,7 +88,7 @@ return (
             required
           />
           <input
-            className="text-[#D4D4D4] bg-[#764095] py-2 px-4  "
+            className="border-2 px-3 py-0.5 font-semibold border-[#764095] bg-[#764095] text-[#fff] transition-colors hover:bg-white hover:text-[#764095] text-xl "
             type="submit"
             value={t("Send")}
           />
@@ -112,9 +114,7 @@ return (
             <FaLocationDot className="ml-2 " />
             <h3>{t("address")}</h3>
           </div>
-          <p>
-            الرياض، الياسمين، طريق أنس بن مالك، سكوير 35، الدور الأول مكتب VV
-          </p>
+          <p>الندى سنتر، طريق عثمان بن عفان، حي الندى، الرياض</p>
 
           <div className="text-lg mt-6 mb-1 flex items-center flex-row-reverse ">
             <FaPhone className="ml-2" />
@@ -143,14 +143,14 @@ return (
             <li className=" w-12 h-8 rounded-full text-white bg-[#764095]  place-content-center flex items-center cursor-pointer ">
               <Link to="https://www.tiktok.com/@zahwcontracting">
                 <FaTiktok />
-              </Link> 
+              </Link>
             </li>
             <li className=" w-12 h-8 rounded-full text-white bg-[#764095]  place-content-center flex items-center cursor-pointer ">
               <Link to="https://www.linkedin.com/company/zahw-for-engineering-and-contracting/">
                 <FaLinkedinIn />
               </Link>
             </li>
-          </ul> 
+          </ul>
         </div>
       </div>
     </div>

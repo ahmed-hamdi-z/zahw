@@ -21,7 +21,7 @@ const FlyoutNav = () => {
     <div className="mx-auto flex max-w-7xl items-center justify-between">
       <div className="inline-flex items-center">
         <Logo />
-        <h1 className="font-bold tracking-wider text-2xl pb-2 rtl:font-bien">{t("Zahw")}</h1>
+        <h1 className="font-bold  text-2xl pb-2 rtl:font-bien">{t("Zahw")}</h1>
       </div>
       <div className="hidden lg:flex lg:justify-center lg:flex-1">
         <Links />
@@ -137,7 +137,7 @@ const MobileMenu = () => {
                 onClick={() => setOpen(false)}
                 className="flex flex-col items-center"
               >
-                <div className="flex flex-col rtl:font-bien gap-3 text-3xl font-semibold tracking-wider text-center ">
+                <div className="flex flex-col rtl:font-bien gap-3 text-3xl font-semibold  text-center ">
                   <Link to="/">{t("Home")}</Link>
                   <a href="/#about">{t("About")}</a>
                   <a href="/#services">{t("Services")}</a>

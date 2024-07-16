@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion, useMotionValue } from "framer-motion";
 
-const imgs = ["/images/h-1.jpeg", "/images/h-2.jpeg", "/images/h-3.jpeg"];
+const imgs = ["/images/bann1.jpg", "/images/bann2.jpg", "/images/bann3.jpg"];
 
 const ONE_SECOND = 1000;
 const AUTO_DELAY = ONE_SECOND * 10;
@@ -48,7 +48,7 @@ const SwipeCarousel = () => {
   };
 
   return (
-    <div className="relative overflow-hidden bg-white xl:h-screen md:h-screen mt-8 " id="top">
+    <div className="relative overflow-hidden bg-white xl:h-screen md:h-full w-full xl:mt-16 mt-8 " id="top">
       <motion.div
         drag="x"
         dragConstraints={{
@@ -63,7 +63,7 @@ const SwipeCarousel = () => {
         }}
         transition={SPRING_OPTIONS}
         onDragEnd={onDragEnd}
-        className="flex cursor-grab items-center active:cursor-grabbing"
+        className="flex cursor-grab items-center h-full w-full md:pb-24 active:cursor-grabbing"
       >
         <Images imgIndex={imgIndex} />
       </motion.div>

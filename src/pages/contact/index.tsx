@@ -32,7 +32,7 @@ const Contact = () => {
   return (
     <div className="bg-[#D4D4D4] ">
 
-    <div className="  mx-auto xl:w-1/3 md:w-3/4 w-4/5 pt-20 ">
+    <div className="  mx-auto xl:w-1/3 md:w-3/4 w-4/5 pt-20 rtl:font-bien">
       <div className="flex flex-col items-center justify-center w-full md:w-[40vw] md:m-5 mb-2 " >
         {" "}
         <h3 className="md:ml-[-20vw] rtl:hidden text-[#764095] font-normal text-lg">{t("Want to work with us")}</h3>

@@ -1,5 +1,5 @@
 // Dependencies
-import { FC, lazy, useEffect  } from "react";
+import { FC, lazy, useEffect } from "react";
 
 // React Router
 import { Outlet } from "react-router-dom";
@@ -14,7 +14,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 import HomeBtn from "@/components/home-btn";
 
-import { useLocation } from 'react-router-dom';
+import { useLocation } from "react-router-dom";
 import TopButton from "@/components/top-btn";
 
 // Components
@@ -23,7 +23,7 @@ const CountUpStats = lazy(() => import("@/components/stats"));
 const Services = lazy(() => import("@/components/services"));
 const Gallary = lazy(() => import("@/components/gallary"));
 const Clients = lazy(() => import("@/components/clients"));
-const Work = lazy(() => import("@/components/work"));
+const About = lazy(() => import("@/components/about"));
 const Blog = lazy(() => import("@/components/blog"));
 const FollowUS = lazy(() => import("@/components/follow"));
 const ContactComp = lazy(() => import("@/components/contact"));
@@ -41,7 +41,7 @@ const LayoutStructure: FC = () => {
     if (location.hash) {
       const element = document.getElementById(location.hash.substring(1));
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+        element.scrollIntoView({ behavior: "smooth" });
       }
     }
   }, [location]);
@@ -51,7 +51,7 @@ const LayoutStructure: FC = () => {
       <main className={`main-layout direction-${direction} lang-${language}`}>
         <Row className="main-content">
           <Col xs="12">
-            <div className="p-0 w-full">
+            <div className="w-full ">
               <SwipeCarousel />
             </div>
           </Col>
@@ -74,7 +74,7 @@ const LayoutStructure: FC = () => {
             <Blog />
           </div>
           <Col xs="12">
-            <Work />
+            <About />
           </Col>
           <Col xs="12">
             <FollowUS />

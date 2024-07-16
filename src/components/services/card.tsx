@@ -1,28 +1,37 @@
-import React from 'react';
+import React from "react";
 import { useTranslation } from "react-i18next";
-import { MdOutlineDesignServices } from "react-icons/md";
-import { BsBuildingsFill } from "react-icons/bs";
-import { SiAltiumdesigner } from "react-icons/si";
-import { TbHomeInfinity } from "react-icons/tb";
+import { IoIosArrowRoundBack } from "react-icons/io";
 
 interface CardProps {
   title: string;
   items: string[];
-  icon: React.ReactNode;
+  image: string;
 }
 
-const Card: React.FC<CardProps> = ({ title, items, icon }) => {
+const Card: React.FC<CardProps> = ({ title, items, image }) => {
   const { t } = useTranslation();
 
   return (
-    <div className="bg-[#764095] rtl:font-bien text-white xl:w-[500px] w-full sm:w-[400px] p-4  shadow-md">
-      <div className="text-5xl mb-2 flex justify-end">{icon}</div>
-      <div className="flex items-center mb-3 justify-end">
-        <h2 className="text-2xl font-bold rtl:text-start rtl:font-bien">{t(title)}</h2>
+    <div className="bg-[#764095] rtl:font-bien text-white xl:w-[400px] w-full sm:w-[350px] p-4 h-auto shadow-md">
+      <div className="mb-2 flex rtl:justify-end justify-start">
+        <img src={image} alt={title} className="w-12 h-12 object-contain" />
       </div>
-      <ul className="pl-3 space-y-2 text-center">
+      <div className="flex items-center mb-3 rtl:justify-end justify-start">
+        <h2 className="text-2xl font-bold rtl:text-start rtl:font-bien">
+          {t(title)}
+        </h2>
+      </div>
+      <ul className="pl-3 space-y-1  ">
         {items.map((item, index) => (
-          <li key={index} className="leading-relaxed rtl:text-end rtl:tracking-wider rtl:font-bein">{t(item)}</li>
+          <li
+            key={index}
+            className="flex rtl:flex-row-reverse leading-snug rtl:justify-start rtl:text-end rtl:font-bien text-start"
+          >
+            <span className="text-white w-3 m-1 rotate-180 rtl:rotate-0">
+              <IoIosArrowRoundBack />
+            </span>{" "}
+            {t(item)}
+          </li>
         ))}
       </ul>
     </div>
@@ -33,40 +42,74 @@ const AppCards: React.FC = () => {
   const { i18n } = useTranslation();
   const cards: CardProps[] = [
     {
-      title: 'Design services',
-      icon: <MdOutlineDesignServices />,
+      title: "Interior Design Services",
+      image: "/images/Sustainable.png",
       items: [
-        'Interior design',
+        "Design of residential facades for villas and buildings",
+        "Designing commercial facades",
+        "Residential interior design for villas and apartments",
+        "Interior design for restaurants, cafes and offices",
+        "Landscape design",
       ],
     },
     {
-      title: 'Construction',
-      icon: <BsBuildingsFill />,
+      title: "Construction Services",
+      image: "/images/Building.png",
       items: [
-        'Construction disc'
+        "Concrete and insulation solutions",
+        "Electricity business solutions",
+        "Plumbing solutions",
+        "Commerce Business Solutions",
+        "Ceramic and flooring solutions",
+        "Painting business solutions",
+        "Cooling systems solutions",
+        "Renewable energy systems solutions",
       ],
     },
     {
-      title: 'Finishes',
-      icon: <TbHomeInfinity />,
+      title: "Finishing and decoration services",
+      image: "/images/Finishing.png",
       items: [
-        'Finishes disc',
+        "GRC Facade Works",
+        "Wooden, stone and marble cladding",
+        "decoration rules",
+        "General paint finishing",
+        "Interior wood, marble and porcelain works",
+        "mirrors and steel",
+        "Wallpaper",
+        "Paints, ceilings, walls, etc",
       ],
     },
     {
-      title: 'Interior decorations',
-      icon: <SiAltiumdesigner />,
+      title: "Sustainable building solutions service",
+      image: "/images/Interior.png",
       items: [
-        'Interior decorations disc'
+        "We have special solutions",
+        "Reducing the cost of operation and maintenance",
+        "Enhancing quality standards in the building",
       ],
+    },
+    {
+      title: "Furnishing services",
+      image: "/images/Furnishing.png",
+      items: ["We have customized furnishing"],
     },
   ];
 
   return (
-    <div className={`min-h-screen flex flex-col justify-center items-center p-4 ${i18n.dir() === 'rtl' ? 'rtl' : ''}`}>
+    <div
+      className={`min-h-screen flex flex-col justify-center items-center p-4 ${
+        i18n.dir() === "rtl" ? "rtl" : ""
+      }`}
+    >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-5xl">
         {cards.map((card, index) => (
-          <Card key={index} title={card.title} items={card.items} icon={card.icon} />
+          <Card
+            key={index}
+            title={card.title}
+            items={card.items}
+            image={card.image}
+          />
         ))}
       </div>
     </div>
