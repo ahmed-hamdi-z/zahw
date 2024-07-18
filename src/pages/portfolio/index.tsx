@@ -83,7 +83,7 @@ const Gallery: FC = () => {
       <img
         key={`thumb-${i}`}
         src={image}
-        className={`w-20 h-20 cursor-pointer m-1 rounded-md transition-transform duration-300 ease-in-out transform overflow-hidden ${i === data.i ? 'border-2 border-white' : 'hover:scale-105'}`}
+        className={`w-20 h-20 cursor-pointer m-1 rounded-md transition-transform duration-300 ease-in-out transform  ${i === data.i ? 'border-2 border-white' : 'hover:scale-105'}`}
         alt={`Thumbnail ${i}`}
         onClick={() => viewImage(image, i)}
         loading="lazy"
@@ -162,7 +162,7 @@ const Gallery: FC = () => {
           >
             <FaArrowRight />
           </button>
-          <div className="mt-5 flex overflow-x-auto w-full justify-center">
+          <div className="mt-5 flex overflow-x-hidden w-full justify-center">
             {thumbnailItems}
           </div>
           <button

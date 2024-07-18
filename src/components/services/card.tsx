@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { IoIosArrowRoundBack } from "react-icons/io";
+import { IoIosArrowRoundForward } from "react-icons/io";
 
 interface CardProps {
   title: string;
@@ -27,9 +27,9 @@ const Card: React.FC<CardProps> = ({ title, items, image }) => {
             key={index}
             className="flex rtl:flex-row-reverse leading-snug rtl:justify-start rtl:text-end rtl:font-bien text-start"
           >
-            <span className="text-white w-3 m-1 rotate-180 rtl:rotate-0">
-              <IoIosArrowRoundBack />
-            </span>{" "}
+            <span className="text-white w-1 m-1 pr-4 rtl:rotate-180">
+              <IoIosArrowRoundForward />
+            </span>
             {t(item)}
           </li>
         ))}
@@ -92,7 +92,11 @@ const AppCards: React.FC = () => {
     {
       title: "Furnishing services",
       image: "/images/Furnishing.png",
-      items: ["We have customized furnishing"],
+      items: [
+        "We have customized furnishing",
+        "We have customized furnishing2",
+        "We have customized furnishing3",
+      ],
     },
   ];
 

@@ -54,7 +54,7 @@ const Links = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="flex items-center gap-2.5 font-semibold rtl:font-bien ">
+    <div className="flex items-center gap-3 font-semibold rtl:font-bien ">
       <Link to="/">{t("Home")}</Link>
       <a href="/#about">{t("About")}</a>
       <a href="/#services">{t("Services")}</a>

@@ -54,28 +54,29 @@ const Blog = () => {
   };
 
   return (
-    <section className="bg-white pb-8 rtl:text-end w-full flex flex-row items-center justify-center rtl:font-bien " ref={ref}>
-      <div className="w-9/12">
- 
-      <div className="relative overflow-hidden p-4">
-        <div className="mx-auto">
-          <HeadingSeparator title="Blog-tit" />
-          <motion.div
-            animate={{
-              x: offset,
-            }}
-            transition={{
-              ease: "easeInOut",
-            }}
-            className="flex"
-          >
-            {posts.map((post) => {
-              return <Post key={post.id} {...post} />;
-            })}
-          </motion.div>
-       
-        </div>
-        <button
+    <section className="bg-white pb-8 rtl:text-end w-full flex flex-row items-center justify-center rtl:font-bien" ref={ref}>
+      <div className="w-full">
+        <div className="relative overflow-hidden p-4">
+          <div className="mx-auto">
+            <HeadingSeparator title="Blog-tit" />
+            <motion.div
+              animate={{
+                x: offset,
+              }}
+              transition={{
+                ease: "easeInOut",
+              }}
+              className="flex"
+              style={{
+                width: posts.length * CARD_SIZE,
+              }}
+            >
+              {posts.map((post) => {
+                return <Post key={post.id} {...post} />;
+              })}
+            </motion.div>
+          </div>
+          <button
             className={`absolute left-0 top-3/4 transform -translate-y-1/2 rounded-lg border-[1px] border-neutral-400 bg-white p-1.5 text-2xl transition-opacity ${
               CAN_SHIFT_LEFT ? "" : "opacity-30"
             }`}
@@ -93,8 +94,7 @@ const Blog = () => {
           >
             <FiArrowRight />
           </button>
-      </div>
-             
+        </div>
       </div>
     </section>
   );
@@ -104,8 +104,7 @@ const Post = ({ id, imgUrl, title, description }: PostType) => {
   const { t } = useTranslation();
 
   return (
-    <>
-    <Link 
+    <Link
       to={`/details/${id}`}
       key={id}
       className="relative shrink-0 cursor-pointer transition-transform hover:-translate-y-1"
@@ -124,7 +123,6 @@ const Post = ({ id, imgUrl, title, description }: PostType) => {
         {t(description)}
       </p>
     </Link>
-  </>
   );
 };
 
@@ -168,4 +166,5 @@ const posts: PostType[] = [
     title: "Interior design in 2024",
     description: ["Interior design in 2024 disc"],
   },
+  
 ];

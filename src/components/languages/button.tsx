@@ -1,28 +1,29 @@
 // Dependencies
-import { FC } from "react";
+import { FC, useState, useEffect } from "react";
 import i18n from "i18next";
 
 const LanguagesBtn: FC = () => {
-  return (
-    <div className=" flex items-center  ">
-      <button
-        className=" bg-[#764095] text-white  w-10 overflow-y-hidden rounded-lg "
-        onClick={() => {
-          i18n.changeLanguage("ar");
-          window.location.reload();
-        }}
-      >
-        AR
-      </button>
+  const [language, setLanguage] = useState<string>("en");
 
+  useEffect(() => {
+    const currentLanguage = i18n.language;
+    setLanguage(currentLanguage);
+  }, []);
+
+  const toggleLanguage = () => {
+    const newLanguage = language === "en" ? "ar" : "en";
+    i18n.changeLanguage(newLanguage);
+    setLanguage(newLanguage);
+    window.location.reload();
+  };
+
+  return (
+    <div className="flex items-center">
       <button
-        className="bg-[#764095] text-white w-10 m-2 rounded-lg "
-        onClick={() => {
-          i18n.changeLanguage("en");
-          window.location.reload();
-        }}
+        className="bg-[#764095] text-white ml-3 px-2 py-1 overflow-y-hidden"
+        onClick={toggleLanguage}
       >
-        EN
+        {language === "en" ? "AR" : "EN"}
       </button>
     </div>
   );

@@ -18,7 +18,6 @@ import Ad from "@/pages/ad";
 // Languages
 import "@/components/languages/index";
 
-
 // Redux
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
@@ -29,10 +28,7 @@ const Contact = lazy(() => import("@/pages/contact"));
 const Blog = lazy(() => import("@/pages/blog"));
 const Portfolio = lazy(() => import("@/pages/portfolio"));
 
-
 const Layout: FC = () => {
- 
-  
   const { direction, language } = useSelector(
     (state: RootState) => state.settings
   );
@@ -40,7 +36,6 @@ const Layout: FC = () => {
 
   useEffect(() => {
     window.document.dir = i18n.dir();
-
   }, [lng]);
   return (
     <main className={` direction-${direction} lang-${language}`}>
@@ -54,7 +49,6 @@ const Layout: FC = () => {
         <Route path={CONFIG.ad_path} element={<Ad />} />
         <Route path={CONFIG.blog_details} element={<Details />} />
         <Route path={CONFIG.portfolio_path} element={<Portfolio />} />
-
       </Routes>
       <div>
         <Footer />
