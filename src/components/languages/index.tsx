@@ -25,3 +25,5 @@ i18n
       loadPath: "/locale/{{lng}}/translation.json",
     },
   });
+
+  
