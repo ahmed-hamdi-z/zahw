@@ -16,8 +16,8 @@ import Details from "@/pages/blog-details";
 import Ad from "@/pages/ad";
 
 // Languages
-import  "@/components/languages/index";
-import { I18nextProvider } from "react-i18next";
+
+
 // Redux
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
@@ -39,22 +39,20 @@ const Layout: FC = () => {
   }, [lng]);
   return (
     <main className={` direction-${direction} lang-${language}`}>
-      <I18nextProvider i18n={i18n}>
-        <div>
-          <MainNavbar />
-        </div>
-        <Routes>
-          <Route path={CONFIG.root_path} element={<LayoutStructure />} />
-          <Route path={CONFIG.contact_path} element={<Contact />} />
-          <Route path={CONFIG.blog_path} element={<Blog />} />
-          <Route path={CONFIG.ad_path} element={<Ad />} />
-          <Route path={CONFIG.blog_details} element={<Details />} />
-          <Route path={CONFIG.portfolio_path} element={<Portfolio />} />
-        </Routes>
-        <div>
-          <Footer />
-        </div>
-      </I18nextProvider>
+      <div>
+        <MainNavbar />
+      </div>
+      <Routes>
+        <Route path={CONFIG.root_path} element={<LayoutStructure />} />
+        <Route path={CONFIG.contact_path} element={<Contact />} />
+        <Route path={CONFIG.blog_path} element={<Blog />} />
+        <Route path={CONFIG.ad_path} element={<Ad />} />
+        <Route path={CONFIG.blog_details} element={<Details />} />
+        <Route path={CONFIG.portfolio_path} element={<Portfolio />} />
+      </Routes>
+      <div>
+        <Footer />
+      </div>
     </main>
   );
 };
