@@ -16,7 +16,7 @@ import Details from "@/pages/blog-details";
 import Ad from "@/pages/ad";
 
 // Languages
-
+import "@/components/languages/index";
 
 // Redux
 import { useSelector } from "react-redux";
