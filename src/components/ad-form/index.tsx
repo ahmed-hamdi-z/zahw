@@ -38,7 +38,7 @@ const ContactAd: React.FC = () => {
 
   return (
     <div className="w-full flex items-center justify-center">
-      <form onSubmit={sendEmail} className="w-6/12">
+      <form onSubmit={sendEmail} className="w-6/12 mt-5">
         <div className="mb-2">
           <label className="mb-1 inline-block text-sm font-medium">
             {t("full name")}

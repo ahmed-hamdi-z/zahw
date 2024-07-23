@@ -16,8 +16,8 @@ const About: FC = () => {
       </div>
       <div className="md:w-1/2 w-full p-4">
         <video
-          src="/images/zahw.mp4"
-          className=" w-full h-[300px] object-cover"
+          src="/images/about.mp4"
+          className=" w-full h-auto object-cover"
           autoPlay
           muted
           loop

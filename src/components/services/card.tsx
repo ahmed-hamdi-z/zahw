@@ -42,17 +42,6 @@ const AppCards: React.FC = () => {
   const { i18n } = useTranslation();
   const cards: CardProps[] = [
     {
-      title: "Interior Design Services",
-      image: "/images/Sustainable.png",
-      items: [
-        "Design of residential facades for villas and buildings",
-        "Designing commercial facades",
-        "Residential interior design for villas and apartments",
-        "Interior design for restaurants, cafes and offices",
-        "Landscape design",
-      ],
-    },
-    {
       title: "Construction Services",
       image: "/images/Building.png",
       items: [
@@ -66,6 +55,18 @@ const AppCards: React.FC = () => {
         "Renewable energy systems solutions",
       ],
     },
+    {
+      title: "Interior Design Services",
+      image: "/images/Interior.png",
+      items: [
+        "Design of residential facades for villas and buildings",
+        "Designing commercial facades",
+        "Residential interior design for villas and apartments",
+        "Interior design for restaurants, cafes and offices",
+        "Landscape design",
+      ],
+    },
+  
     {
       title: "Finishing and decoration services",
       image: "/images/Finishing.png",
@@ -81,15 +82,6 @@ const AppCards: React.FC = () => {
       ],
     },
     {
-      title: "Sustainable building solutions service",
-      image: "/images/Interior.png",
-      items: [
-        "We have special solutions",
-        "Reducing the cost of operation and maintenance",
-        "Enhancing quality standards in the building",
-      ],
-    },
-    {
       title: "Furnishing services",
       image: "/images/Furnishing.png",
       items: [
@@ -98,6 +90,16 @@ const AppCards: React.FC = () => {
         "We have customized furnishing3",
       ],
     },
+    {
+      title: "Sustainable building solutions service",
+      image: "/images/Sustainable.png",
+      items: [
+        "We have special solutions",
+        "Reducing the cost of operation and maintenance",
+        "Enhancing quality standards in the building",
+      ],
+    },
+  
   ];
 
   return (
