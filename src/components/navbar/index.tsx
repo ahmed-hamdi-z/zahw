@@ -55,7 +55,7 @@ const Links = () => {
 
   return (
     <div className="flex items-center gap-3 font-semibold rtl:font-bien ">
-      <Link to="/">{t("Home")}</Link>
+      <Link to="/#top">{t("Home")}</Link>
       <a href="/#about">{t("About")}</a>
       <a href="/#services">{t("Services")}</a>
       <Link to="/portfolio">{t("Portfolio")}</Link>
@@ -138,7 +138,7 @@ const MobileMenu = () => {
                 className="flex flex-col items-center"
               >
                 <div className="flex flex-col rtl:font-bien gap-3 text-3xl font-semibold  text-center ">
-                  <Link to="/">{t("Home")}</Link>
+                  <Link to="/#top">{t("Home")}</Link>
                   <a href="/#about">{t("About")}</a>
                   <a href="/#services">{t("Services")}</a>
                   <Link to="/portfolio">{t("Portfolio")}</Link>

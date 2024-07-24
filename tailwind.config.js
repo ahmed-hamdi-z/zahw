@@ -12,6 +12,8 @@ export default {
     extend: {
       backgroundImage: {
           'parallex': "url('/images/parallex.jpg')",
+          'card': "url('/images/card.png')",
+
       },
       fontFamily: {
         custom: ['Futura', 'sans'],
