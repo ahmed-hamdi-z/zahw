@@ -7,45 +7,43 @@ import { Outlet } from "react-router-dom";
 // React Bootstrap
 import { Col, Row } from "react-bootstrap";
 
-import WhatsAppIcon from "@/components/whatsapp-icon";
+import About from "@/components/about";
+import Gallary from "@/components/gallary";
+
 
 // Components
 
 const Clients = lazy(() => import("@/components/clients"));
-// const Work = lazy(() => import("@/components/work"));
-const Blog = lazy(() => import("@/components/blog"));
 const ContactAd = lazy(() => import("@/components/ad-form"));
 
 // Pages
 
 const Ad: FC = () => {
   return (
-    <main className="main-layout ">
-      <Row className="main-content">
-        <Col className="fixed bottom-10 right-10" xs="12">
-          <WhatsAppIcon />
-        </Col>
-
-        <Col className="bg-parallex w-screen h-screen bg-cover " xs="12"></Col>
+    <div className="w-full h-auto overflow-hidden">
+      <Row>
         <Col xs="12">
-          {" "}
-          <Col className="" xs="12">
-            <ContactAd />
-          </Col>
+          <div className="w-full h-[60vh] md:h-screen bg-bg-ad bg-cover bg-center bg-no-repeat">
+           
+          </div>
+        </Col>
+        <Col className="" xs="12">
+          <ContactAd />
+        </Col>    
+        <Col className="mt-3" xs="12">
+          <About />
+        </Col>
+        <Col xs="12">
+          <Gallary />
+        </Col>
+        <Col className="w-full flex items-center justify-center" xs="12">
           <Clients />
         </Col>
-        {/* <Col xs="12">
-          <Work />
-        </Col> */}
-        <Col xs="12">
-          <Blog />
-        </Col>
-
         <Col xs="12">
           <Outlet />
         </Col>
       </Row>
-    </main>
+    </div>
   );
 };
 

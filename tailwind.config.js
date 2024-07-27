@@ -13,7 +13,7 @@ export default {
       backgroundImage: {
           'parallex': "url('/images/parallex.jpg')",
           'card': "url('/images/card.png')",
-
+          'bg-ad': "url('/images/bann3.jpg')",
       },
       fontFamily: {
         custom: ['Futura', 'sans'],
