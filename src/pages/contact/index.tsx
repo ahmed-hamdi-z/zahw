@@ -20,7 +20,7 @@ const Contact = () => {
         )
         .then(
           () => {
-            setMessage("Success! Email sent successfully.");
+            setMessage("تم تسجيل ردكم بنجاح");
             form.current;
           },
           (error) => {

@@ -71,7 +71,7 @@ const LayoutStructure: FC = () => {
           <div className="w-full h-80 flex flex-row items-center justify-center bg-[#D4D4D4]">
             <HomeBtn />
           </div>
-          <div className="w-full ">
+          <div className="w-full flex items-center justify-center ">
             <Blog />
           </div>
           <Col xs="12">

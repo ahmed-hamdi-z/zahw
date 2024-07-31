@@ -18,7 +18,7 @@ const FlyoutNav = () => {
 
   return (
     <nav className="fixed top-0 z-50 w-full text-lg text-[#764095] bg-[#fff] shadow-xl" id="nav">
-    <div className="mx-auto flex max-w-7xl items-center justify-between">
+    <div className="mx-auto flex max-w-7xl items-center justify-between z-50">
       <div className="inline-flex items-center">
         <Logo />
         <h1 className="font-bold  text-2xl pb-2 rtl:font-bien">{t("Zahw")}</h1>

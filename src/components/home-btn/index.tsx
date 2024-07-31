@@ -6,7 +6,7 @@ const HomeBtn: FC = () => {
     const { t } = useTranslation();
     return (
       <>
-        <div className="flex items-center gap-2 rtl:font-bien ">
+        <div className="flex items-center gap-2 rtl:font-bien z-10">
          
         <Link
           to="/contact"
