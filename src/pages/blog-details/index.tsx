@@ -98,9 +98,9 @@ const Details: React.FC = () => {
             </li>
           </ul>
         </div>
-        <div className="flex  mx-auto justify-center mt-10"></div>
+        <div className="flex items-center justify-center w-full flex-row-reverse mt-10">         <Blog /></div>
        
-          <Blog />
+ 
        
         <h1 className="mt-3 text-center text-4xl font-semibold text-[#764095]">
           {t("Commint")}

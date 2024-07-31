@@ -18,7 +18,7 @@ import { useLocation } from "react-router-dom";
 import TopButton from "@/components/top-btn";
 
 // Components
-const SwipeCarousel = lazy(() => import("@/components/carousel"));
+const Carousel = lazy(() => import("@/components/carousel"));
 const CountUpStats = lazy(() => import("@/components/stats"));
 const Services = lazy(() => import("@/components/services"));
 const Gallary = lazy(() => import("@/components/gallary"));
@@ -32,6 +32,7 @@ const Phone = lazy(() => import("@/components/phone"));
 
 // Pages
 const LayoutStructure: FC = () => {
+  const imgs = ["/images/bann1.jpg", "/images/bann2.jpg", "/images/bann3.jpg"];
   const { direction, language } = useSelector(
     (state: RootState) => state.settings
   );
@@ -52,7 +53,7 @@ const LayoutStructure: FC = () => {
         <Row className="main-content">
           <Col xs="12">
             <div className="w-full ">
-              <SwipeCarousel />
+              <Carousel children={imgs} />
             </div>
           </Col>
           <Col xs="12">

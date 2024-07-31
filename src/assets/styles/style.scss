@@ -5,6 +5,18 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+    .no-spin::-webkit-outer-spin-button,
+    .no-spin::-webkit-inner-spin-button {
+        @apply appearance-none;
+        margin: 0;
+    }
+
+    .no-spin {
+        -moz-appearance: textfield;
+    }
+}
+
 /* Core */
 @import "./scss/fonts";
 @import "./scss/functions";

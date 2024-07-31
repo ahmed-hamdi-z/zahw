@@ -31,7 +31,7 @@ const ContactComp: React.FC = () => {
         )
         .then(
           () => {
-            setMessage("Success! Email sent successfully.");
+            setMessage("تم تسجيل ردكم بنجاح");
             form.current?.reset();
           },
           (error) => {
@@ -56,14 +56,14 @@ const ContactComp: React.FC = () => {
               type="number"
               name="user_number"
               placeholder={t("phone number")}
-              className="bg-[#764095] bg-opacity-80 active:border-2 outline-[#764095]  text-white placeholder:text-white p-3 mb-2 flex-1 placeholder:rtl:text-right"
+              className="bg-[#764095] no-spin bg-opacity-80  outline-[#764095]  text-white placeholder:text-white p-3 mb-2 flex-1 placeholder:rtl:text-right"
               required
             />
             <input
               type="text"
               name="user_name"
               placeholder={t("full name")}
-              className="bg-[#764095] bg-opacity-80 active:border-2 outline-[#764095]  text-white placeholder:text-white p-3 mb-2 flex-1 placeholder:rtl:text-right"
+              className="bg-[#764095] bg-opacity-80  outline-[#764095]  text-white placeholder:text-white p-3 mb-2 flex-1 placeholder:rtl:text-right"
               required
             />
           </div>
@@ -72,17 +72,17 @@ const ContactComp: React.FC = () => {
               type="email"
               name="user_email"
               placeholder={t("ُEmail")}
-              className="bg-[#764095] bg-opacity-80 active:border-2 outline-[#764095]  text-white placeholder:text-white p-3 mb-2 flex-1 placeholder:rtl:text-right"
+              className="bg-[#764095] bg-opacity-80  outline-[#764095]  text-white placeholder:text-white p-3 mb-2 flex-1 placeholder:rtl:text-right"
             />
             <input
               type="text"
               placeholder={t("City")}
-              className="bg-[#764095] bg-opacity-80 active:border-2 outline-[#764095]  text-white placeholder:text-white p-3 flex-1 mb-2 placeholder:rtl:text-right"
+              className="bg-[#764095] bg-opacity-80  outline-[#764095]  text-white placeholder:text-white p-3 flex-1 mb-2 placeholder:rtl:text-right"
             />
           </div>
           <textarea
             placeholder={t("Message")}
-            className="bg-[#764095] bg-opacity-80 active:border-2 outline-[#764095]  text-white placeholder:text-white p-2 w-full  placeholder:rtl:text-right"
+            className="bg-[#764095] bg-opacity-80  outline-[#764095]  text-white placeholder:text-white p-2 w-full  placeholder:rtl:text-right"
             rows={5}
             name="message"
             required
@@ -108,7 +108,7 @@ const ContactComp: React.FC = () => {
           </div>
         )}
       </div>
-      <div className="md:w-1/4 bg-[#fff] text-[#764095] font-bold md:py-14 m-3 text-right">
+      <div className="md:w-1/4 bg-[#fff] text-[#764095] font-bold  md:py-10 m-3 text-right">
         <div className="md:p-5 p-3 ">
           <div className="text-lg mb-1 flex items-center flex-row-reverse ">
             <FaLocationDot className="ml-2 " />
@@ -121,12 +121,15 @@ const ContactComp: React.FC = () => {
             <h3>{t("phon")}</h3>
           </div>
           <p>+966580711580</p>
-
+          <br />
+          <p className="mt-[-20px]"> +966 59 410 8101 </p>
           <div className="text-lg mt-6 mb-1 flex items-center flex-row-reverse ">
             <MdOutlineEmail className="ml-2" />
-            <h3> {t("Email")}</h3>
+            <h3> البريد الإلكتروني</h3>
           </div>
           <p>info@zahw-sa.com</p>
+          <br />
+          <p className="mt-[-20px]"> digital.marketing@zahw-sa.com</p>
         </div>
         <div className="max-w-4xl mx-auto my-4 ">
           <ul className="flex flex-row  gap-1 w-auto h-auto items-center justify-center ">

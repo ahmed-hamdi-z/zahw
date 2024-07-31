@@ -25,7 +25,7 @@ const ContactForm: React.FC = () => {
           () => {
          
             if (form.current) { 
-              setMessage(t("SUCCESS! Email sent successfully."));
+              setMessage(t("تم تسجيل ردكم بنجاح"));
               form.current.reset(); // Reset the form after successful submission
             }
           },

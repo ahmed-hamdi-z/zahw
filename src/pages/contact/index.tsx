@@ -54,19 +54,35 @@ const Contact = () => {
             type="text"
             name="user_name"
             placeholder={t("full name")}
-            className="bg-[#764095] bg-opacity-80 active:border-2 active:border-[#764095] outline-[#764095] text-white placeholder:text-white p-2.5 mb-2 flex-1 placeholder:rtl:text-right"
+            className="bg-[#764095] bg-opacity-80 active:border-0  outline-[#764095] text-white placeholder:text-white p-2.5 mb-2 flex-1 placeholder:rtl:text-right"
             required
           />
           <label className="mb-1 inline-block text-sm font-medium text-[#764095]">
             {t("phone number")}
           </label>
-          <input
+          <div className="">
+            <div className=" flex items-center flex-row-reverse bg-[#764095] px-2 outline-[#764095]">
+                <img
+                    src="/images/ssa.png"
+                    alt="Saudi Arabia"
+                    className="w-8 h-6 mr-2"
+                />
+                <span className="text-white mr-2">+966</span>
+                <input
+                    type="tel"
+                    className="bg-[#764095] bg-opacity-80 active:border-0  outline-none text-white placeholder:text-white p-2.5 mb-2 flex-1 placeholder:rtl:text-right"
+                    placeholder={t("phone number")}
+                />
+            </div>
+        </div>
+
+          {/* <input
             type="number"
             name="user_number"
             placeholder={t("phone number")}
-            className="bg-[#764095] bg-opacity-80 active:border-2 active:border-[#764095] outline-[#764095] text-white placeholder:text-white p-2.5 mb-2 flex-1 placeholder:rtl:text-right"
+            className="bg-[#764095] no-spin bg-opacity-80 active:border-2 active:border-[#764095] outline-[#764095] text-white placeholder:text-white p-2.5 mb-2 flex-1 placeholder:rtl:text-right"
             required
-          />
+          /> */}
           <label className=" mb-1 inline-block text-sm font-medium text-[#764095]">
             {t("ُEmail")}
           </label>
@@ -74,7 +90,7 @@ const Contact = () => {
             type="email"
             name="user_email"
             placeholder={t("ُEmail")}
-            className="bg-[#764095] bg-opacity-80 active:border-2 active:border-[#764095] outline-[#764095] text-white placeholder:text-white p-2.5 mb-2 flex-1 placeholder:rtl:text-right"
+            className="bg-[#764095] bg-opacity-80 active:border-0 outline-[#764095] text-white placeholder:text-white p-2.5 mb-2 flex-1 placeholder:rtl:text-right"
           />
 
           <h3 className="ml-3 font-bold text-[#764095]"> {t("Request Type")}</h3>
@@ -131,10 +147,10 @@ const Contact = () => {
               </label>
             </div>
           </div>
-          <h3 className="my-3 ml-3 font-bold text-[#764095]">
+          {/* <h3 className="my-3 ml-3 font-bold text-[#764095]">
             {t("Preferred Time To Contact")}
-          </h3>
-          <div className="grid grid-cols-2 gap-y-4  mt-2  ">
+          </h3> */}
+          {/* <div className="grid grid-cols-2 gap-y-4  mt-2  ">
             <div className="flex gap-2 justify-center items-center">
               <input
                 id="bordered-checkbox-1"
@@ -146,9 +162,9 @@ const Contact = () => {
               <label className="w-full  text-sm font-medium text-[#764095] ">
                 {t("07:00 AM - 12:00 PM")}
               </label>
-            </div>
+            </div> */}
 
-            <div className="flex gap-2 justify-center items-center">
+            {/* <div className="flex gap-2 justify-center items-center">
               <input
                 id="bordered-checkbox-1"
                 type="checkbox"
@@ -158,8 +174,8 @@ const Contact = () => {
               />
               <label className="w-full  text-sm font-medium text-[#764095] ">
                 {t("08:00 PM - 10:00 PM")}
-              </label>
-            </div>
+              </label> */}
+            {/* </div>
 
             <div className="flex gap-2 justify-center items-center">
               <input
@@ -181,12 +197,12 @@ const Contact = () => {
                 value=""
                 name="bordered-checkbox"
                 className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300  outline-[#764095]"
-              />
-              <label className="w-full  text-sm font-medium text-[#764095] ">
+              /> */}
+              {/* <label className="w-full  text-sm font-medium text-[#764095] ">
                 {t("04:00 PM - 08:00 PM")}
               </label>
             </div>
-          </div>
+          </div> */}
           <label className="my-3 ml-3 inline-block text-sm font-bold text-[#764095]">
             {t("Notes With The Request")}
           </label>
