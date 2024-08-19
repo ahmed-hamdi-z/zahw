@@ -1,9 +1,6 @@
 // Dependencies
 import { FC, lazy, useEffect } from "react";
-
-// Routes
-import { Route, Routes } from "react-router-dom";
-
+import { Route, Routes, useNavigate, useLocation } from "react-router-dom";
 import i18n from "i18next";
 import Cookies from "js-cookie";
 
@@ -22,7 +19,7 @@ import "@/components/languages/index";
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 
-//Pages Routes
+// Pages Routes
 const LayoutStructure = lazy(() => import("./LayoutStructure"));
 const Contact = lazy(() => import("@/pages/contact"));
 const Blog = lazy(() => import("@/pages/blog"));
@@ -33,24 +30,32 @@ const Layout: FC = () => {
     (state: RootState) => state.settings
   );
   const lng = Cookies.get("i18next") || "en";
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
+    // Update document direction based on language
     window.document.dir = i18n.dir();
-     lng === "ar" ? "ar" : "en";
-    
-  }, [lng]);
+
+    // If the language in the URL doesn't match the selected language, update the URL
+    const pathWithoutLang = location.pathname.replace(/^\/(en|ar)/, '');
+    if (!location.pathname.startsWith(`/${lng}`)) {
+      navigate(`/${lng}${pathWithoutLang}`, { replace: true });
+    }
+  }, [lng, location, navigate]);
+
   return (
-    <main className={` direction-${direction} lang-${language}`}>
+    <main className={`direction-${direction} lang-${language}`}>
       <div>
         <MainNavbar />
       </div>
       <Routes>
-        <Route path={CONFIG.root_path} element={<LayoutStructure />} />
-        <Route path={CONFIG.contact_path} element={<Contact />} />
-        <Route path={CONFIG.blog_path} element={<Blog />} />
-        <Route path={CONFIG.ad_path} element={<Ad />} />
-        <Route path={CONFIG.blog_details} element={<Details />} />
-        <Route path={CONFIG.portfolio_path} element={<Portfolio />} />
+        <Route path={`/:lng${CONFIG.root_path}`} element={<LayoutStructure />} />
+        <Route path={`/:lng${CONFIG.contact_path}`} element={<Contact />} />
+        <Route path={`/:lng${CONFIG.blog_path}`} element={<Blog />} />
+        <Route path={`/:lng${CONFIG.ad_path}`} element={<Ad />} />
+        <Route path={`/:lng${CONFIG.blog_details}`} element={<Details />} />
+        <Route path={`/:lng${CONFIG.portfolio_path}`} element={<Portfolio />} />
       </Routes>
       <div>
         <Footer />
