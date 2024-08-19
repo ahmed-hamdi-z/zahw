@@ -29,7 +29,7 @@ const Layout: FC = () => {
   const { direction, language } = useSelector(
     (state: RootState) => state.settings
   );
-  const lng = Cookies.get("i18next") || "en";
+  const lng = Cookies.get("i18next") || "ar";
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -38,7 +38,7 @@ const Layout: FC = () => {
     window.document.dir = i18n.dir();
 
     // If the language in the URL doesn't match the selected language, update the URL
-    const pathWithoutLang = location.pathname.replace(/^\/(en|ar)/, '');
+    const pathWithoutLang = location.pathname.replace(/^\/(ar|en)/, '');
     if (!location.pathname.startsWith(`/${lng}`)) {
       navigate(`/${lng}${pathWithoutLang}`, { replace: true });
     }

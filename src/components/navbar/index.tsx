@@ -17,24 +17,29 @@ const FlyoutNav = () => {
   const { t } = useTranslation();
 
   return (
-    <nav className="fixed top-0 z-50 w-full text-lg text-[#764095] bg-[#fff] shadow-xl" id="nav">
-    <div className="mx-auto flex max-w-7xl items-center justify-between z-50">
-      <div className="inline-flex items-center">
-        <Logo />
-        <h1 className="font-bold  text-2xl pb-2 rtl:font-bien">{t("Zahw")}</h1>
+    <nav
+      className="fixed top-0 z-50 w-full text-lg text-[#764095] bg-[#fff] shadow-xl"
+      id="nav"
+    >
+      <div className="mx-auto flex max-w-7xl items-center justify-between z-50">
+        <div className="inline-flex items-center">
+          <Logo />
+          <h1 className="font-bold  text-2xl pb-2 rtl:font-bien">
+            {t("Zahw")}
+          </h1>
+        </div>
+        <div className="hidden lg:flex lg:justify-center lg:flex-1">
+          <Links />
+        </div>
+        <div className="hidden lg:flex lg:items-center lg:space-x-4">
+          <LanguagesBtn />
+          <CTAs />
+        </div>
+        <div className="lg:hidden">
+          <MobileMenu />
+        </div>
       </div>
-      <div className="hidden lg:flex lg:justify-center lg:flex-1">
-        <Links />
-      </div>
-      <div className="hidden lg:flex lg:items-center lg:space-x-4">
-        <LanguagesBtn />
-        <CTAs />
-      </div>
-      <div className="lg:hidden">
-        <MobileMenu />
-      </div>
-    </div>
-  </nav>
+    </nav>
   );
 };
 
@@ -42,8 +47,8 @@ const Logo = ({ color = "white" }: { color?: string }) => {
   return (
     <div className="flex items-center ">
       <span className="text-2xl font-bold w-16 h-16" style={{ color }}>
-        <a href="/#top"> 
-        <img src="/images/logo.png" />
+        <a href="/#top">
+          <img src="/images/logo.png" />
         </a>
       </span>
     </div>
@@ -92,12 +97,12 @@ const MobileMenu = () => {
   return (
     <div className="md:block lg:hidden flex">
       <div className="mx-3">
-      <Link
-        to="/contact"
-        className="md:hidden border-2 px-2 py-1 rtl:font-bien font-semibold border-[#764095] text-[#764095] transition-colors hover:bg-[#764095] hover:text-white"
-      >
-        {t("Contact")}
-      </Link>
+        <Link
+          to="/contact"
+          className="md:hidden border-2 px-2 py-1 rtl:font-bien font-semibold border-[#764095] text-[#764095] transition-colors hover:bg-[#764095] hover:text-white"
+        >
+          {t("Contact")}
+        </Link>
       </div>
 
       <button onClick={() => setOpen(true)} className="block text-3xl">
@@ -118,15 +123,15 @@ const MobileMenu = () => {
             >
               <Logo color="black" />
               <div className="flex bg-[#D4D4D4] p-4">
-                <div>
+                <div className="p-1">
                   <LanguagesBtn />
                 </div>
                 <Link
-        to="/contact"
-        className="border-2 px-2 py-1 font-semibold border-[#764095] text-[#764095] transition-colors hover:bg-[#764095] hover:text-white"
-      >
-        {t("Contact")}
-      </Link>
+                  to="/contact"
+                  className="border-2 px-2 py-1 font-semibold border-[#764095] text-[#764095] transition-colors hover:bg-[#764095] hover:text-white"
+                >
+                  {t("Contact")}
+                </Link>
               </div>
               <button onClick={() => setOpen(false)}>
                 <FiX className="text-3xl text-neutral-950" />

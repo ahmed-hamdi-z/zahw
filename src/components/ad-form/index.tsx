@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import Dropdown from "../dropdown/dropdown";
 
 const ContactAd: React.FC = () => {
-  const [selectedOption, setSelectedOption] = useState('');
+  const [selectedOption, setSelectedOption] = useState("");
   const form = useRef<HTMLFormElement>(null);
   const { t } = useTranslation();
   const [popupMessage, setPopupMessage] = useState<string | null>(null);
@@ -17,7 +17,7 @@ const ContactAd: React.FC = () => {
   const sendEmail = (e: React.FormEvent) => {
     e.preventDefault();
 
-    console.log('Selected Option:', selectedOption);
+    console.log("Selected Option:", selectedOption);
 
     if (form.current) {
       emailjs
@@ -45,24 +45,30 @@ const ContactAd: React.FC = () => {
   };
 
   return (
-    <div className="w-full flex items-center justify-start pr-5">
-      <form onSubmit={sendEmail} className=" md:w-6/12 w-5/6 mt-5">
-      <div className="mb-4">
-          <label className="mb-1 inline-block text-sm font-medium">
+    <div className="w-full flex items-center justify-center pr-5">
+      <form onSubmit={sendEmail} className=" md:w-4/12 w-5/6 mt-5">
+        <div className="mb-2  ">
+          <label className="mb-1 inline-block text-sm font-medium text-[#764095]">
             {t("phone number")}
             <span className="text-red-600">*</span>
           </label>
-          <input
-            id="Mobile-number-input"
-            type="number"
-            placeholder={t("phone number")}
-            className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-[#764095]"
-            required
-          />
-
+          <div className=" flex items-center border-[1px] border-slate-300 flex-row-reverse px-2  shadow-md shadow-[#764095]">
+            <img
+              src="/images/ssa.png"
+              alt="Saudi Arabia"
+              className="w-8 h-6 mr-2"
+            />
+            <span className="text-[#764095] mr-2">+966</span>
+            <input
+              id="Mobile-number-input"
+              type="number"
+              className="w-full no-spin  py-1.5 outline-none "
+              required
+            />
+          </div>
         </div>
         <div className="mb-2">
-          <label className="mb-1 inline-block text-sm font-medium">
+          <label className="mb-1 inline-block text-sm font-medium text-[#764095] ">
             {t("full name")}
             <span className="text-red-600">*</span>
           </label>
@@ -70,50 +76,51 @@ const ContactAd: React.FC = () => {
             id="name-input"
             name="user_name"
             type="text"
-            placeholder={t("full name")}
-            className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-[#764095]"
+            className="w-full  border-[1px] border-slate-300 px-2.5 py-1.5 outline-none shadow-md shadow-[#764095] "
             required
           />
         </div>
         <div className="mb-2">
-          <label className="mb-1 inline-block text-sm font-medium">
+          <label className="mb-1 inline-block text-sm font-medium text-[#764095]">
             {t("المدينة")}
             <span className="text-red-600">*</span>
           </label>
-          <input
-            id="name-input"
-            name="city"
-            type="text"
-            placeholder={t("المدينة")}
-            className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-[#764095]"
-            required
+          <Dropdown
+            options={["الدمام", "الرياض"]}
+            value={selectedOption}
+            onChange={handleDropdownChange}
           />
         </div>
         <div className="mb-2">
-          <label className="mb-1 inline-block text-sm font-medium">
+          <label className="mb-1 inline-block text-sm font-medium text-[#764095]">
             {t("Services")}
             <span className="text-red-600">*</span>
           </label>
-         <Dropdown
-      
-        options={['أختر خدمة','خدمات التشييد والبناء', 'خدمات التصميم الداخلي', 'خدمات التشطيب والديكور', 'خدمات التأثيث', 'خدمة حلول البناء المستدامة']}
-        value={selectedOption}
-        onChange={handleDropdownChange}
-      />
+          <Dropdown
+            options={[
+              " ــــــ الرجاء تحديد اختيار ــــــ",
+              "خدمات التشييد والبناء",
+              "خدمات التصميم الداخلي",
+              "خدمات التشطيب والديكور",
+              "خدمات التأثيث",
+              "خدمة حلول البناء المستدامة",
+            ]}
+            value={selectedOption}
+            onChange={handleDropdownChange}
+          />
         </div>
-        
 
         <div className="mb-4 flex w-full items-start gap-1.5"></div>
         <input
-            className="border-2 px-3 py-0.5  font-semibold border-[#764095] bg-[#764095] text-[#fff] transition-colors hover:bg-white hover:text-[#764095] text-xl "
-            type="submit"
-            value={t("Send")}
-          />
+          className="border-2 px-3 py-0.5  font-semibold border-[#764095] bg-[#764095] text-[#fff] transition-colors hover:bg-white hover:text-[#764095] text-xl "
+          type="submit"
+          value={t("Send")}
+        />
       </form>
 
       {popupMessage && (
         <div
-          className={`fixed top-4 right-4 p-4 rounded shadow-lg z-50 ${
+          className={`fixed top-4 right-4 p-4  shadow-lg z-50 ${
             isSuccess ? "bg-green-500" : "bg-red-500"
           } text-white`}
         >
