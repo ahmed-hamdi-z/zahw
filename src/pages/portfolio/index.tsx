@@ -137,14 +137,14 @@ const Gallery: FC = () => {
         >
           <button
             onClick={() => imgAction('close')}
-            className="absolute top-10 right-10 font-bold mt-1 w-7 h-7 text-white text-3xl"
+            className="absolute top-10 right-10 font-bold mt-1 w-7 h-7 text-white text-3xl z-50"
             aria-label="Close"
           >
             <IoCloseSharp />
           </button>
           <button
             onClick={() => imgAction('prev-img')}
-            className="absolute left-10 text-white text-3xl"
+            className="absolute left-10 text-white text-3xl z-50"
             aria-label="Previous Image"
           >
             <FaArrowLeft />
@@ -157,7 +157,7 @@ const Gallery: FC = () => {
           />
           <button
             onClick={() => imgAction('next-img')}
-            className="absolute right-10 text-white text-3xl"
+            className="absolute right-10 text-white text-3xl z-50"
             aria-label="Next Image"
           >
             <FaArrowRight />

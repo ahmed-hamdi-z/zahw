@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { MdOutlineEmail } from "react-icons/md";
 import { FaLocationDot } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import { IoCloseSharp } from "react-icons/io5";
 
 import {
   FaSnapchat,
@@ -20,7 +21,6 @@ const ContactComp: React.FC = () => {
 
   const sendEmail = (e: React.FormEvent) => {
     e.preventDefault();
-
     if (form.current) {
       emailjs
         .sendForm(
@@ -96,11 +96,18 @@ const ContactComp: React.FC = () => {
         {/* Pop-up message */}
         {message && (
           <div className="absolute left-0 right-0  flex items-center justify-center mt-[-300px]">
-            <div className="bg-white text-black p-6 rounded-lg shadow-lg">
-              <p className="text-lg font-semibold mb-2">{message}</p>
+            <div className="bg-white text-black p-6 rounded-lg shadow-lg w-96 h-32 flex flex-col items-center justify-center">
               <button
                 onClick={() => setMessage(null)}
-                className="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700"
+                className="relative left-40 top-0 mb-4 font-bold  w-7 h-7 text-black text-3xl z-50"
+                aria-label="Close"
+              >
+                <IoCloseSharp />
+              </button>
+              <p className="text-lg font-semibold absolute top-3">{message}</p>
+              <button
+                onClick={() => setMessage(null)}
+                className="bg-[#764095] text-white px-4 py-2 mt-3 hover:bg-indigo-700"
               >
                 {t("Close")}
               </button>
@@ -120,16 +127,22 @@ const ContactComp: React.FC = () => {
             <FaPhone className="ml-2" />
             <h3>{t("phon")}</h3>
           </div>
-          <p>+966580711580</p>
+          <a href="">+966580711580</a>
           <br />
-          <p className="mt-[-20px]"> +966 59 410 8101 </p>
+          <a href="" className="mt-[-20px]">
+            {" "}
+            +966 59 410 8101{" "}
+          </a>
           <div className="text-lg mt-6 mb-1 flex items-center flex-row-reverse ">
             <MdOutlineEmail className="ml-2" />
-            <h3> البريد الإلكتروني</h3>
+            <h3>{t("ُEmail")}</h3>
           </div>
-          <p>info@zahw-sa.com</p>
+          <a href="">info@zahw-sa.com </a>
           <br />
-          <p className="mt-[-20px]"> digital.marketing@zahw-sa.com</p>
+          <a href="" className="mt-[-20px]">
+            {" "}
+            digital.marketing@zahw-sa.com
+          </a>
         </div>
         <div className="max-w-4xl mx-auto my-4 ">
           <ul className="flex flex-row  gap-1 w-auto h-auto items-center justify-center ">

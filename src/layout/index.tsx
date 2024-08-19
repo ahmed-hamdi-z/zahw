@@ -36,6 +36,8 @@ const Layout: FC = () => {
 
   useEffect(() => {
     window.document.dir = i18n.dir();
+     lng === "ar" ? "ar" : "en";
+    
   }, [lng]);
   return (
     <main className={` direction-${direction} lang-${language}`}>
