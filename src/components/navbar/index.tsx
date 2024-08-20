@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import LanguagesBtn from "@/components/languages/button";
 import { AnimatePresence, motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const MainNavbar: FC = () => {
   return (
@@ -47,7 +48,7 @@ const Logo = ({ color = "white" }: { color?: string }) => {
   return (
     <div className="flex items-center ">
       <span className="text-2xl font-bold w-16 h-16" style={{ color }}>
-        <a href="/#top">
+        <a href="">
           <img src="/images/logo.png" />
         </a>
       </span>
@@ -57,14 +58,36 @@ const Logo = ({ color = "white" }: { color?: string }) => {
 
 const Links = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+  const [scrollTarget, setScrollTarget] = useState<string | null>(null);
+  console.log(scrollTarget);
+  const handleScroll = (id: string, path?: string) => {
+    const element = document.getElementById(id);
+
+    if (element) {
+      // If the section exists on the current page, scroll to it
+      window.scrollTo({
+        top: element.offsetTop - 100, // Adjust the offset if needed
+        behavior: "smooth",
+      });
+    } else if (path) {
+      // If the section doesn't exist on the current page, navigate to the correct page and store the target section ID
+      setScrollTarget(id);
+      navigate(path);
+    }
+  };
 
   return (
-    <div className="flex items-center gap-3 font-semibold rtl:font-bien ">
-      <Link to="/#top">{t("Home")}</Link>
-      <a href="/#about">{t("About")}</a>
-      <a href="/#services">{t("Services")}</a>
+    <div className="flex items-center gap-3 font-semibold rtl:font-bien">
+      <button onClick={() => handleScroll("top", "/")}>{t("Home")}</button>
+      <button onClick={() => handleScroll("about", "/")}>{t("About")}</button>
+      <button onClick={() => handleScroll("services", "/")}>
+        {t("Services")}
+      </button>
       <Link to="/portfolio">{t("Portfolio")}</Link>
-      <a href="/#clients">{t("Clients")}</a>
+      <button onClick={() => handleScroll("clients", "/")}>
+        {t("Clients")}
+      </button>
       <Link to="/blog">{t("Blog")}</Link>
       <Link to="/contact">{t("Contact")}</Link>
     </div>
@@ -92,8 +115,27 @@ const CTAs = () => {
 };
 
 const MobileMenu = () => {
-  const [open, setOpen] = useState(false);
   const { t } = useTranslation();
+  const navigate = useNavigate();
+  const [scrollTarget, setScrollTarget] = useState<string | null>(null);
+  console.log(scrollTarget);
+  const handleScroll = (id: string, path?: string) => {
+    const element = document.getElementById(id);
+
+    if (element) {
+      // If the section exists on the current page, scroll to it
+      window.scrollTo({
+        top: element.offsetTop - 100, // Adjust the offset if needed
+        behavior: "smooth",
+      });
+    } else if (path) {
+      // If the section doesn't exist on the current page, navigate to the correct page and store the target section ID
+      setScrollTarget(id);
+      navigate(path);
+    }
+  };
+  const [open, setOpen] = useState(false);
+
   return (
     <div className="md:block lg:hidden flex">
       <div className="mx-3">
@@ -143,11 +185,19 @@ const MobileMenu = () => {
                 className="flex flex-col items-center"
               >
                 <div className="flex flex-col rtl:font-bien gap-3 text-3xl font-semibold  text-center ">
-                  <Link to="/#top">{t("Home")}</Link>
-                  <a href="/#about">{t("About")}</a>
-                  <a href="/#services">{t("Services")}</a>
+                  <button onClick={() => handleScroll("top", "/")}>
+                    {t("Home")}
+                  </button>
+                  <button onClick={() => handleScroll("about", "/")}>
+                    {t("About")}
+                  </button>
+                  <button onClick={() => handleScroll("services", "/")}>
+                    {t("Services")}
+                  </button>
                   <Link to="/portfolio">{t("Portfolio")}</Link>
-                  <a href="/#clients">{t("Clients")}</a>
+                  <button onClick={() => handleScroll("clients", "/")}>
+                    {t("Clients")}
+                  </button>
                   <Link to="/blog">{t("Blog")}</Link>
                   <Link to="/contact">{t("Contact")}</Link>
                 </div>

@@ -11,6 +11,7 @@ import MainNavbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import Details from "@/pages/blog-details";
 import Ad from "@/pages/ad";
+import NotFound from "@/pages/not-found";
 
 // Languages
 import "@/components/languages/index";
@@ -56,6 +57,7 @@ const Layout: FC = () => {
         <Route path={`/:lng${CONFIG.ad_path}`} element={<Ad />} />
         <Route path={`/:lng${CONFIG.blog_details}`} element={<Details />} />
         <Route path={`/:lng${CONFIG.portfolio_path}`} element={<Portfolio />} />
+        <Route path={`${CONFIG.notFound_path}`} element={<NotFound />} />
       </Routes>
       <div>
         <Footer />

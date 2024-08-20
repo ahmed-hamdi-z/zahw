@@ -33,7 +33,7 @@ export default function Carousel({
   });
 
   return (
-    <div className="overflow-hidden relative mt-8" {...bind()}>
+    <div className="overflow-hidden relative mt-8" {...bind()} id="top">
       <div
         ref={slidesRef}
         className="flex transition-transform ease-out duration-500"

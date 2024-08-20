@@ -1,8 +1,26 @@
 // Dependencies
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { useLocation } from "react-router-dom";
+
+
 const About: FC = () => {
+
+  const location = useLocation();
   const { t } = useTranslation();
+
+  useEffect(() => {
+    const hash = location.hash.replace("#", "");
+    if (hash) {
+      const element = document.getElementById(hash);
+      if (element) {
+        window.scrollTo({
+          top: element.offsetTop - 100, // Adjust the offset if needed
+          behavior: "smooth",
+        });
+      }
+    }
+  }, [location]);
   return (
     <div className="flex flex-col md:flex-row-reverse items-center bg-[#764095] text-white p-6 rounded-lg shadow-lg rtl:text-right" id="about">
       <div className="md:w-1/2 w-full p-4">
