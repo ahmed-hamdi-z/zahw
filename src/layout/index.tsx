@@ -5,12 +5,12 @@ import i18n from "i18next";
 import Cookies from "js-cookie";
 
 // Config
-import { CONFIG } from "@/utils/config";
+// import { CONFIG } from "@/utils/config";
 
 import MainNavbar from "@/components/navbar";
 import Footer from "@/components/footer";
-import Details from "@/pages/blog-details";
-import Ad from "@/pages/ad";
+// import Details from "@/pages/blog-details";
+// import Ad from "@/pages/ad";
 import NotFound from "@/pages/not-found";
 
 // Languages
@@ -22,8 +22,8 @@ import { RootState } from "@/redux/store";
 
 // Pages Routes
 const LayoutStructure = lazy(() => import("./LayoutStructure"));
-const Contact = lazy(() => import("@/pages/contact"));
-const Blog = lazy(() => import("@/pages/blog"));
+// const Contact = lazy(() => import("@/pages/contact"));
+// const Blog = lazy(() => import("@/pages/blog"));
 const Portfolio = lazy(() => import("@/pages/portfolio"));
 
 const Layout: FC = () => {
@@ -35,14 +35,10 @@ const Layout: FC = () => {
   const location = useLocation();
 
   useEffect(() => {
-    // Update document direction based on language
+   
     window.document.dir = i18n.dir();
 
-    // If the language in the URL doesn't match the selected language, update the URL
-    const pathWithoutLang = location.pathname.replace(/^\/(ar|en)/, '');
-    if (!location.pathname.startsWith(`/${lng}`)) {
-      navigate(`/${lng}${pathWithoutLang}`, { replace: true });
-    }
+ 
   }, [lng, location, navigate]);
 
   return (
@@ -51,13 +47,9 @@ const Layout: FC = () => {
         <MainNavbar />
       </div>
       <Routes>
-        <Route path={`/:lng${CONFIG.root_path}`} element={<LayoutStructure />} />
-        <Route path={`/:lng${CONFIG.contact_path}`} element={<Contact />} />
-        <Route path={`/:lng${CONFIG.blog_path}`} element={<Blog />} />
-        <Route path={`/:lng${CONFIG.ad_path}`} element={<Ad />} />
-        <Route path={`/:lng${CONFIG.blog_details}`} element={<Details />} />
-        <Route path={`/:lng${CONFIG.portfolio_path}`} element={<Portfolio />} />
-        <Route path={`${CONFIG.notFound_path}`} element={<NotFound />} />
+      <Route path="/" element={<LayoutStructure />} />
+          <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="*" element={<NotFound />} />
       </Routes>
       <div>
         <Footer />

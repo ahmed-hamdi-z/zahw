@@ -43,7 +43,7 @@ const ContactComp: React.FC = () => {
 
   return (
     <div className="flex flex-col-reverse md:flex-row rtl:font-bien  items-center justify-center bg-[#D4D4D4]  ">
-      <div className="md:w-1/2 bg-[#fff] md:mr-5 p-3 my-3 ">
+      <div className="md:w-1/2 bg-[#fff] md:mr-5 p-3 my-3 rtl:text-right">
         <h2 className="text-center font-bold text-lg md:text-xl mb-6 text-[#764095] ">
           {t(
             "Send us your inquiry now and we will respond to you as quickly as possible"
@@ -63,7 +63,7 @@ const ContactComp: React.FC = () => {
               type="text"
               name="user_name"
               placeholder={t("full name")}
-              className="bg-[#764095] bg-opacity-80  outline-[#764095]  text-white placeholder:text-white p-3 mb-2 flex-1 placeholder:rtl:text-right"
+              className="bg-[#764095] bg-opacity-80  outline-[#764095]  text-white placeholder:text-white p-3 mb-2 flex-1 rtl:text-right"
               required
             />
           </div>
@@ -72,17 +72,17 @@ const ContactComp: React.FC = () => {
               type="email"
               name="user_email"
               placeholder={t("ُEmail")}
-              className="bg-[#764095] bg-opacity-80  outline-[#764095]  text-white placeholder:text-white p-3 mb-2 flex-1 placeholder:rtl:text-right"
+              className="bg-[#764095] bg-opacity-80  outline-[#764095]  text-white placeholder:text-white p-3 mb-2 flex-1 rtl:text-right"
             />
             <input
               type="text"
               placeholder={t("City")}
-              className="bg-[#764095] bg-opacity-80  outline-[#764095]  text-white placeholder:text-white p-3 flex-1 mb-2 placeholder:rtl:text-right"
+              className="bg-[#764095] bg-opacity-80  outline-[#764095]  text-white placeholder:text-white p-3 flex-1 mb-2 rtl:text-right"
             />
           </div>
           <textarea
             placeholder={t("Message")}
-            className="bg-[#764095] bg-opacity-80  outline-[#764095]  text-white placeholder:text-white p-2 w-full  placeholder:rtl:text-right"
+            className="bg-[#764095] bg-opacity-80  outline-[#764095]  text-white placeholder:text-white p-2 w-full  rtl:text-right"
             rows={5}
             name="message"
             required
@@ -127,9 +127,9 @@ const ContactComp: React.FC = () => {
             <FaPhone className="ml-2" />
             <h3>{t("phon")}</h3>
           </div>
-          <a href="">+966580711580</a>
+          <a href="tel:+966580711580">+966 580 711 580</a>
           <br />
-          <a href="" className="mt-[-20px]">
+          <a href="tel:+966594108101" className="mt-[-20px]">
             {" "}
             +966 59 410 8101{" "}
           </a>
@@ -137,9 +137,9 @@ const ContactComp: React.FC = () => {
             <MdOutlineEmail className="ml-2" />
             <h3>{t("ُEmail")}</h3>
           </div>
-          <a href="">info@zahw-sa.com </a>
+          <a href="https://info@zahw-sa.com">info@zahw-sa.com </a>
           <br />
-          <a href="" className="mt-[-20px]">
+          <a href="https://digital.marketing@zahw-sa.com" className="mt-[-20px]">
             {" "}
             digital.marketing@zahw-sa.com
           </a>

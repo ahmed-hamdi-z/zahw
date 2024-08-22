@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect} from "react";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import useMeasure from "react-use-measure";
 import { Link } from "react-router-dom";
@@ -10,14 +10,33 @@ const CARD_WIDTH = 350;
 const MARGIN = 20;
 const CARD_SIZE = CARD_WIDTH + MARGIN;
 
+
 const BlogPostCarousel = () => {
   const [ref] = useMeasure();
   const [offset, setOffset] = useState(0);
+  const [postsToShow, setPostsToShow] = useState(3); // Default to 3 posts
+
+  // Track screen width and update postsToShow accordingly
+  useEffect(() => {
+    const updatePostsToShow = () => {
+      const width = window.innerWidth;
+      if (width < 768) { // Small screens (e.g., mobile)
+        setPostsToShow(1);
+      } else { // Large screens
+        setPostsToShow(3);
+      }
+    };
+
+    updatePostsToShow();
+    window.addEventListener('resize', updatePostsToShow);
+
+    return () => window.removeEventListener('resize', updatePostsToShow);
+  }, []);
 
   const CAN_SHIFT_LEFT = offset < 0;
 
   const CAN_SHIFT_RIGHT =
-    Math.abs(offset) < CARD_SIZE * (posts.length - 3); // Show only 3 posts at a time
+    Math.abs(offset) < CARD_SIZE * (posts.length - postsToShow);
 
   const shiftLeft = () => {
     if (!CAN_SHIFT_LEFT) {
@@ -32,6 +51,7 @@ const BlogPostCarousel = () => {
     }
     setOffset((pv) => (pv -= CARD_SIZE));
   };
+
 
   return (
     <section className="bg-white rtl:font-bien rtl:text-end w-full flex items-center justify-center" ref={ref}>
