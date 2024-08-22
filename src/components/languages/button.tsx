@@ -1,6 +1,7 @@
 // Dependencies
 import { FC, useState, useEffect } from "react";
 import i18n from "i18next";
+import { useNavigate } from "react-router-dom";
 
 const LanguagesBtn: FC = () => {
   const [language, setLanguage] = useState<string>("en");
@@ -10,13 +11,14 @@ const LanguagesBtn: FC = () => {
     setLanguage(currentLanguage);
   }, []);
 
+  const navigate = useNavigate()
 
 
   const toggleLanguage = () => {
     const newLanguage = language === "en" ? "ar" : "en";
     i18n.changeLanguage(newLanguage);
     setLanguage(newLanguage);
-window.location.reload()
+navigate("/")
   };
 
   return (
