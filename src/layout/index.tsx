@@ -5,8 +5,6 @@ import i18n from "i18next";
 import Cookies from "js-cookie";
 
 // Config
-// import { CONFIG } from "@/utils/config";
-
 import MainNavbar from "@/components/navbar";
 import Footer from "@/components/footer";
 // import Details from "@/pages/blog-details";
@@ -47,9 +45,9 @@ const Layout: FC = () => {
         <MainNavbar />
       </div>
       <Routes>
-      <Route path="/" element={<LayoutStructure />} />
-          <Route path="/portfolio" element={<Portfolio />} />
-          <Route path="*" element={<NotFound />} />
+      <Route path="/" Component={LayoutStructure } />
+          <Route path="/portfolio" Component={Portfolio } />
+          <Route path="*" Component={NotFound } />
       </Routes>
       <div>
         <Footer />
