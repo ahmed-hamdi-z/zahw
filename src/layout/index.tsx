@@ -8,7 +8,7 @@ import Cookies from "js-cookie";
 import MainNavbar from "@/components/navbar";
 import Footer from "@/components/footer";
 // import Details from "@/pages/blog-details";
-// import Ad from "@/pages/ad";
+import Ad from "@/pages/ad";
 import NotFound from "@/pages/not-found";
 
 // Languages
@@ -20,8 +20,8 @@ import { RootState } from "@/redux/store";
 
 // Pages Routes
 const LayoutStructure = lazy(() => import("./LayoutStructure"));
-// const Contact = lazy(() => import("@/pages/contact"));
-// const Blog = lazy(() => import("@/pages/blog"));
+const Contact = lazy(() => import("@/pages/contact"));
+const Blog = lazy(() => import("@/pages/blog"));
 const Portfolio = lazy(() => import("@/pages/portfolio"));
 
 const Layout: FC = () => {
@@ -47,6 +47,9 @@ const Layout: FC = () => {
       <Routes>
       <Route path="/" Component={LayoutStructure } />
           <Route path="/portfolio" Component={Portfolio } />
+          <Route path="/blog" Component={Blog } />
+          <Route path="/contact" Component={Contact } />
+          <Route path="/ad" Component={Ad } />
           <Route path="*" Component={NotFound } />
       </Routes>
       <div>
