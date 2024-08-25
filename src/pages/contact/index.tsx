@@ -37,8 +37,8 @@ const Contact = () => {
     <div className="  mx-auto xl:w-1/3 md:w-3/4 w-4/5 pt-20 rtl:font-bien">
       <div className="flex flex-col items-center justify-center w-full md:w-[40vw] md:m-5 mb-2 " >
         {" "}
-        <h3 className="md:ml-[-20vw] rtl:hidden text-[#764095] font-normal text-lg">{t("Want to work with us")}</h3>
-        <h1 className="md:ml-[-20vw] rtl:hidden  mt-3 font-bold text-[#764095] text-xl text-justify">
+        <h3 className="hidden md:block  md:ml-[-10vw] text-[#764095] font-normal text-lg">{t("Want to work with us")}</h3>
+        <h1 className="hidden md:block md:ml-[-10vw] mt-3 font-bold text-[#764095] text-xl text-justify">
         {t("We offer you all the options that suit your needs, ready to serve you")}
         </h1>
       </div>
