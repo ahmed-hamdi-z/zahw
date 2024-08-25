@@ -16,7 +16,7 @@ const Services: FC = () => {
       >
       </div>
 
-      <div className="min-h-[60vh] md:min-h-[70vh] flex justify-center items-center bg-fixed bg-parallex bg-cover bg-center bg-no-repeat mt-20">
+      <div className="min-h-[40vh] md:min-h-[70vh] flex justify-center items-center bg-fixed bg-parallex bg-cover bg-center bg-no-repeat mt-20">
         <h1 className="md:text-6xl rtl:font-bien xl:text-6xl text-5xl text-center font-bold text-white">
           {t("Services")}
         </h1>
