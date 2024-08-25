@@ -51,7 +51,7 @@ const ContactForm: React.FC = () => {
       </button>
 
       {isOpen && (
-        <div className="fixed inset-0 flex items-center justify-end rtl:justify-end z-50 ">
+        <div className="fixed inset-0 flex items-center justify-end rtl:justify-start z-50 ">
           <div className="fixed inset-0 bg-opacity-50 " onClick={toggleForm}></div>
           <div className="relative right-5 bg-white shadow-md shadow-[#764095] p-2 md:w-1/4 w-5/6 md:h-[70vh] h-auto z-50  " onClick={(e) => e.stopPropagation()}>
             <h2 className="text-2xl mb-6 text-center text-[#764095]">{t("Welcome To Zahw")}</h2>
