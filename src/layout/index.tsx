@@ -23,6 +23,7 @@ const LayoutStructure = lazy(() => import("./LayoutStructure"));
 const Contact = lazy(() => import("@/pages/contact"));
 const Blog = lazy(() => import("@/pages/blog"));
 const Portfolio = lazy(() => import("@/pages/portfolio"));
+const Details = lazy(() => import("@/pages/blog-details"));
 
 const Layout: FC = () => {
   const { direction, language } = useSelector(
@@ -33,10 +34,7 @@ const Layout: FC = () => {
   const location = useLocation();
 
   useEffect(() => {
-   
     window.document.dir = i18n.dir();
-
- 
   }, [lng, location, navigate]);
 
   return (
@@ -45,12 +43,13 @@ const Layout: FC = () => {
         <MainNavbar />
       </div>
       <Routes>
-      <Route path="/" Component={LayoutStructure } />
-          <Route path="/portfolio" Component={Portfolio } />
-          <Route path="/blog" Component={Blog } />
-          <Route path="/contact" Component={Contact } />
-          <Route path="/ad" Component={Ad } />
-          <Route path="*" Component={NotFound } />
+        <Route path="/" Component={LayoutStructure} />
+        <Route path="/portfolio" Component={Portfolio} />
+        <Route path="/blog" Component={Blog} />
+        <Route path="/contact" Component={Contact} />
+        <Route path="/ad" Component={Ad} />
+        <Route path="*" Component={NotFound} />
+        <Route path="/details/:id" Component={Details} />
       </Routes>
       <div>
         <Footer />
