@@ -48,7 +48,7 @@ const Logo = ({ color = "white" }: { color?: string }) => {
   return (
     <div className="flex items-center ">
       <span className="text-2xl font-bold w-16 h-16" style={{ color }}>
-        <a href="">
+        <a href="/">
           <img src="/images/logo.png" />
         </a>
       </span>

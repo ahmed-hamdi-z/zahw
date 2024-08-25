@@ -112,7 +112,7 @@ const ContactForm: React.FC = () => {
             </form>
             {message && (
           <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center bg-gray-800 bg-opacity-50">
-             <div className="bg-white text-black p-6 shadow-lg shadow-[#764095] w-96 h-32 flex flex-col items-center justify-center">
+              <div className="bg-white text-black p-6 rounded-lg shadow-lg w-96 h-32 flex flex-col items-center justify-center">
               <button
                 onClick={() => setMessage(null)}
                 className="relative left-40 top-0 mb-4 font-bold  w-7 h-7 text-black text-3xl z-50"
