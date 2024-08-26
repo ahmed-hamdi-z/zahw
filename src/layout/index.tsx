@@ -43,7 +43,7 @@ const Layout: FC = () => {
         <MainNavbar />
       </div>
       <Routes>
-        <Route path="/*" Component={LayoutStructure} />
+        <Route path="/" Component={LayoutStructure} />
         <Route path="/portfolio" Component={Portfolio} />
         <Route path="/blog" Component={Blog} />
         <Route path="/contact" Component={Contact} />
