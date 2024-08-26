@@ -65,7 +65,7 @@ const LayoutStructure: FC = () => {
           <Col xs="12">
             <Gallary />
           </Col>
-          <div className="w-full flex flex-row items-center justify-center">
+          <div className="w-full flex flex-row items-center justify-center overflow-hidden">
             <Clients />
           </div>
           <div className="w-full h-80 flex flex-row items-center justify-center bg-[#D4D4D4]">
