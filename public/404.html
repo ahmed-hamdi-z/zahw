@@ -10,7 +10,7 @@
       var l = window.location;
       l.replace(
         l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + l.pathname 
+        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + pathname 
       );
 
     </script>
