@@ -115,7 +115,7 @@ const ContactComp: React.FC = () => {
           </div>
         )}
       </div>
-      <div className="md:w-1/4 w-[80%] bg-[#fff] text-[#764095] font-bold  md:py-10 m-3 text-right">
+      <div className="md:w-1/4 w-[90%] bg-[#fff] text-[#764095] font-bold  md:py-10 m-3 text-right">
         <div className="md:p-5 p-3 ">
           <div className="text-lg mb-1 flex items-center flex-row-reverse ">
             <FaLocationDot className="ml-2 " />
@@ -130,17 +130,17 @@ const ContactComp: React.FC = () => {
           <a href="tel:+966580711580">+966 580 711 580</a>
           <br />
           <a href="tel:+966594108101" className="mt-[-20px]">
-            {" "}
-            +966 59 410 8101{" "}
+            
+            +966 59 410 8101
           </a>
           <div className="text-lg mt-6 mb-1 flex items-center flex-row-reverse ">
             <MdOutlineEmail className="ml-2" />
             <h3>{t("ُEmail")}</h3>
           </div>
-          <a href="https://info@zahw-sa.com">info@zahw-sa.com </a>
+          <a href="mailto:info@zahw-sa.com">info@zahw-sa.com </a>
           <br />
-          <a href="https://digital.marketing@zahw-sa.com" className="mt-[-20px]">
-            {" "}
+          <a href="mailto:digital.marketing@zahw-sa.com" className="mt-[-20px]">
+            
             digital.marketing@zahw-sa.com
           </a>
         </div>
