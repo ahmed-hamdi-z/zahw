@@ -9,13 +9,19 @@ import {
   FaPhone,
 } from "react-icons/fa";
 import { MdOutlineEmail } from "react-icons/md";
-import Blog from "@/components/blog";
+import BlogPostCarousel from "@/components/blog";
 import emailjs from "@emailjs/browser";
 import { useRef } from "react";
 
 import { useTranslation } from "react-i18next";
 
+import { RootState } from "@/redux/store";
+import { useSelector } from "react-redux";
+
 const Details: React.FC = () => {
+  const { direction, language } = useSelector(
+    (state: RootState) => state.settings
+  );
   const { id } = useParams<{ id: string }>();
   const post = posts.find((post) => post.id === parseInt(id || "", 10));
 
@@ -57,7 +63,7 @@ const Details: React.FC = () => {
         </h1>
         <img
           src={post.imgUrl}
-          alt=""
+          alt="" 
           className="w-full xl:h-[90vh] md:h-[90vh] h-[50vh] rounded-lg mb-4"
         />
         <p className="text-gray-800 tracking-wide text-xl">
@@ -100,8 +106,8 @@ const Details: React.FC = () => {
             </li>
           </ul>
         </div>
-        <div className="flex items-center justify-center w-auto mt-10">
-          <Blog />
+        <div className={`main-layout direction-${direction} lang-${language}`}>
+          <BlogPostCarousel />
         </div>
 
         <h1 className="mt-3 text-center text-4xl font-semibold text-[#764095]">
