@@ -115,7 +115,7 @@ const ContactComp: React.FC = () => {
           </div>
         )}
       </div>
-      <div className="md:w-1/4 bg-[#fff] text-[#764095] font-bold  md:py-10 m-3 text-right">
+      <div className="md:w-1/4 w-[80%] bg-[#fff] text-[#764095] font-bold  md:py-10 m-3 text-right">
         <div className="md:p-5 p-3 ">
           <div className="text-lg mb-1 flex items-center flex-row-reverse ">
             <FaLocationDot className="ml-2 " />

@@ -19,7 +19,6 @@ const Layout = lazy(() => import("@/layout"));
 const App: FC = () => {
   return (
     <Provider store={store}>
-
       <Router>
         <Suspense >
           <Layout />

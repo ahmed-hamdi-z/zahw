@@ -20,7 +20,6 @@ const HomeBtn: FC = () => {
         >
           {t("Get Quotation")}
         </Link>
-        
       </div>
        <div className=" absolute left-5 w-96 h-96 bg-card bg-cover bg-center bg-no-repeat">
 
