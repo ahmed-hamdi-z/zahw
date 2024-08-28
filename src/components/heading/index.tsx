@@ -11,14 +11,14 @@ const HeadingSeparator: React.FC<HeadingSeparatorProps> = ({ title }) => {
 
   return (
     <div className="flex items-center justify-center my-16 rtl:font-bien">
-      {/* <div className="flex-grow h-[1px] bg-gradient-to-r from-[#764095] to-transparent animate-pulse"></div> */}
-    
+      <div className="flex-grow h-[1px] bg-gradient-to-r from-[#764095] to-transparent animate-pulse"></div>
+        <img className='w-10 h-10' src='/images/shap.png' />
       <span className="flex-shrink flex-row flex items-center md:text-5xl xl:text-5xl text-4xl font-bold text-[#764095]">
       
         {t(title)}
       </span>
 
-          {/* <div className="flex-grow h-[1px] bg-gradient-to-l from-[#764095] to-transparent animate-pulse"></div> */}
+          <div className="flex-grow h-[1px] bg-gradient-to-l from-[#764095] to-transparent animate-pulse"></div>
     </div>
   );
 };
