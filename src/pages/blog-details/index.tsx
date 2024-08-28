@@ -100,8 +100,7 @@ const Details: React.FC = () => {
             </li>
           </ul>
         </div>
-        <div className="flex items-center justify-center w-full flex-row-reverse mt-10">
-          {" "}
+        <div className="flex items-center justify-center w-auto mt-10">
           <Blog />
         </div>
 

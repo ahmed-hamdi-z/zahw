@@ -121,7 +121,7 @@ const ContactComp: React.FC = () => {
             <FaLocationDot className="ml-2 " />
             <h3>{t("address")}</h3>
           </div>
-          <p>الندى سنتر، طريق عثمان بن عفان، حي الندى، الرياض</p>
+          <p> {t("address-contact")}  </p>
 
           <div className="text-lg mt-6 mb-1 flex items-center flex-row-reverse ">
             <FaPhone className="ml-2" />

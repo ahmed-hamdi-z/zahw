@@ -12,7 +12,7 @@ const Card: React.FC<CardProps> = ({ title, items, image }) => {
   const { t } = useTranslation();
 
   return (
-    <div className="bg-[#764095] rtl:font-bien text-white xl:w-[400px] w-full sm:w-[350px] p-4 h-auto shadow-md">
+    <div className="bg-[linear-gradient(0deg,#D4D4D4,#764095)] rtl:font-bien text-white xl:w-[400px] w-full sm:w-[350px] p-4 h-auto shadow-md shadow-[#764095]">
       <div className="mb-2 flex rtl:justify-end justify-start">
         <img src={image} alt={title} className="w-12 h-12 object-contain" />
       </div>
