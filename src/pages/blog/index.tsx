@@ -64,31 +64,31 @@ export type PostType = {
 export const posts: PostType[] = [
   {
     id: 1,
-    imgUrl: "/images/40.jpg",
+    imgUrl: "/images/a3.jpg",
     title: "Factors for the success",
     description: "Factors for the success disc",
   },
-  {
+  { 
     id: 2,
-    imgUrl: "/images/63.jpg",
+    imgUrl: "/images/s40.jpg",
     title: "Lighting distribution factors",
     description: "Lighting distribution factors disc",
   },
   {
     id: 3,
-    imgUrl: "/images/62.jpg",
+    imgUrl: "/images/s22.jpg",
     title: "The most popular interior decoration styles",
     description: "The most popular interior decoration styles disc",
   },
   {
     id: 4,
-    imgUrl: "/images/55.jpg",
+    imgUrl: "/images/s20.jpg",
     title: "The art of beautification and influence in interior spaces",
     description: "The art of beautification and influence in interior spaces disc",
   },
   {
     id: 5,
-    imgUrl: "/images/58.jpg",
+    imgUrl: "/images/s6.jpg",
     title: "Interior design in 2024",
     description: "Interior design in 2024 disc",
   },

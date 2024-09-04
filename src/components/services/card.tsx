@@ -21,7 +21,7 @@ const Card: React.FC<CardProps> = ({ title, items, image }) => {
           {t(title)}
         </h2>
       </div>
-      <ul className="pl-3 space-y-1  ">
+      <ul className="pl-3 space-y-1">
         {items.map((item, index) => (
           <li
             key={index}

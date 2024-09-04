@@ -200,19 +200,19 @@ const Gallery: FC = () => {
           className={`md:mt-2 mt-2 px-4 md:px-5 py-2 md:py-3 rounded bg-[#764095] rtl:ml-3 text-white transition-colors ${activeTab === 'all' ? 'bg-blue-500 text-white' : ''}`}
           onClick={() => setActiveTab('all')}
         >
-          {t("Bedrooms")}
+          {t("All")}
         </button>
         <button
           className={`md:mt-2 mt-2 px-4 md:px-5 py-2 md:py-3 rounded bg-[#764095] text-white transition-colors ${activeTab === 'residential' ? 'bg-blue-500 text-white' : ''}`}
           onClick={() => setActiveTab('residential')}
         >
-          {t("Dining Rooms")}
+          {t("Residential")}
         </button>
         <button
           className={`mt-2 md:mt-5 px-4 md:px-5 py-2 md:py-3 rounded bg-[#764095] text-white transition-colors ${activeTab === 'commercial' ? 'bg-blue-500 text-white' : ''}`}
           onClick={() => setActiveTab('commercial')}
         >
-          {t("Halls")}
+          {t("Commercial")}
         </button>
       </div>
       <div className="p-3">
