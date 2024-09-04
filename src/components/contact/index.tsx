@@ -23,12 +23,12 @@ const ContactComp: React.FC = () => {
     e.preventDefault();
     if (form.current) {
       emailjs
-        .sendForm(
-          "service_tc9dusc",
-          "template_4qrvjnp",
-          form.current,
-          "OT9OR1z7XDM1I2qYe"
-        )
+      .sendForm(
+        "service_2fn234o",
+        "template_7zw73k2",
+        form.current,
+        "Mv76decyqRHgglnY6"
+      )
         .then(
           () => {
             setMessage("تم تسجيل ردكم بنجاح");

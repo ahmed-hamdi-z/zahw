@@ -8,7 +8,6 @@ const MARGIN = 20;
 const Blog = () => {
   return (
     <>
-
       <div className="flex flex-col items-center mt-10 rtl:font-bien">
         <div className="w-full">
             <HeadingSeparator title="Blog-tit" />
