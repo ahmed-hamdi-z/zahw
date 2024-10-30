@@ -5,10 +5,8 @@ import i18n from "i18next";
 import Cookies from "js-cookie";
 
 // Config
-
 const MainNavbar = lazy(() => import("@/components/navbar"));
-const Footer =  lazy(() => import("@/components/footer"));
-
+const Footer = lazy(() => import("@/components/footer"));
 
 // Languages
 import "@/components/languages/index";
@@ -26,8 +24,6 @@ const Details = lazy(() => import("@/pages/blog-details"));
 const Ad = lazy(() => import("@/pages/ad"));
 const NotFound = lazy(() => import("@/pages/not-found"));
 const Privacy = lazy(() => import("@/pages/privacy"));
-
-
 
 const Layout: FC = () => {
   const { direction, language } = useSelector(
@@ -55,7 +51,7 @@ const Layout: FC = () => {
         <Route path="*" Component={NotFound} />
         <Route path="/details/:id" Component={Details} />
         <Route path="/ad" Component={Ad} />
-        <Route path="/Privacy" Component={Privacy} />
+        <Route path="/privacy" Component={Privacy} />
       </Routes>
       <div>
         <Footer />

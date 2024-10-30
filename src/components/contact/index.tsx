@@ -24,10 +24,10 @@ const ContactComp: React.FC = () => {
     if (form.current) {
       emailjs
       .sendForm(
-        "service_2fn234o",
-        "template_7zw73k2",
+        "service_3e0zp94",
+        "template_vu8faoq",
         form.current,
-        "Mv76decyqRHgglnY6"
+        "20Rrwww1sQ90ePKw_"
       )
         .then(
           () => {
@@ -53,8 +53,8 @@ const ContactComp: React.FC = () => {
         <form className="space-y-4 " ref={form} onSubmit={sendEmail}>
           <div className="flex flex-col-reverse md:flex-row md:space-x-4 rtl:text-right">
             <input
-              type="number"
-              name="user_number"
+              type="tel"
+              name="phone"
               placeholder={t("phone number")}
               className="bg-[#764095] no-spin bg-opacity-80  outline-[#764095]  text-white placeholder:text-white p-3 mb-2 flex-1 placeholder:rtl:text-right"
               required
@@ -73,6 +73,7 @@ const ContactComp: React.FC = () => {
               name="user_email"
               placeholder={t("ُEmail")}
               className="bg-[#764095] bg-opacity-80  outline-[#764095]  text-white placeholder:text-white p-3 mb-2 flex-1 rtl:text-right"
+              required
             />
             <input
               type="text"
@@ -84,8 +85,7 @@ const ContactComp: React.FC = () => {
             placeholder={t("Message")}
             className="bg-[#764095] bg-opacity-80  outline-[#764095]  text-white placeholder:text-white p-2 w-full  rtl:text-right"
             rows={5}
-            name="message"
-            required
+            name="message" 
           />
           <input
             className="border-2 px-3 py-0.5 font-semibold border-[#764095] bg-[#764095] text-[#fff] transition-colors hover:bg-white hover:text-[#764095] text-xl "
@@ -141,7 +141,7 @@ const ContactComp: React.FC = () => {
           <br />
           <a href="mailto:digital.marketing@zahw-sa.com" className="mt-[-20px]">
             
-            digital.marketing@zahw-sa.com
+           marketing@zahw-sa.com
           </a>
         </div>
         <div className="max-w-4xl mx-auto my-4 ">

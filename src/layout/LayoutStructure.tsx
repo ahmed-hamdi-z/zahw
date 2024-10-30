@@ -27,7 +27,6 @@ const About = lazy(() => import("@/components/about"));
 const Blog = lazy(() => import("@/components/blog"));
 const FollowUS = lazy(() => import("@/components/follow"));
 const ContactComp = lazy(() => import("@/components/contact"));
-const ContactForm = lazy(() => import("@/components/contact-form"));
 const Phone = lazy(() => import("@/components/phone"));
 
 // Pages
@@ -89,7 +88,6 @@ const LayoutStructure: FC = () => {
         </Row>
       </main>
       <WhatsAppIcon />
-      <ContactForm />
       <Phone />
       <TopButton />
     </>

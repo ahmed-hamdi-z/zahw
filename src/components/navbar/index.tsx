@@ -3,8 +3,7 @@ import { FiMenu, FiX } from "react-icons/fi";
 import { useTranslation } from "react-i18next";
 import LanguagesBtn from "@/components/languages/button";
 import { AnimatePresence, motion } from "framer-motion";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom"; 
 
 const MainNavbar: FC = () => {
   return (
@@ -58,24 +57,24 @@ const Logo = ({ color = "white" }: { color?: string }) => {
 
 const Links = () => {
   const { t } = useTranslation();
-  const navigate = useNavigate();
-  const [scrollTarget, setScrollTarget] = useState<string | null>(null);
-  console.log(scrollTarget);
-  const handleScroll = (id: string, path?: string) => {
-    const element = document.getElementById(id);
+    const navigate = useNavigate();
+    const [scrollTarget, setScrollTarget] = useState<string | null>(null);
+    console.log(scrollTarget);
+    const handleScroll = (id: string, path?: string) => {
+      const element = document.getElementById(id);
 
-    if (element) {
-      // If the section exists on the current page, scroll to it
-      window.scrollTo({
-        top: element.offsetTop - 100, // Adjust the offset if needed
-        behavior: "smooth",
-      });
-    } else if (path) {
-      // If the section doesn't exist on the current page, navigate to the correct page and store the target section ID
-      setScrollTarget(id);
-      navigate(path);
-    }
-  };
+      if (element) {
+        // If the section exists on the current page, scroll to it
+        window.scrollTo({
+          top: element.offsetTop - 100, // Adjust the offset if needed
+          behavior: "smooth",
+        });
+      } else if (path) {
+        // If the section doesn't exist on the current page, navigate to the correct page and store the target section ID
+        setScrollTarget(id);
+        navigate(path);
+      }
+    };
 
   return (
     <div className="flex items-center gap-3 font-semibold rtl:font-bien">

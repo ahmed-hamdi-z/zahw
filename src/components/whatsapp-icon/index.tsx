@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { IoLogoWhatsapp } from "react-icons/io5";
 const WhatsAppIcon: React.FC = () => {
-  const phoneNumber = '966580711580'; 
+  const phoneNumber = '966594108101'; 
 
   return (
     <div className="flex items-center justify-center fixed bottom-4 left-4 w-14 h-14 bg-green-500 rounded-full z-50">

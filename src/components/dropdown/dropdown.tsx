@@ -3,14 +3,16 @@ import React from "react";
 interface DropdownProps {
   options: string[];
   value: string;
+  name: string;
   onChange: (value: string) => void;
 }
 
-const Dropdown: React.FC<DropdownProps> = ({ options, value, onChange }) => {
+const Dropdown: React.FC<DropdownProps> = ({ options, value, onChange, name }) => {
   return (
     <div className="relative mb-4">
       <label className="block" htmlFor=""></label>
       <select
+        name={name}
         value={value}
         onChange={(e) => onChange(e.target.value)}
         className="block appearance-none w-full border-[1px] text-[#764095] border-slate-300 px-2 py-1.5 pr-8 outline-none shadow-md shadow-[#764095] bg-white"

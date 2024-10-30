@@ -2,57 +2,55 @@ import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { useTranslation } from "react-i18next";
 import Dropdown from "../dropdown/dropdown";
+import { IoCloseSharp } from "react-icons/io5";
+
 
 const ContactAd: React.FC = () => {
-  const [selectedOption, setSelectedOption] = useState("");
-  const form = useRef<HTMLFormElement>(null);
+  const [selectedCity, setSelectedCity] = useState("");
+  const [selectedService, setSelectedService] = useState("");
   const { t } = useTranslation();
-  const [popupMessage, setPopupMessage] = useState<string | null>(null);
-  const [isSuccess, setIsSuccess] = useState<boolean | null>(null);
 
-  const handleDropdownChange = (value: string) => {
-    setSelectedOption(value);
+  const [message, setMessage] = useState<string | null>(null);
+  const form = useRef<HTMLFormElement>(null);
+
+  const handleCityChange = (value: string) => {
+    setSelectedCity(value);
+  };
+
+  const handleServiceChange = (value: string) => {
+    setSelectedService(value);
   };
 
   const sendEmail = (e: React.FormEvent) => {
     e.preventDefault();
-
-    console.log("Selected Option:", selectedOption);
-
     if (form.current) {
       emailjs
-      .sendForm(
-        "service_2fn234o",
-        "template_7zw73k2",
-        form.current,
-        "Mv76decyqRHgglnY6"
-      )
+        .sendForm(
+          "service_3e0zp94",
+          "template_vu8faoq",
+          form.current,
+          "20Rrwww1sQ90ePKw_"
+        )
         .then(
           () => {
-            setIsSuccess(true);
-            setPopupMessage("SUCCESS!");
-            setTimeout(() => setPopupMessage(null), 3000); // Hide the popup after 3 seconds
-            form.current?.reset(); // Optionally reset the form fields
+            setMessage("تم تسجيل ردكم بنجاح");
+            form.current;
           },
           (error) => {
-            setIsSuccess(false);
-            setPopupMessage("FAILED...");
-            setTimeout(() => setPopupMessage(null), 3000); // Hide the popup after 3 seconds
-            console.log("FAILED...", error.text);
+            setMessage(`FAILED... ${error.text}`);
           }
         );
     }
   };
-
   return (
     <div className="w-full flex items-center justify-center pr-5">
-      <form onSubmit={sendEmail} className=" md:w-4/12 w-5/6 mt-5">
-        <div className="mb-2  ">
+      <form onSubmit={sendEmail} ref={form} className=" md:w-4/12 w-5/6 mt-5">
+        <div className="mb-2">
           <label className="mb-1 inline-block text-sm font-medium text-[#764095]">
             {t("phone number")}
             <span className="text-red-600">*</span>
           </label>
-          <div className=" flex items-center border-[1px] border-slate-300 flex-row-reverse px-2  shadow-md shadow-[#764095]">
+          <div className="flex items-center border-[1px] border-slate-300 flex-row-reverse px-2 shadow-md shadow-[#764095]">
             <img
               src="/images/ssa.png"
               alt="Saudi Arabia"
@@ -60,15 +58,17 @@ const ContactAd: React.FC = () => {
             />
             <span className="text-[#764095] mr-2">+966</span>
             <input
-              id="Mobile-number-input"
-              type="number"
-              className="w-full no-spin  py-1.5 outline-none "
+              id="number"
+              name="phone"
+              type="tel"
+              className="w-full no-spin py-1.5 outline-none"
               required
             />
           </div>
         </div>
+
         <div className="mb-2">
-          <label className="mb-1 inline-block text-sm font-medium text-[#764095] ">
+          <label className="mb-1 inline-block text-sm font-medium text-[#764095]">
             {t("full name")}
             <span className="text-red-600">*</span>
           </label>
@@ -76,27 +76,31 @@ const ContactAd: React.FC = () => {
             id="name-input"
             name="user_name"
             type="text"
-            className="w-full  border-[1px] border-slate-300 px-2.5 py-1.5 outline-none shadow-md shadow-[#764095] "
+            className="w-full border-[1px] border-slate-300 px-2.5 py-1.5 outline-none shadow-md shadow-[#764095]"
             required
           />
         </div>
+
         <div className="mb-2">
           <label className="mb-1 inline-block text-sm font-medium text-[#764095]">
             {t("المدينة")}
             <span className="text-red-600">*</span>
           </label>
           <Dropdown
+            name="city"
             options={["الدمام", "الرياض"]}
-            value={selectedOption}
-            onChange={handleDropdownChange}
+            value={selectedCity}
+            onChange={handleCityChange}
           />
         </div>
+
         <div className="mb-2">
           <label className="mb-1 inline-block text-sm font-medium text-[#764095]">
             {t("Services")}
             <span className="text-red-600">*</span>
           </label>
           <Dropdown
+            name="toolmakerID"
             options={[
               " ــــــ الرجاء تحديد اختيار ــــــ",
               "خدمات التشييد والبناء",
@@ -105,26 +109,38 @@ const ContactAd: React.FC = () => {
               "خدمات التأثيث",
               "خدمة حلول البناء المستدامة",
             ]}
-            value={selectedOption}
-            onChange={handleDropdownChange}
+            value={selectedService}
+            onChange={handleServiceChange}
           />
         </div>
 
-        <div className="mb-4 flex w-full items-start gap-1.5"></div>
         <input
-          className="border-2 px-3 py-0.5  font-semibold border-[#764095] bg-[#764095] text-[#fff] transition-colors hover:bg-white hover:text-[#764095] text-xl "
+          className="mt-3 w-full   bg-[#764095] px-4 py-2 text-center font-medium text-white transition-colors hover:bg-indigo-700"
           type="submit"
           value={t("Send")}
         />
       </form>
-
-      {popupMessage && (
-        <div
-          className={`fixed top-4 right-4 p-4  shadow-lg z-50 ${
-            isSuccess ? "bg-green-500" : "bg-red-500"
-          } text-white`}
-        >
-          {popupMessage}
+      {/* Pop-up message */}
+      {message && (
+        <div className="fixed text-[#764095] top-56 flex items-center justify-center">
+          <div className="bg-white text-black p-6 rounded-lg shadow-lg w-96 h-32 flex flex-col items-center justify-center">
+            <button
+              onClick={() => setMessage(null)}
+              className="relative left-40 top-0 mb-4 font-bold  w-7 h-7 text-black text-3xl z-50"
+              aria-label="Close"
+            >
+              <IoCloseSharp />
+            </button>
+            <p className="text-lg font-semibold absolute top-3">
+              {message}
+            </p>
+            <button
+              onClick={() => setMessage(null)}
+              className="bg-[#764095] text-white px-4 py-2 mt-3 hover:bg-indigo-700"
+            >
+              {t("Close")}
+            </button>
+          </div>
         </div>
       )}
     </div>

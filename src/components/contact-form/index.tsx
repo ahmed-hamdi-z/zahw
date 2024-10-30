@@ -17,16 +17,16 @@ const ContactForm: React.FC = () => {
     if (form.current) {
       emailjs
       .sendForm(
-        "service_2fn234o",
-        "template_7zw73k2",
+        "service_3e0zp94",
+        "template_vu8faoq",
         form.current,
-        "Mv76decyqRHgglnY6"
+        "20Rrwww1sQ90ePKw_"
       )
         .then(
           () => {
             if (form.current) {
               setMessage(t("تم تسجيل ردكم بنجاح"));
-              form.current.reset(); // Reset the form after successful submission
+              form.current.reset(); 
             }
           },
           (error) => {
@@ -101,7 +101,7 @@ const ContactForm: React.FC = () => {
                   type="text"
                   placeholder={t("Enter Your Message")}
                   className="w-full  border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-[#764095] mt-2 h-20 placeholder:text-ellipsis shadow-md shadow-[#764095]"
-                  required
+                
                 />
               </motion.div>
 
@@ -117,7 +117,7 @@ const ContactForm: React.FC = () => {
               />
             </form>
             {message && (
-              <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center bg-gray-800 bg-opacity-50">
+              <div className="absolute top-24  flex items-center justify-center ">
                 <div className="bg-white text-black p-6 rounded-lg shadow-lg w-96 h-32 flex flex-col items-center justify-center">
                   <button
                     onClick={() => setMessage(null)}
